@@ -1,0 +1,256 @@
+export class PremiumRepo {
+    db;
+    _grantUserPremium;
+    _grantGuildPremium;
+    _revokeUserPremium;
+    _revokeGuildPremium;
+    _getUserPremium;
+    _getGuildPremium;
+    _getAllUserPremiums;
+    _getAllGuildPremiums;
+    _getExpiredUsers;
+    _getExpiredGuilds;
+    _revokeExpiredUsers;
+    _revokeExpiredGuilds;
+    _updateUserExpiresAt;
+    _updateGuildExpiresAt;
+    _deleteUserPremium;
+    _deleteGuildPremium;
+    _countActiveUser;
+    _countActiveGuild;
+    _countTotalUser;
+    _countTotalGuild;
+    _countExpiredUser;
+    _countExpiredGuild;
+    constructor(db) {
+        this.db = db;
+        this._grantUserPremium = this.db.prepare(`
+      INSERT INTO user_premium (user_id, granted_by, granted_at, expires_at, reason, active, updated_at)
+      VALUES (?, ?, ?, ?, ?, 1, ?)
+      ON CONFLICT(user_id) DO UPDATE SET
+        granted_by = excluded.granted_by,
+        granted_at = excluded.granted_at,
+        expires_at = excluded.expires_at,
+        reason = excluded.reason,
+        active = 1,
+        updated_at = excluded.updated_at
+    `);
+        this._grantGuildPremium = this.db.prepare(`
+      INSERT INTO guild_premium (guild_id, granted_by, granted_at, expires_at, reason, active, updated_at)
+      VALUES (?, ?, ?, ?, ?, 1, ?)
+      ON CONFLICT(guild_id) DO UPDATE SET
+        granted_by = excluded.granted_by,
+        granted_at = excluded.granted_at,
+        expires_at = excluded.expires_at,
+        reason = excluded.reason,
+        active = 1,
+        updated_at = excluded.updated_at
+    `);
+        this._revokeUserPremium = this.db.prepare('UPDATE user_premium SET active = 0, updated_at = ? WHERE user_id = ? AND active = 1');
+        this._revokeGuildPremium = this.db.prepare('UPDATE guild_premium SET active = 0, updated_at = ? WHERE guild_id = ? AND active = 1');
+        this._getUserPremium = this.db.prepare('SELECT * FROM user_premium WHERE user_id = ? AND active = 1 AND (expires_at IS NULL OR expires_at > ?)');
+        this._getGuildPremium = this.db.prepare('SELECT * FROM guild_premium WHERE guild_id = ? AND active = 1 AND (expires_at IS NULL OR expires_at > ?)');
+        this._getAllUserPremiums = this.db.prepare('SELECT * FROM user_premium WHERE active = 1 AND (expires_at IS NULL OR expires_at > ?) ORDER BY granted_at DESC');
+        this._getAllGuildPremiums = this.db.prepare('SELECT * FROM guild_premium WHERE active = 1 AND (expires_at IS NULL OR expires_at > ?) ORDER BY granted_at DESC');
+        this._getExpiredUsers = this.db.prepare('SELECT * FROM user_premium WHERE active = 1 AND expires_at IS NOT NULL AND expires_at <= ?');
+        this._getExpiredGuilds = this.db.prepare('SELECT * FROM guild_premium WHERE active = 1 AND expires_at IS NOT NULL AND expires_at <= ?');
+        this._revokeExpiredUsers = this.db.prepare('UPDATE user_premium SET active = 0, updated_at = ? WHERE active = 1 AND expires_at IS NOT NULL AND expires_at <= ?');
+        this._revokeExpiredGuilds = this.db.prepare('UPDATE guild_premium SET active = 0, updated_at = ? WHERE active = 1 AND expires_at IS NOT NULL AND expires_at <= ?');
+        this._updateUserExpiresAt = this.db.prepare('UPDATE user_premium SET expires_at = ?, updated_at = ? WHERE user_id = ?');
+        this._updateGuildExpiresAt = this.db.prepare('UPDATE guild_premium SET expires_at = ?, updated_at = ? WHERE guild_id = ?');
+        this._deleteUserPremium = this.db.prepare('DELETE FROM user_premium WHERE user_id = ?');
+        this._deleteGuildPremium = this.db.prepare('DELETE FROM guild_premium WHERE guild_id = ?');
+        this._countActiveUser = this.db.prepare('SELECT COUNT(*) as count FROM user_premium WHERE active = 1 AND (expires_at IS NULL OR expires_at > ?)');
+        this._countActiveGuild = this.db.prepare('SELECT COUNT(*) as count FROM guild_premium WHERE active = 1 AND (expires_at IS NULL OR expires_at > ?)');
+        this._countTotalUser = this.db.prepare('SELECT COUNT(*) as count FROM user_premium');
+        this._countTotalGuild = this.db.prepare('SELECT COUNT(*) as count FROM guild_premium');
+        this._countExpiredUser = this.db.prepare('SELECT COUNT(*) as count FROM user_premium WHERE active = 0 OR (expires_at IS NOT NULL AND expires_at <= ?)');
+        this._countExpiredGuild = this.db.prepare('SELECT COUNT(*) as count FROM guild_premium WHERE active = 0 OR (expires_at IS NOT NULL AND expires_at <= ?)');
+    }
+    /**
+     * Grants user premium
+     * @param {string} userId
+     * @param {string} grantedBy
+     * @param {number|null} expiresAt
+     * @param {string} reason
+     */
+    grantUserPremium(userId, grantedBy, expiresAt = null, reason = 'Premium granted') {
+        const now = Date.now();
+        this._grantUserPremium.run(userId, grantedBy, now, expiresAt, reason, now);
+    }
+    /**
+     * Grants guild premium
+     * @param {string} guildId
+     * @param {string} grantedBy
+     * @param {number|null} expiresAt
+     * @param {string} reason
+     */
+    grantGuildPremium(guildId, grantedBy, expiresAt = null, reason = 'Premium granted') {
+        const now = Date.now();
+        this._grantGuildPremium.run(guildId, grantedBy, now, expiresAt, reason, now);
+    }
+    /**
+     * Revokes user premium
+     * @param {string} userId
+     */
+    revokeUserPremium(userId) {
+        this._revokeUserPremium.run(Date.now(), userId);
+    }
+    /**
+     * Revokes guild premium
+     * @param {string} guildId
+     */
+    revokeGuildPremium(guildId) {
+        this._revokeGuildPremium.run(Date.now(), guildId);
+    }
+    /**
+     * Checks if user has premium
+     * @param {string} userId
+     * @returns {Object|boolean}
+     */
+    isUserPremium(userId) {
+        const premium = this._getUserPremium.get(userId, Date.now());
+        if (!premium)
+            return false;
+        return {
+            type: 'user',
+            grantedBy: premium.granted_by,
+            grantedAt: premium.granted_at,
+            expiresAt: premium.expires_at,
+            reason: premium.reason,
+            isPermanent: premium.expires_at === null,
+        };
+    }
+    /**
+     * Checks if guild has premium
+     * @param {string} guildId
+     * @returns {Object|boolean}
+     */
+    isGuildPremium(guildId) {
+        const premium = this._getGuildPremium.get(guildId, Date.now());
+        if (!premium)
+            return false;
+        return {
+            type: 'guild',
+            grantedBy: premium.granted_by,
+            grantedAt: premium.granted_at,
+            expiresAt: premium.expires_at,
+            reason: premium.reason,
+            isPermanent: premium.expires_at === null,
+        };
+    }
+    /**
+     * Checks if either user or guild has premium
+     * @param {string} userId
+     * @param {string} guildId
+     * @returns {Object|boolean}
+     */
+    hasAnyPremium(userId, guildId) {
+        const userPrem = this.isUserPremium(userId);
+        if (userPrem)
+            return userPrem;
+        const guildPrem = this.isGuildPremium(guildId);
+        if (guildPrem)
+            return guildPrem;
+        return false;
+    }
+    /**
+     * Gets all active user premiums
+     * @returns {Array<Object>}
+     */
+    getAllUserPremiums() {
+        return this._getAllUserPremiums.all(Date.now());
+    }
+    /**
+     * Gets all active guild premiums
+     * @returns {Array<Object>}
+     */
+    getAllGuildPremiums() {
+        return this._getAllGuildPremiums.all(Date.now());
+    }
+    /**
+     * Gets all expired premiums
+     * @returns {Object}
+     */
+    getExpiredPremiums() {
+        const now = Date.now();
+        return {
+            users: this._getExpiredUsers.all(now),
+            guilds: this._getExpiredGuilds.all(now),
+        };
+    }
+    /**
+     * Cleans up expired premiums
+     * @returns {Object}
+     */
+    cleanupExpired() {
+        let result = { usersRevoked: 0, guildsRevoked: 0, total: 0 };
+        this.db.transaction(() => {
+            const now = Date.now();
+            const userRes = this._revokeExpiredUsers.run(now, now);
+            const guildRes = this._revokeExpiredGuilds.run(now, now);
+            result.usersRevoked = userRes.changes;
+            result.guildsRevoked = guildRes.changes;
+            result.total = userRes.changes + guildRes.changes;
+        })();
+        return result;
+    }
+    /**
+     * Gets premium statistics
+     * @returns {Object}
+     */
+    getStats() {
+        const now = Date.now();
+        const activeUsers = this._countActiveUser.get(now).count;
+        const activeGuilds = this._countActiveGuild.get(now).count;
+        const totalUsers = this._countTotalUser.get().count;
+        const totalGuilds = this._countTotalGuild.get().count;
+        const expiredUsers = this._countExpiredUser.get(now).count;
+        const expiredGuilds = this._countExpiredGuild.get(now).count;
+        return {
+            active: { users: activeUsers, guilds: activeGuilds, total: activeUsers + activeGuilds },
+            total: { users: totalUsers, guilds: totalGuilds, total: totalUsers + totalGuilds },
+            expired: { users: expiredUsers, guilds: expiredGuilds, total: expiredUsers + expiredGuilds },
+        };
+    }
+    /**
+     * Extends premium for user or guild
+     * @param {string} type
+     * @param {string} id
+     * @param {number} additionalTime
+     * @returns {Object|boolean}
+     */
+    extendPremium(type, id, additionalTime) {
+        let current, newExpiresAt;
+        if (type === 'user') {
+            current = this._getUserPremium.get(id, -1);
+            if (!current)
+                return false;
+            newExpiresAt = current.expires_at === null ? Date.now() + additionalTime : Math.max(current.expires_at, Date.now()) + additionalTime;
+            this._updateUserExpiresAt.run(newExpiresAt, Date.now(), id);
+            return this.isUserPremium(id);
+        }
+        else {
+            current = this._getGuildPremium.get(id, -1);
+            if (!current)
+                return false;
+            newExpiresAt = current.expires_at === null ? Date.now() + additionalTime : Math.max(current.expires_at, Date.now()) + additionalTime;
+            this._updateGuildExpiresAt.run(newExpiresAt, Date.now(), id);
+            return this.isGuildPremium(id);
+        }
+    }
+    /**
+     * Deletes user premium record completely
+     * @param {string} userId
+     */
+    deleteUserPremium(userId) {
+        this._deleteUserPremium.run(userId);
+    }
+    /**
+     * Deletes guild premium record completely
+     * @param {string} guildId
+     */
+    deleteGuildPremium(guildId) {
+        this._deleteGuildPremium.run(guildId);
+    }
+}

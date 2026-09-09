@@ -1,0 +1,110 @@
+import { Command } from '#core/Command';
+import { AttachmentBuilder, MessageFlags } from 'discord.js';
+import { buildContainer, buildError } from '#ui/Theme';
+import { db } from '#database/Database';
+import emoji from '#config/emoji';
+import BlendCard from '#ui/cards/BlendCard';
+import { logger } from '#utils/logger';
+class BlendCommand extends Command {
+    constructor() {
+        super({
+            name: 'blend',
+            description: 'Generate a Spotify-style music taste blend with a friend',
+            category: 'info',
+            aliases: ['match', 'tasteblend'],
+            cooldown: 5,
+            usage: '<@user>',
+            slash: {
+                enabled: true,
+                autoDefer: true,
+                data: {
+                    name: 'blend',
+                    description: 'Generate a Spotify-style music taste blend with a friend',
+                    options: [
+                        {
+                            name: 'user',
+                            description: 'The user to compare music tastes with',
+                            type: 6, // USER
+                            required: true
+                        }
+                    ]
+                }
+            }
+        });
+    }
+    async execute(ctx) {
+        const { client, interaction, message, args, guild, user } = ctx;
+        const author = user || message?.author;
+        let targetUser = null;
+        if (interaction) {
+            targetUser = interaction.options.getUser('user');
+        }
+        else if (message) {
+            // @ts-ignore
+            targetUser = message.mentions.users.first() || (args[0] ? await client.users.fetch(args[0]).catch(() => null) : null);
+        }
+        if (!targetUser) {
+            const err = buildError(ctx.t("pleaseMention"));
+            if (interaction)
+                return interaction.editReply({ components: [err], flags: MessageFlags.IsComponentsV2 });
+            return message.reply({ components: [err], flags: MessageFlags.IsComponentsV2 });
+        }
+        if (targetUser.id === author.id) {
+            const err = buildError(ctx.t("youCannotBlen"));
+            if (interaction)
+                return interaction.editReply({ components: [err], flags: MessageFlags.IsComponentsV2 });
+            return message.reply({ components: [err], flags: MessageFlags.IsComponentsV2 });
+        }
+        try {
+            // Fetch liked tracks or stats from database
+            // @ts-ignore
+            const likedA = db.liked.getAll(author.id) || [];
+            // @ts-ignore
+            const likedB = db.liked.getAll(targetUser.id) || [];
+            // Calculate taste similarity
+            let score = 0;
+            if (likedA.length > 0 && likedB.length > 0) {
+                // @ts-ignore
+                const titlesA = new Set(likedA.map(t => (t.title || '').toLowerCase()));
+                let matches = 0;
+                // @ts-ignore
+                likedB.forEach(t => {
+                    if (titlesA.has((t.title || '').toLowerCase()))
+                        matches++;
+                });
+                const overlapRatio = matches / Math.min(likedA.length, likedB.length);
+                score = Math.min(99, Math.max(50, Math.round(50 + overlapRatio * 49)));
+            }
+            else {
+                // Seeded pseudorandom based on user IDs for consistent friendly match
+                const seed = (BigInt(author.id) ^ BigInt(targetUser.id)) % 37n;
+                score = 63 + Number(seed);
+            }
+            const sampleTracks = [...likedA, ...likedB].slice(0, 2);
+            const buffer = await BlendCard.generate(author, targetUser, score, sampleTracks);
+            const attachment = new AttachmentBuilder(buffer, { name: 'spotify-blend.png' });
+            const container = buildContainer({
+                title: 'Spotify Taste Blend',
+                content: `**${author.displayName || author.username}** & **${targetUser.displayName || targetUser.username}** have a **${score}%** music taste compatibility!`,
+                icon: emoji.get('music') || '🎵'
+            });
+            const payload = {
+                files: [attachment],
+                components: [container],
+                flags: MessageFlags.IsComponentsV2
+            };
+            if (interaction) {
+                return await interaction.editReply(payload);
+            }
+            return await message.reply(payload);
+        }
+        catch (err) {
+            logger.error('BlendCommand', 'Failed to generate blend card:', err);
+            const errContainer = buildError(ctx.t("failedToGener"));
+            if (interaction)
+                return interaction.editReply({ components: [errContainer], flags: MessageFlags.IsComponentsV2 });
+            return message.reply({ components: [errContainer], flags: MessageFlags.IsComponentsV2 });
+        }
+    }
+}
+export default new BlendCommand();

@@ -1,0 +1,79 @@
+{
+  "name": "yuna-discord-bot",
+  "version": "2.0.0",
+  "description": "A versatile Discord.js bot with advanced sharding and modular command architecture V2",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsx --expose-gc --max-old-space-size=2048 src/shard.ts",
+    "dev": "tsx --watch --expose-gc src/shard.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
+    "bench": "node scripts/bench.js",
+    "setup": "cp .env.example .env && echo 'Created .env file. Please edit it with your configuration.'"
+  },
+  "imports": {
+    "#core/*": "./src/core/*.ts",
+    "#audio/*": "./src/audio/*.ts",
+    "#database/*": "./src/database/*.ts",
+    "#database/repos/*": "./src/database/repositories/*.ts",
+    "#config/*": "./src/config/*.ts",
+    "#utils/*": "./src/utils/*.ts",
+    "#events/*": "./src/events/*.ts",
+    "#commands/*": "./src/commands/*.ts",
+    "#loaders/*": "./src/loaders/*.ts",
+    "#ui/*": "./src/ui/*.ts",
+    "#ui/cards/*": "./src/ui/cards/*.ts"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discord.js",
+    "sharding",
+    "modular",
+    "yuna"
+  ],
+  "author": "Muffin STUDIO - Bre4d777",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/voice": "^0.19.2",
+    "@napi-rs/canvas": "^0.1.74",
+    "@vitalets/google-translate-api": "^9.2.1",
+    "axios": "^1.11.0",
+    "better-sqlite3": "^12.11.1",
+    "chalk": "^5.4.1",
+    "crypto-js": "^4.2.0",
+    "des.js": "^1.1.0",
+    "discord-hybrid-sharding": "^2.2.6",
+    "discord.js": "^14.27.0",
+    "discord.js-docs": "^0.4.3",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "ffmpeg-static": "^5.3.0",
+    "fs-extra": "^11.3.0",
+    "lavalink-client": "^2.10.3",
+    "libsodium-wrappers": "^0.8.4",
+    "lrclib-api": "^2.0.4",
+    "moment": "^2.30.1",
+    "moment-duration-format": "^2.3.2",
+    "ms": "^2.1.3",
+    "node-fetch": "^2.7.0",
+    "opusscript": "^0.0.8",
+    "play-dl": "^1.9.7",
+    "prism-media": "^1.3.5",
+    "undici": "^7.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.3.0",
+    "@vitest/coverage-v8": "^4.1.11",
+    "eslint-formatter-pretty": "^6.0.1",
+    "ts-morph": "^28.0.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  }
+}

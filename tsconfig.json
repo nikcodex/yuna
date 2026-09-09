@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "paths": {
+      "#core/*": ["./src/core/*"],
+      "#audio/*": ["./src/audio/*"],
+      "#database/*": ["./src/database/*"],
+      "#database/repos/*": ["./src/database/repositories/*"],
+      "#config/*": ["./src/config/*"],
+      "#utils/*": ["./src/utils/*"],
+      "#events/*": ["./src/events/*"],
+      "#commands/*": ["./src/commands/*"],
+      "#loaders/*": ["./src/loaders/*"],
+      "#ui/*": ["./src/ui/*"],
+      "#ui/cards/*": ["./src/ui/cards/*"]
+    },
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*"]
+}
