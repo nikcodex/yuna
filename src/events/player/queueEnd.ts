@@ -11,7 +11,6 @@ import { ContainerBuilder, TextDisplayBuilder, SectionBuilder, SeparatorBuilder,
 import emoji from "#config/emoji";
 import AutoplayEngine from "#audio/AutoplayEngine";
 
-// Lazily constructed on first autoplay use, since AutoplayEngine requires a client.
 let autoplayEngine: AutoplayEngine | null = null;
 
 export default {
@@ -62,12 +61,12 @@ export default {
 
       let shouldDisconnect = true;
       let is247Mode = false;
-      
+
       try {
         const guild247Settings = db.guild.get247Settings(player.guildId);
         is247Mode = guild247Settings.enabled;
         shouldDisconnect = !is247Mode && guild247Settings.autoDisconnect;
-        
+
         logger.debug('QueueEnd', `Guild ${player.guildId} settings: 24/7 = ${is247Mode}, autoDisconnect = ${guild247Settings.autoDisconnect}`);
       } catch (dbError) {
         logger.debug('QueueEnd', 'Could not check guild disconnect settings:', dbError);
@@ -154,7 +153,7 @@ export default {
       } else if (is247Mode) {
         logger.info('QueueEnd', `24/7 mode active - keeping connection for guild ${player.guildId}`);
         player.set('247Mode', true);
-        
+
         EventUtils.clearPlayerTimeout(player, 'disconnectTimeoutId');
       }
 
@@ -288,7 +287,6 @@ function getTrackSource(track: Track) {
   }
 }
 
-
 function getPremiumStatus(guildId: string, userId: string) {
   if (!userId) return { hasPremium: false, maxSongs: config.queue.maxSongs.free };
 
@@ -323,3 +321,5 @@ function logSessionStats(player: Player) {
     logger.debug('QueueEnd', 'Error logging session stats:', statsError);
   }
 }
+
+// Made by Nikhil Under CodeX Devs

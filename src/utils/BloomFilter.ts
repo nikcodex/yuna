@@ -59,10 +59,10 @@ export class BloomFilter {
       const byteIndex = Math.floor(pos / 8);
       const bitIndex = pos % 8;
       if ((this.bitArray[byteIndex] & (1 << bitIndex)) === 0) {
-        return false; // Definitely not in set
+        return false;
       }
     }
-    return true; // Might be in set
+    return true;
   }
 
   clear(): void {
@@ -81,3 +81,5 @@ export class BloomFilter {
 }
 
 export default BloomFilter;
+
+// Made by Nikhil Under CodeX Devs

@@ -65,10 +65,10 @@ class NowPlayingCommand extends Command {
 
       if (isTextMode) {
         const { createPlayerContainer } = await import('#ui/Components');
-        const container = createPlayerContainer('default', { 
-          isTextMode: true, 
-          track, 
-          position: player.position 
+        const container = createPlayerContainer('default', {
+          isTextMode: true,
+          track,
+          position: player.position
         });
         return await this._reply(context, { components: [container], flags: MessageFlags.IsComponentsV2 });
       }
@@ -105,3 +105,5 @@ class NowPlayingCommand extends Command {
 }
 
 export default new NowPlayingCommand();
+
+// Made by Nikhil Under CodeX Devs

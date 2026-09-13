@@ -215,3 +215,5 @@ class BotInfoCommand extends Command {
 }
 
 export default new BotInfoCommand();
+
+// Made by Nikhil Under CodeX Devs

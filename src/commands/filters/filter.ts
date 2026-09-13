@@ -58,7 +58,7 @@ class FilterCommand extends Command {
         const focusedValue = interaction.options.getFocused().toLowerCase();
         const presets = FilterEngine.getPresetNames();
         const filtered = presets.filter(p => p.toLowerCase().includes(focusedValue)).slice(0, 25);
-        
+
         await interaction.respond(
             filtered.map(preset => ({ name: preset, value: preset }))
         );
@@ -68,7 +68,7 @@ class FilterCommand extends Command {
         const { client, message, interaction, player, pm, args = [] } = ctx;
         const context = interaction || message;
         const targetPlayer = pm?.player || player || client?.music?.getPlayer(context.guildId || context.guild?.id);
-        
+
         let subcommand = 'list';
         let presetName = null;
 
@@ -107,7 +107,7 @@ class FilterCommand extends Command {
             if (success) {
                 const container = buildContainer({
                     title: 'Filter Applied',
-                    content: `**${presetName}** filter has been applied to the player.\n\n` + 
+                    content: `**${presetName}** filter has been applied to the player.\n\n` +
                              `└─ **${emoji.get('music') || '🎵'} Effect:** ${info.description}`,
                     icon: emoji.get('check') || '✅'
                 });
@@ -131,7 +131,7 @@ class FilterCommand extends Command {
         } else if (subcommand === 'list') {
             const presets = FilterEngine.getPresetNames();
             const list = presets.map(p => `\`${p}\``).join(', ');
-            
+
             const container = buildContainer({
                 title: 'Available Filters',
                 content: `Here are the available filter presets:\n\n${list}`,
@@ -158,3 +158,5 @@ class FilterCommand extends Command {
 }
 
 export default new FilterCommand();
+
+// Made by Nikhil Under CodeX Devs

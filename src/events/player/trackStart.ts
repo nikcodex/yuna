@@ -43,7 +43,6 @@ export default {
         }
       }
 
-      // Delete previous Now Playing message if one still exists
       const oldMessageId = player.get<string | null>('nowPlayingMessageId');
       const oldChannelId = player.get<string | null>('nowPlayingChannelId');
       EventUtils.clearPlayerInterval(player, 'updateInterval');
@@ -99,3 +98,5 @@ export default {
     }
   }
 };
+
+// Made by Nikhil Under CodeX Devs

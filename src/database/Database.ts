@@ -109,7 +109,7 @@ export class Database {
       if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir, { recursive: true });
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
       const backupPath = path.join(backupDir, `${timestamp}-yuna.yuna`);
-      
+
       this.db.backup(backupPath)
         .then(() => {
           logger.info('Backup', `Database backup completed: ${backupPath}`);
@@ -148,3 +148,5 @@ export class Database {
 
 export const db = new Database();
 export default db;
+
+// Made by Nikhil Under CodeX Devs

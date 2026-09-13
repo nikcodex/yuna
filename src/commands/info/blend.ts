@@ -25,7 +25,7 @@ class BlendCommand extends Command {
             {
               name: 'user',
               description: 'The user to compare music tastes with',
-              type: 6, // USER
+              type: 6,
               required: true
             }
           ]
@@ -58,11 +58,10 @@ class BlendCommand extends Command {
     }
 
     try {
-      // Fetch liked tracks or stats from database
+
       const likedA = db.liked.getUserLiked(author.id) || [];
       const likedB = db.liked.getUserLiked(targetUser.id) || [];
 
-      // Calculate taste similarity
       let score = 0;
       if (likedA.length > 0 && likedB.length > 0) {
         const titlesA = new Set(likedA.map((t: any) => (t.title || '').toLowerCase()));
@@ -109,3 +108,5 @@ class BlendCommand extends Command {
 }
 
 export default new BlendCommand();
+
+// Made by Nikhil Under CodeX Devs

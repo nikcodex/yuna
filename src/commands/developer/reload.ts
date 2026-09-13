@@ -34,13 +34,11 @@ class ReloadCommand extends Command {
     const { client, message, args = [] } = ctx;
     const authorId = message.author.id;
 
-    // Direct command argument mode (e.g. .reload play or .reload events)
     if (args.length > 0) {
       const target = args[0].toLowerCase();
       return this._handleDirectReload(message, client, target);
     }
 
-    // Interactive Multi-Select Menu Mode
     const infoIcon = emoji.get('info') || 'ℹ️';
     const folderIcon = emoji.get('folder') || '📁';
     const checkIcon = emoji.get('check') || '✅';
@@ -150,19 +148,17 @@ class ReloadCommand extends Command {
         const reloadedItems = [];
 
         try {
-          // 1. Commands reload
+
           if (selectedValues.includes('commands') || selectedValues.includes('music') || selectedValues.includes('filters')) {
             await client.commandLoader.load();
             reloadedItems.push(`Commands (${client.commands.size})`);
           }
 
-          // 2. Events reload
           if (selectedValues.includes('events')) {
             await client.eventLoader.load();
             reloadedItems.push('Events & Handlers');
           }
 
-          // 3. Canvas cards reload
           if (selectedValues.includes('cards')) {
             await import(`../../ui/cards/MusicCard.js?v=${Date.now()}`).catch(() => {});
             await import(`../../ui/cards/PingCard.js?v=${Date.now()}`).catch(() => {});
@@ -171,7 +167,6 @@ class ReloadCommand extends Command {
             reloadedItems.push('Canvas UI Cards');
           }
 
-          // 4. Database reload
           if (selectedValues.includes('database')) {
             const { db } = await import(`../../database/Database.js?v=${Date.now()}`);
             if (db?.checkpoint) db.checkpoint();
@@ -279,7 +274,6 @@ class ReloadCommand extends Command {
         return message.reply({ components: [container], flags: MessageFlags.IsComponentsV2 });
       }
 
-      // Single command reload
       const filePath = client.commandLoader.commandPaths.get(target);
       if (!filePath) {
         return message.reply({
@@ -327,3 +321,5 @@ class ReloadCommand extends Command {
 }
 
 export default new ReloadCommand();
+
+// Made by Nikhil Under CodeX Devs

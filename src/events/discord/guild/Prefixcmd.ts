@@ -76,17 +76,17 @@ export default {
         .setLabel("Support Server")
         .setURL(config.links?.supportServer || "https://discord.gg/XYwwyDKhec")
         .setStyle(ButtonStyle.Link);
-        
+
       const inviteButton = new ButtonBuilder()
         .setLabel("Invite Me")
         .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot%20applications.commands`)
         .setStyle(ButtonStyle.Link);
-        
+
       const row = new ActionRowBuilder().addComponents(supportButton, inviteButton);
 
       const memoryUsage = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
       const guildCount = client.guilds.cache.size;
-      
+
       let lavalinkStatus = "Disconnected";
       let lavalinkColor = emoji.get("cross") || "❌";
 
@@ -180,10 +180,10 @@ export default {
       member: message.member,
       channel: message.channel,
       player,
-      
+
       pm: player ? new PlayerManager(player) : null,
-      locale: db?.users?.getLocale(message?.author?.id) || db?.guilds?.getLocale(message?.guild?.id) || 'en-US',
-      t: (category: string, replacements: Record<string, unknown> = {}) => i18n.t(db?.users?.getLocale(message?.author?.id) || db?.guilds?.getLocale(message?.guild?.id) || 'en-US', category, replacements)
+      locale: db?.user?.getLocale(message?.author?.id) || db?.guild?.getLocale(message?.guild?.id) || 'en-US',
+      t: (category: string, replacements: Record<string, unknown> = {}) => i18n.t(db?.user?.getLocale(message?.author?.id) || db?.guild?.getLocale(message?.guild?.id) || 'en-US', category, replacements)
     };
 
     try {
@@ -199,7 +199,7 @@ export default {
       const proceed = await command.beforeExecute(ctx);
       if (!proceed) return;
 
-      await localeStore.run({ locale: ctx.locale || db?.guilds?.getLocale(ctx.guild?.id) || 'en-US' }, async () => {
+      await localeStore.run({ locale: ctx.locale || db?.guild?.getLocale(ctx.guild?.id) || 'en-US' }, async () => {
           await command.execute(ctx);
         });
       await command.afterExecute(ctx);
@@ -216,3 +216,5 @@ export default {
     }
   },
 };
+
+// Made by Nikhil Under CodeX Devs

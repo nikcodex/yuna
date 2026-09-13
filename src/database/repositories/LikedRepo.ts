@@ -8,7 +8,7 @@ export class LikedRepo {
     this.db = db;
     this._getLiked = this.db.prepare('SELECT * FROM liked_tracks WHERE user_id = ?');
     this._updateLiked = this.db.prepare(`
-      INSERT INTO liked_tracks (user_id, tracks, updated_at) 
+      INSERT INTO liked_tracks (user_id, tracks, updated_at)
       VALUES (?, ?, CURRENT_TIMESTAMP)
       ON CONFLICT(user_id) DO UPDATE SET tracks = excluded.tracks, updated_at = CURRENT_TIMESTAMP
     `);
@@ -51,7 +51,7 @@ export class LikedRepo {
         artworkUrl: trackInfo.artworkUrl || null,
         addedAt: Date.now()
       };
-      
+
       tracks.push(trackEntry);
       this._updateLiked.run(userId, JSON.stringify(tracks));
       result = true;
@@ -71,12 +71,14 @@ export class LikedRepo {
       let tracks = this.getUserLiked(userId);
       const originalLength = tracks.length;
       tracks = tracks.filter((t: any) => t.identifier !== trackIdentifier);
-      
+
       if (tracks.length === originalLength) return;
-      
+
       this._updateLiked.run(userId, JSON.stringify(tracks));
       result = true;
     })();
     return result;
   }
 }
+
+// Made by Nikhil Under CodeX Devs

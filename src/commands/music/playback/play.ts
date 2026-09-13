@@ -525,10 +525,10 @@ class PlayCommand extends Command {
     const content =
       `**Searching Music Libraries**\n\n` +
       `└─ **Query:-** \`${query}\`\n` +
-      
+
       `-# Connecting With Lavalink...`;
 
-    return buildContainer({ image: undefined, 
+    return buildContainer({ image: undefined,
         title: "Fetching Track",
         content,
         thumbnail: config.assets.defaultTrackArtwork,
@@ -563,7 +563,7 @@ class PlayCommand extends Command {
           `${!premiumStatus.hasPremium ? `*Upgrade to premium for ${config.queue.maxSongs.premium} song limit*` : "*Premium features unlocked*"}`;
       }
 
-      return buildContainer({ image: undefined, 
+      return buildContainer({ image: undefined,
           title,
           content,
           thumbnail: track.info.artworkUrl || config.assets.defaultTrackArtwork,
@@ -605,7 +605,7 @@ class PlayCommand extends Command {
           `${!premiumStatus.hasPremium ? `*Upgrade to premium for ${config.queue.maxSongs.premium} song limit*` : "*Premium queue features enabled*"}`;
       }
 
-      return buildContainer({ image: undefined, 
+      return buildContainer({ image: undefined,
           title,
           content,
           thumbnail: tracks[0]?.info?.artworkUrl || config.assets.defaultTrackArtwork,
@@ -1136,3 +1136,5 @@ class PlayCommand extends Command {
 }
 
 export default new PlayCommand();
+
+// Made by Nikhil Under CodeX Devs

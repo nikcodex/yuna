@@ -316,3 +316,5 @@ ${emoji.get("info")} \`blacklist check @user\``;
 }
 
 export default new BlacklistCommand();
+
+// Made by Nikhil Under CodeX Devs

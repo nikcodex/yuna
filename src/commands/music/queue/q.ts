@@ -75,7 +75,7 @@ class QueueCommand extends Command {
 
     const userId = context.user?.id || context.author?.id;
     const container = this._buildQueueContainer(player, page, guildId, userId);
-    
+
     const replyMsg = await this._reply(context, container);
     if (replyMsg) {
       this._setupCollector(replyMsg, client, guildId, page, userId);
@@ -90,7 +90,7 @@ class QueueCommand extends Command {
     const maxPages = Math.max(1, Math.ceil(tracks.length / TRACKS_PER_PAGE));
     const currentPage = Math.min(page, maxPages);
 
-    const container = buildContainer({ image: undefined, 
+    const container = buildContainer({ image: undefined,
       title: "Interactive Queue Dashboard",
       content: `### 🎵 Now Playing\n[**${current.info.title}**](${current.info.uri})\n└ **Artist:** ${current.info.author} • **Duration:** \`${formatDuration(current.info.duration)}\``,
       thumbnail: current.info.artworkUrl || config.assets.defaultTrackArtwork,
@@ -131,18 +131,15 @@ class QueueCommand extends Command {
         );
       });
 
-      // Jump to Track Dropdown
       const jumpMenu = this._createJumpMenu(paginatedTracks, startIndex, guildId);
       if (jumpMenu) {
         container.addActionRowComponents(jumpMenu);
       }
 
-      // Action Row 1: Pagination
       container.addActionRowComponents(
         this._createPaginationRow(currentPage, maxPages, guildId)
       );
 
-      // Action Row 2: Queue Management Controls
       container.addActionRowComponents(
         this._createQuickControlsRow(guildId)
       );
@@ -241,7 +238,7 @@ class QueueCommand extends Command {
         await interaction.deferUpdate().catch(() => {});
         const targetIndex = parseInt(interaction.values[0], 10);
         if (!isNaN(targetIndex) && targetIndex >= 0 && targetIndex < player.queue.tracks.length) {
-          // Remove tracks before targetIndex and skip
+
           if (targetIndex > 0) {
             player.queue.tracks.splice(0, targetIndex);
           }
@@ -324,3 +321,5 @@ class QueueCommand extends Command {
 }
 
 export default new QueueCommand();
+
+// Made by Nikhil Under CodeX Devs

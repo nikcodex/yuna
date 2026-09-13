@@ -4,8 +4,8 @@ import { Client, MessageCreateOptions, MessagePayload } from 'discord.js';
 export class EventUtils {
   /**
    * Safely clears a timeout stored on the player object
-   * @param {any} player 
-   * @param {string} timeoutName 
+   * @param {any} player
+   * @param {string} timeoutName
    */
   static clearPlayerTimeout(player: any, timeoutName: string) {
     if (player && player.get && player.get(timeoutName)) {
@@ -16,8 +16,8 @@ export class EventUtils {
 
   /**
    * Safely clears an interval stored on the player object
-   * @param {any} player 
-   * @param {string} intervalName 
+   * @param {any} player
+   * @param {string} intervalName
    */
   static clearPlayerInterval(player: any, intervalName: string) {
     if (player && player.get && player.get(intervalName)) {
@@ -28,9 +28,9 @@ export class EventUtils {
 
   /**
    * Deletes a discord message safely
-   * @param {Client} client 
-   * @param {string} channelId 
-   * @param {string} messageId 
+   * @param {Client} client
+   * @param {string} channelId
+   * @param {string} messageId
    */
   static async deleteMessage(client: Client | any, channelId: string, messageId: string) {
     if (!client || !channelId || !messageId) return;
@@ -49,9 +49,9 @@ export class EventUtils {
 
   /**
    * Sends a message to the player's text channel
-   * @param {Client} client 
-   * @param {any} player 
-   * @param {MessageCreateOptions | MessagePayload | string | any} messageOptions 
+   * @param {Client} client
+   * @param {any} player
+   * @param {MessageCreateOptions | MessagePayload | string | any} messageOptions
    */
   static async sendPlayerMessage(client: Client | any, player: any, messageOptions: any) {
     if (!client || !player || !player.textChannelId) return null;
@@ -68,3 +68,5 @@ export class EventUtils {
 }
 
 export default EventUtils;
+
+// Made by Nikhil Under CodeX Devs

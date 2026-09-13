@@ -271,3 +271,5 @@ class UpdateSlashCommand extends Command {
 }
 
 export default new UpdateSlashCommand();
+
+// Made by Nikhil Under CodeX Devs

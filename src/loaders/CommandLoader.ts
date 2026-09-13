@@ -47,7 +47,6 @@ export class CommandLoader {
       await this._recursivelyLoadCommands(commandsAbsolutePath);
       this._finalizeSlashCommands();
 
-      // Print clean Pink Theme summary
       if (this.failedCommands.length === 0) {
         const catCount = this.client.categories.size;
         const cmdCount = this.client.commands.size;
@@ -100,7 +99,7 @@ export class CommandLoader {
   async _loadCommandFile(filePath: any, category: any) {
     const relName = path.relative(process.cwd(), filePath);
     try {
-      const commandModule = await import(`file://${filePath}?v=${Date.now()}`);
+      const commandModule = await import(`file:
       if (!commandModule?.default) {
         this.failedCommands.push({ file: relName, error: 'Missing default export' });
         return;
@@ -161,3 +160,5 @@ export class CommandLoader {
 }
 
 export default CommandLoader;
+
+// Made by Nikhil Under CodeX Devs

@@ -111,7 +111,7 @@ class RemoveCommand extends Command {
 
   _createSuccessContainer(track: any, position: any, remainingCount: any) {
     const content = `Removed [${track.info.title}](${track.info.uri}) from position **${position}**.`;
-    const container = buildContainer({ image: undefined, 
+    const container = buildContainer({ image: undefined,
       title: "Track Removed",
       content: content,
       thumbnail: config.assets.defaultThumbnail || config.assets.defaultTrackArtwork,
@@ -319,3 +319,5 @@ class RemoveCommand extends Command {
 }
 
 export default new RemoveCommand();
+
+// Made by Nikhil Under CodeX Devs

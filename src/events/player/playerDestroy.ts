@@ -30,7 +30,6 @@ export default {
 			new AutoplayEngine(client as any).clearSessionHistory(player.guildId);
 			cleanupGuildVoiceState(player.guildId);
 
-
 			if (client && player.textChannelId) {
 				const button = new ButtonBuilder()
 					.setLabel("Support")
@@ -64,3 +63,5 @@ export default {
 		}
 	},
 };
+
+// Made by Nikhil Under CodeX Devs

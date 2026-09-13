@@ -81,11 +81,9 @@ export class PingCard {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext("2d");
 
-    // 1. Midnight Dark Rose Background
     ctx.fillStyle = "#06070E";
     ctx.fillRect(0, 0, width, height);
 
-    // Sakura Pink & Rose Ambient Glows
     const bgGlow1 = ctx.createRadialGradient(250, 100, 10, 250, 100, 450);
     bgGlow1.addColorStop(0, "rgba(255, 105, 180, 0.28)");
     bgGlow1.addColorStop(1, "rgba(6, 7, 14, 0)");
@@ -98,13 +96,11 @@ export class PingCard {
     ctx.fillStyle = bgGlow2;
     ctx.fillRect(0, 0, width, height);
 
-    // Floating Petals Background Accents
     this.drawSakuraFlower(ctx, 80, 70, 14);
     this.drawSakuraFlower(ctx, 840, 60, 16);
     this.drawSakuraFlower(ctx, 880, 240, 12);
     this.drawSakuraFlower(ctx, 60, 250, 10);
 
-    // 2. Main Glass Card Container
     const pMargin = 16;
     const pWidth = width - pMargin * 2;
     const pHeight = height - pMargin * 2;
@@ -116,7 +112,6 @@ export class PingCard {
     ctx.fill();
     ctx.restore();
 
-    // Glass Border
     ctx.save();
     this._roundRect(ctx, pMargin, pMargin, pWidth, pHeight, pRadius);
     const borderGrad = ctx.createLinearGradient(pMargin, pMargin, pMargin + pWidth, pMargin + pHeight);
@@ -130,7 +125,6 @@ export class PingCard {
     ctx.stroke();
     ctx.restore();
 
-    // 3. Latin Calligraphic Banner Title: "Yuna 🌸"
     ctx.save();
     this.drawSakuraFlower(ctx, 240, 85, 22);
 
@@ -149,7 +143,6 @@ export class PingCard {
     ctx.fillText("Yuna", 50, 85);
     ctx.restore();
 
-    // Subtitle (Using Righteous)
     ctx.save();
     ctx.font = '14px "Righteous"';
     ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
@@ -157,7 +150,6 @@ export class PingCard {
     ctx.fillText("🌸 SAKURA MUSIC COMPANION · NETWORK DIAGNOSTICS", 50, 140);
     ctx.restore();
 
-    // 4. Metrics Cards - ALL Text & Numbers 100% Righteous Font
     const metricsY = 175;
     const cardW = 265;
     const cardH = 90;
@@ -166,7 +158,6 @@ export class PingCard {
     const statusText = this.wsPing < 80 ? "EXCELLENT" : this.wsPing < 160 ? "OPTIMAL" : "HIGH LATENCY";
     const statusColor = this.wsPing < 80 ? "#FF69B4" : this.wsPing < 160 ? "#FFD166" : "#FF5964";
 
-    // Card 1: WEBSOCKET PING
     const card1X = 50;
     this._renderMetricBox(ctx, card1X, metricsY, cardW, cardH, {
       label: "WEBSOCKET PING",
@@ -180,7 +171,6 @@ export class PingCard {
       color: "#FF69B4"
     });
 
-    // Card 2: MESSAGE LATENCY
     const card2X = card1X + cardW + gap;
     this._renderMetricBox(ctx, card2X, metricsY, cardW, cardH, {
       label: "MESSAGE LATENCY",
@@ -194,7 +184,6 @@ export class PingCard {
       color: "#FFB6C1"
     });
 
-    // Card 3: SYSTEM STATUS
     const card3X = card2X + cardW + gap;
     this._renderMetricBox(ctx, card3X, metricsY, cardW, cardH, {
       label: "SYSTEM STATUS",
@@ -221,13 +210,11 @@ export class PingCard {
     ctx.lineWidth = 1.2;
     ctx.stroke();
 
-    // 1. Label
     ctx.font = config.labelFont;
     ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
     ctx.textAlign = "left";
     ctx.fillText(config.label, x + 16, y + 24);
 
-    // 2. Value + Unit split
     ctx.font = config.numFont;
     ctx.fillStyle = config.color;
     ctx.shadowColor = `${config.color}88`;
@@ -243,7 +230,6 @@ export class PingCard {
       ctx.fillText(config.unitVal, x + 16 + numWidth, y + 56);
     }
 
-    // 3. Subtext
     ctx.font = config.subFont;
     ctx.fillStyle = "rgba(255, 255, 255, 0.48)";
     ctx.shadowBlur = 0;
@@ -254,3 +240,5 @@ export class PingCard {
 }
 
 export default PingCard;
+
+// Made by Nikhil Under CodeX Devs

@@ -72,11 +72,11 @@ export class YunaClient extends Client {
 		this.commands = new Collection();
 		this.aliases = new Map();
 		this.categories = new Map();
-		
+
 		this.logger = logger;
 		this.config = config;
 		this.db = db;
-		
+
 		this.audio = new AudioManager(this);
 		this.components = new ComponentLoader(this);
 		this.commandLoader = new CommandLoader(this);
@@ -110,7 +110,6 @@ export class YunaClient extends Client {
 			await this.withTimeout('commandLoader.load()', () => this.commandLoader.load(), 20_000);
 			await this.withTimeout('components.load()', () => this.components.load(), 20_000);
 
-			// Register persistent scheduled background tasks
 			this.scheduler.every('db_checkpoint', { minutes: 15 }, () => this.db?.checkpoint?.());
 			this.scheduler.every('db_backup', { hours: 6 }, () => this.db?.backup?.());
 			await this.withTimeout('scheduler.init()', () => this.scheduler.init(), 10_000);
@@ -191,3 +190,5 @@ export class YunaClient extends Client {
 		return Date.now() - this.startTime;
 	}
 }
+
+// Made by Nikhil Under CodeX Devs

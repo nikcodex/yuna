@@ -131,7 +131,6 @@ export default class MusicCard {
     const segments = 50;
     const step = vineWidth / segments;
 
-    // 1. Left Root Anchor Base (Crisp leaf node)
     ctx.save();
     ctx.beginPath();
     ctx.arc(x - 3, centerY, 4, 0, Math.PI * 2);
@@ -140,7 +139,6 @@ export default class MusicCard {
     this.drawLeaf(ctx, x - 5, centerY - 2, 8, -Math.PI / 3, 'rgba(255, 192, 203, 0.8)');
     ctx.restore();
 
-    // 2. Base Unfilled Botanical Vine Stem (Clean Crisp Stroke)
     ctx.beginPath();
     for (let i = 0; i <= segments; i++) {
       const px = x + i * step;
@@ -152,7 +150,6 @@ export default class MusicCard {
     ctx.lineWidth = 3;
     ctx.stroke();
 
-    // 10 Organic Leaf Nodes along the vine (No static end flower!)
     const leafNodes = [
       { pos: 0.10, side: -1, size: 7 },
       { pos: 0.20, side: 1, size: 8 },
@@ -173,7 +170,6 @@ export default class MusicCard {
       this.drawLeaf(ctx, lx, ly, node.size, angle, 'rgba(255, 255, 255, 0.22)');
     });
 
-    // 3. Filled Growing Colored Vine (Grows cleanly with progress)
     if (progress > 0) {
       const filledWidth = Math.max(6, vineWidth * progress);
 
@@ -182,7 +178,6 @@ export default class MusicCard {
       ctx.rect(x - 8, y - 16, filledWidth + 8, height + 32);
       ctx.clip();
 
-      // Filled Main Vine Stem Line
       ctx.beginPath();
       for (let i = 0; i <= segments; i++) {
         const px = x + i * step;
@@ -200,7 +195,6 @@ export default class MusicCard {
       ctx.lineWidth = 4;
       ctx.stroke();
 
-      // Filled Blooming Leaves behind playhead
       leafNodes.forEach((node: any) => {
         if (node.pos <= progress) {
           const lx = x + node.pos * vineWidth;
@@ -213,10 +207,8 @@ export default class MusicCard {
 
       ctx.restore();
 
-      // 4. Subtle Particle Drop Trail
       this.drawParticleDropTrail(ctx, x, y, vineWidth, height, progress);
 
-      // 5. Travelling Sakura Flower Tip (Sole Playhead Flower)
       const orbX = x + filledWidth;
       const orbY = centerY + Math.sin(progress * segments * 0.35) * 3.5;
 
@@ -292,13 +284,11 @@ export default class MusicCard {
     const centerY = y + size / 2;
     const radius = size * 0.46;
 
-    // Vinyl Disc Base (Clean & Crisp Matte)
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
     ctx.fillStyle = '#090A0D';
     ctx.fill();
 
-    // Vinyl Groove Lines
     for (let r = radius * 0.92; r > radius * 0.45; r -= 6) {
       ctx.beginPath();
       ctx.arc(centerX, centerY, r, 0, Math.PI * 2);
@@ -307,7 +297,6 @@ export default class MusicCard {
       ctx.stroke();
     }
 
-    // Center Artwork Circle
     const labelRadius = radius * 0.38;
     ctx.save();
     ctx.beginPath();
@@ -321,7 +310,6 @@ export default class MusicCard {
     }
     ctx.restore();
 
-    // Center Spindle Hole
     ctx.beginPath();
     ctx.arc(centerX, centerY, 7, 0, Math.PI * 2);
     ctx.fillStyle = '#090A0D';
@@ -370,10 +358,9 @@ export default class MusicCard {
         const res = await fetch(artworkUrl, {
           headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' }
         });
-        if (res.ok) {
-          const ab = await res.arrayBuffer();
-          artwork = await loadImage(Buffer.from(ab));
-        }
+        if (!res.ok) throw new Error('HTTP error');
+        const ab = await res.arrayBuffer();
+        artwork = await loadImage(Buffer.from(ab));
       } catch (_) {
         try {
           artwork = await loadImage(artworkUrl);
@@ -391,23 +378,19 @@ export default class MusicCard {
       border: 'rgba(255, 65, 108, 0.5)'
     };
 
-    // 1. Midnight Dark Background
     ctx.fillStyle = '#06070E';
     ctx.fillRect(0, 0, width, height);
 
-    // Artwork Ambient Background Gradient
     const ambientLeft = ctx.createRadialGradient(200, height / 2, 20, 200, height / 2, 400);
     ambientLeft.addColorStop(0, palette.bgGlow);
     ambientLeft.addColorStop(1, 'rgba(6, 7, 14, 0.95)');
     ctx.fillStyle = ambientLeft;
     ctx.fillRect(0, 0, width, height);
 
-    // Subtle Floating Sakura Petals Accent
     this.drawSakuraFlower(ctx, width - 60, 45, 12);
     this.drawSakuraFlower(ctx, width - 120, height - 40, 10);
     this.drawSakuraFlower(ctx, 40, 30, 8);
 
-    // 2. Main Frosted Glass Card Geometry
     const panelMargin = 16;
     const pw = width - panelMargin * 2;
     const ph = height - panelMargin * 2;
@@ -419,7 +402,6 @@ export default class MusicCard {
     ctx.fill();
     ctx.restore();
 
-    // Clean Glass Border
     ctx.save();
     ctx.beginPath();
     ctx.roundRect(panelMargin, panelMargin, pw, ph, 24);
@@ -432,12 +414,10 @@ export default class MusicCard {
     ctx.stroke();
     ctx.restore();
 
-    // 3. Spinning Vinyl Record (Pops out behind artwork)
     const artworkX = margin + 12;
     const artworkY = (height - artworkSize) / 2;
     this.drawVinylRecord(ctx, artworkX + 50, artworkY, artworkSize, artwork, palette);
 
-    // 4. Album Cover Art Sleeve (Clean & Crisp Border)
     ctx.save();
     ctx.beginPath();
     ctx.roundRect(artworkX, artworkY, artworkSize, artworkSize, 18);
@@ -455,14 +435,12 @@ export default class MusicCard {
     ctx.stroke();
     ctx.restore();
 
-    // 5. Badges & Text Content Area
     const infoX = artworkX + artworkSize + 55;
     const contentWidth = width - infoX - margin - 16;
 
     const rawSource = track?.info?.sourceName ? track.info.sourceName.toUpperCase() : 'YUNA';
     const sourceStyle = (SOURCE_COLORS as any)[rawSource] || SOURCE_COLORS.DEFAULT;
 
-    // Source Badge (Righteous font & Sleek Rounded Square r=8)
     ctx.font = '12px "Righteous"';
     const badgeText = rawSource;
     const badgeWidth = ctx.measureText(badgeText).width + 22;
@@ -484,7 +462,6 @@ export default class MusicCard {
     ctx.fillText(badgeText, infoX + badgeWidth / 2, artworkY + 17);
     ctx.restore();
 
-    // Requester Tag Badge (Righteous font & Sleek Rounded Square r=8)
     if (track?.requester?.username || track?.requester?.tag) {
       const reqName = `@${track.requester.username || track.requester.tag}`;
       ctx.font = '12px "Righteous"';
@@ -511,7 +488,6 @@ export default class MusicCard {
       }
     }
 
-    // Top-Right Signature Calligraphic "Yuna 🌸" Logo
     ctx.save();
     this.drawSakuraFlower(ctx, width - panelMargin - 28, artworkY + 16, 14);
 
@@ -527,7 +503,6 @@ export default class MusicCard {
     ctx.fillText('Yuna', width - panelMargin - 48, artworkY + 16);
     ctx.restore();
 
-    // Track Title (Syne ExtraBold / Space Grotesk)
     const titleY = artworkY + 52;
     const title = track?.info?.title || 'Unknown Title';
     const titleFont = 'bold 28px: "Syne ExtraBold", "Space Grotesk Bold", "Noto Sans JP Bold"';
@@ -541,7 +516,6 @@ export default class MusicCard {
     ctx.fillText(displayTitle, infoX, titleY);
     ctx.restore();
 
-    // Artist (Righteous / Space Grotesk)
     const artistY = titleY + 44;
     const artist = track?.info?.author || 'Unknown Artist';
     const artistFont = '19px: "Righteous", "Space Grotesk", "Noto Sans JP"';
@@ -555,7 +529,6 @@ export default class MusicCard {
     ctx.fillText(displayArtist, infoX, artistY);
     ctx.restore();
 
-    // Progress Bar (Botanical Growing Sakura Vine or Crisp Glossy Bar)
     const progressY = artworkY + artworkSize - 40;
     const progressBarHeight = 12;
 
@@ -589,7 +562,6 @@ export default class MusicCard {
         ctx.fillStyle = pGrad;
         ctx.fill();
 
-        // Crisp Playhead Orb
         const orbX = infoX + progressWidth - progressBarHeight / 2;
         const orbY = progressY + progressBarHeight / 2;
 
@@ -601,7 +573,6 @@ export default class MusicCard {
       ctx.restore();
     }
 
-    // Timestamps (Left & Right - Righteous Font)
     const timeY = progressY + 24;
     const currentTime = this.formatDuration(position);
     const totalTime = isLive ? 'LIVE STREAM' : this.formatDuration(trackDuration);
@@ -620,3 +591,5 @@ export default class MusicCard {
     return canvas.toBuffer('image/png');
   }
 }
+
+// Made by Nikhil Under CodeX Devs

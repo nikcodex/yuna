@@ -42,7 +42,7 @@ class UserPrefixCommand extends Command {
     });
   }
 
-  _buildUIManagementContainer(username: any, prefixes = [], actionMessage = null) {
+  _buildUIManagementContainer(username: any, prefixes: string[] = [], actionMessage: string | null = null) {
     let content = `**Hello ${username}!** Manage your personal command prefixes here.\n\n`;
 
     if (actionMessage) {
@@ -305,3 +305,5 @@ class UserPrefixCommand extends Command {
 }
 
 export default new UserPrefixCommand();
+
+// Made by Nikhil Under CodeX Devs

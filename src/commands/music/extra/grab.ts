@@ -67,10 +67,10 @@ class GrabCommand extends Command {
 
       if (isTextMode) {
         const { createPlayerContainer } = await import('#ui/Components');
-        const container = createPlayerContainer('default', { 
-          isTextMode: true, 
-          track, 
-          position: player.position 
+        const container = createPlayerContainer('default', {
+          isTextMode: true,
+          track,
+          position: player.position
         });
         dmPayload = { components: [container] };
       } else {
@@ -78,7 +78,7 @@ class GrabCommand extends Command {
         const attachment = new AttachmentBuilder(buffer, { name: 'yuna-saved.png' });
         dmPayload = { files: [attachment] };
       }
-      
+
       let dmSuccess = false;
       try {
         await user.send(dmPayload);
@@ -121,3 +121,5 @@ class GrabCommand extends Command {
 }
 
 export default new GrabCommand();
+
+// Made by Nikhil Under CodeX Devs

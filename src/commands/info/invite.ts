@@ -71,7 +71,7 @@ class InviteCommand extends Command {
 		const inviteLink = `https://discord.com/api/oauth2/authorize?client_id=${client.user!.id}&permissions=8&scope=bot%20applications.commands`;
 
 		const content = `**Add Yuna to your server!**\n\n` +
-			
+
 			`*Click the button below to add Yuna to your server!*`;
 
 		const buttonRow = new ActionRowBuilder().addComponents(
@@ -97,3 +97,5 @@ class InviteCommand extends Command {
 }
 
 export default new InviteCommand();
+
+// Made by Nikhil Under CodeX Devs

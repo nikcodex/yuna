@@ -1,5 +1,5 @@
 export function up(db: any) {
-  // Guilds
+
   db.exec(`
     CREATE TABLE IF NOT EXISTS guilds (
       id TEXT PRIMARY KEY,
@@ -29,7 +29,6 @@ export function up(db: any) {
     )
   `);
 
-  // Users
   db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id TEXT PRIMARY KEY,
@@ -50,7 +49,6 @@ export function up(db: any) {
     )
   `);
 
-  // Premium
   db.exec(`
     CREATE TABLE IF NOT EXISTS user_premium (
       user_id TEXT PRIMARY KEY,
@@ -79,7 +77,6 @@ export function up(db: any) {
     )
   `);
 
-  // Playlists
   db.exec(`
     CREATE TABLE IF NOT EXISTS playlists (
       id TEXT PRIMARY KEY,
@@ -97,7 +94,6 @@ export function up(db: any) {
   db.exec(`CREATE INDEX IF NOT EXISTS idx_playlists_user_id ON playlists(user_id)`);
   db.exec(`CREATE INDEX IF NOT EXISTS idx_playlists_name ON playlists(name)`);
 
-  // Economy
   db.exec(`
     CREATE TABLE IF NOT EXISTS user_economy (
       user_id TEXT PRIMARY KEY,
@@ -105,7 +101,6 @@ export function up(db: any) {
     )
   `);
 
-  // Liked Tracks
   db.exec(`
     CREATE TABLE IF NOT EXISTS liked_tracks (
       user_id TEXT PRIMARY KEY,
@@ -114,7 +109,6 @@ export function up(db: any) {
     )
   `);
 
-  // Stats
   db.exec(`
     CREATE TABLE IF NOT EXISTS user_stats (
       user_id TEXT PRIMARY KEY,
@@ -148,3 +142,5 @@ export function up(db: any) {
   db.exec(`CREATE INDEX IF NOT EXISTS idx_track_plays_author ON track_plays(user_id, track_author)`);
   db.exec(`CREATE INDEX IF NOT EXISTS idx_track_plays_title ON track_plays(user_id, track_title)`);
 }
+
+// Made by Nikhil Under CodeX Devs

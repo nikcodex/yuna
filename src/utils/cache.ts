@@ -26,20 +26,20 @@ export class TTLCache {
      * @param {number} [customTtl] Optional custom TTL for this entry.
      */
     set(key: string, value: any, customTtl: number = this.ttlMs) {
-        // Overwriting an existing key doesn't grow the cache — no eviction needed.
+
         if (!this.cache.has(key) && this.cache.size >= this.maxSize) {
-            // Prefer evicting expired entries before dropping live ones.
+
             const now = Date.now();
             for (const [k, item] of this.cache) {
                 if (now > item.expires) this.cache.delete(k);
             }
-            // Still full? Evict the oldest (insertion-order) entry.
+
             if (this.cache.size >= this.maxSize) {
                 const firstKey = this.cache.keys().next().value;
                 if (firstKey !== undefined) this.cache.delete(firstKey);
             }
         }
-        
+
         this.cache.set(key, {
             value,
             expires: Date.now() + customTtl
@@ -57,7 +57,7 @@ export class TTLCache {
 
         if (Date.now() > item.expires) {
             this.cache.delete(key);
-            return undefined; // Lazy cleanup
+            return undefined;
         }
 
         return item.value;
@@ -110,3 +110,5 @@ export class TTLCache {
         }
     }
 }
+
+// Made by Nikhil Under CodeX Devs

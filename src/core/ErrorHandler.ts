@@ -7,8 +7,7 @@ class ErrorHandler {
     constructor() {
         this.hooks = [];
         this.isShuttingDown = false;
-        
-        // Initialize global listeners
+
         process.on('uncaughtException', (error: Error) => {
             logger.error('UncaughtException', 'A critical error occurred', error);
             this.shutdown('uncaughtException').catch(() => process.exit(1));
@@ -39,10 +38,9 @@ class ErrorHandler {
     async shutdown(signal: string) {
         if (this.isShuttingDown) return;
         this.isShuttingDown = true;
-        
+
         logger.info('ErrorHandler', `Received ${signal}, initiating graceful shutdown...`);
 
-        // 5-second hard deadline
         const deadline = new Promise(resolve => {
             setTimeout(() => {
                 logger.warn('ErrorHandler', 'Shutdown deadline reached. Forcing exit.');
@@ -69,3 +67,5 @@ class ErrorHandler {
 export const errorHandler = new ErrorHandler();
 export { ErrorHandler };
 export default errorHandler;
+
+// Made by Nikhil Under CodeX Devs

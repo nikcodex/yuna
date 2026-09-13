@@ -1,5 +1,5 @@
 export const filters = {
-	// === GENRE-BASED FILTERS ===
+
 	"pop": [
 		{ band: 0, gain: -0.25 }, { band: 1, gain: 0.48 }, { band: 2, gain: 0.59 },
 		{ band: 3, gain: 0.72 }, { band: 4, gain: 0.56 }, { band: 5, gain: 0.15 },
@@ -56,7 +56,6 @@ export const filters = {
 		{ band: 12, gain: 0.0 }, { band: 13, gain: 0.0 }
 	],
 
-	// === BASS FOCUSED FILTERS ===
 	"bassboost": [
 		{ band: 0, gain: 0.6 }, { band: 1, gain: 0.67 }, { band: 2, gain: 0.67 },
 		{ band: 3, gain: 0 }, { band: 4, gain: -0.5 }, { band: 5, gain: 0.15 },
@@ -81,7 +80,6 @@ export const filters = {
 		{ band: 12, gain: 0.0 }, { band: 13, gain: 0.0 }
 	],
 
-	// === VOCAL FOCUSED FILTERS ===
 	"vocals": [
 		{ band: 0, gain: -0.2 }, { band: 1, gain: -0.3 }, { band: 2, gain: -0.3 },
 		{ band: 3, gain: 0.1 }, { band: 4, gain: 0.9 }, { band: 5, gain: 0.9 },
@@ -90,7 +88,6 @@ export const filters = {
 		{ band: 12, gain: 0.4 }, { band: 13, gain: 0.6 }
 	],
 
-	// === TREBLE FOCUSED FILTERS ===
 	"treble": [
 		{ band: 0, gain: -0.8 }, { band: 1, gain: -0.8 }, { band: 2, gain: -0.8 },
 		{ band: 3, gain: -0.4 }, { band: 4, gain: 0.3 }, { band: 5, gain: 1.0 },
@@ -107,7 +104,6 @@ export const filters = {
 		{ band: 12, gain: 0.4 }, { band: 13, gain: 0.3 }
 	],
 
-	// === GAMING/SPECIAL FILTERS ===
 	"gaming": [
 		{ band: 0, gain: 0.4 }, { band: 1, gain: 0.3 }, { band: 2, gain: 0.2 },
 		{ band: 3, gain: 0.3 }, { band: 4, gain: 0.4 }, { band: 5, gain: 0.5 },
@@ -132,7 +128,6 @@ export const filters = {
 		{ band: 12, gain: 0.0 }, { band: 13, gain: 0.1 }
 	],
 
-	// === AUDIO ENHANCEMENT FILTERS ===
 	"boost": [
 		{ band: 0, gain: 0.2 }, { band: 1, gain: 0.3 }, { band: 2, gain: 0.4 },
 		{ band: 3, gain: 0.5 }, { band: 4, gain: 0.6 }, { band: 5, gain: 0.5 },
@@ -157,7 +152,6 @@ export const filters = {
 		{ band: 12, gain: 0.0 }, { band: 13, gain: 0.0 }
 	],
 
-	// === EXPERIMENTAL FILTERS ===
 	"warm": [
 		{ band: 0, gain: 0.4 }, { band: 1, gain: 0.3 }, { band: 2, gain: 0.2 },
 		{ band: 3, gain: 0.3 }, { band: 4, gain: 0.4 }, { band: 5, gain: 0.2 },
@@ -190,7 +184,6 @@ export const filters = {
 		return Object.keys(this).filter(key => typeof (this as Record<string, any>)[key] !== 'function');
 	},
 
-	
 	getGenreFilters() {
 		return ['pop', 'rock', 'electronic', 'jazz', 'classical', 'hiphop', 'reggae'];
 	},
@@ -213,3 +206,5 @@ export const filters = {
 };
 
 export default filters;
+
+// Made by Nikhil Under CodeX Devs

@@ -113,7 +113,6 @@ export class Command {
         this.examples = options.examples || [];
         this.maintenance = options.maintenance || false;
 
-        // Clean access object
         this.access = {
             ownerOnly: options.access?.ownerOnly ?? options.ownerOnly ?? false,
             permissions: options.access?.permissions || options.userPermissions || options.permissions || [],
@@ -125,7 +124,6 @@ export class Command {
             playing: options.access?.playing ?? options.playingRequired ?? false
         };
 
-        // Slash configuration
         this.slash = {
             enabled: options.slash?.enabled ?? options.enabledSlash ?? false,
             data: options.slash?.data || options.slashData || null,
@@ -172,3 +170,5 @@ export class Command {
         console.error(`[Command Error - ${this.name}]`, error);
     }
 }
+
+// Made by Nikhil Under CodeX Devs

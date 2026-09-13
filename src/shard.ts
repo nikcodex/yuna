@@ -20,7 +20,7 @@ manager.extend(
 
 manager.on('clusterCreate', (cluster: any) => {
 	logger.info('ClusterManager', `Launched Cluster ${cluster.id} [${cluster.shardList.join(', ')}]`);
-	
+
 	cluster.on('ready', () => logger.success('ClusterManager', `Cluster ${cluster.id} Ready`));
 	cluster.on('reconnecting', () => logger.warn('ClusterManager', `Cluster ${cluster.id} Reconnecting...`));
 	cluster.on('death', (p: any, code: any) => logger.error('ClusterManager', `Cluster ${cluster.id} Died with exit code ${code}. Respawning...`, undefined));
@@ -37,10 +37,11 @@ const shutdown = () => {
 	shuttingDown = true;
 	logger.info('ClusterManager', 'Shutting down all clusters...');
 
-	// Ask each cluster to terminate gracefully, then fall back to a hard exit.
 	for (const [, cluster] of manager.clusters as any) {
 		if (typeof cluster?.kill === 'function') {
 			try {
+				(cluster as any).respawn = false;
+				(manager as any).options.respawn = false;
 				cluster.kill();
 			} catch (err) {
 				logger.error('ClusterManager', `Failed to kill cluster ${cluster.id}:`, err);
@@ -48,8 +49,6 @@ const shutdown = () => {
 		}
 	}
 
-	// Clusters' own SIGINT/SIGTERM handlers clean up (db flush, player destroy).
-	// Give them 5s before hard-exiting the manager.
 	setTimeout(() => {
 		logger.warn('ClusterManager', 'Graceful shutdown deadline reached. Forcing exit.');
 		process.exit(0);
@@ -63,3 +62,5 @@ manager
 	.spawn({ timeout: -1 })
 	.then(() => logger.info('ClusterManager', 'All clusters are being launched.'))
 	.catch((error: any) => logger.error('ClusterManager', 'Error during spawn:', error));
+
+// Made by Nikhil Under CodeX Devs

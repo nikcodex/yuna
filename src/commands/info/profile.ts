@@ -35,8 +35,7 @@ class ProfileCommand extends Command {
 
   async _sendProfile(user: any, context: any) {
     const userId = user.id;
-    
-    // Fetch user data
+
     const coins = db.economy ? db.economy.getCoins(userId) : 0;
     const premium = db.premium ? db.premium.isUserPremium(userId) : null;
     let stats = { total_tracks_played: 0, total_listen_time_ms: 0 };
@@ -85,3 +84,5 @@ class ProfileCommand extends Command {
 }
 
 export default new ProfileCommand();
+
+// Made by Nikhil Under CodeX Devs

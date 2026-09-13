@@ -132,9 +132,9 @@ class ServerLanguageCommand extends Command {
 				} else if (interaction.customId === "server_lang_confirm") {
 					db.guilds.setLocale(guildId, selectedLocaleCode);
 					const successMsg = i18n.t(selectedLocaleCode, "languageSuccess");
-					
+
 					const successContainer = buildSuccess(successMsg, "Server Language Updated");
-					
+
 					await interaction.update({
 						components: [successContainer],
 						flags: MessageFlags.IsComponentsV2,
@@ -166,3 +166,5 @@ class ServerLanguageCommand extends Command {
 }
 
 export default new ServerLanguageCommand();
+
+// Made by Nikhil Under CodeX Devs

@@ -16,8 +16,6 @@ export const gray = chalk.hex('#6272a4');
 export const white = chalk.hex('#f8f8f2');
 
 class Logger {
-  
-  
 
   public logFilePath: string;
   public errorLogFilePath: string;
@@ -116,3 +114,5 @@ class Logger {
 
 export const logger = new Logger();
 export default logger;
+
+// Made by Nikhil Under CodeX Devs

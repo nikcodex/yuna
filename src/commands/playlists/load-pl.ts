@@ -196,7 +196,7 @@ class LoadPlaylistCommand extends Command {
 			const BATCH_SIZE = 10;
 			for (let i = 0; i < finalTracks.length; i += BATCH_SIZE) {
 				const batch = finalTracks.slice(i, i + BATCH_SIZE);
-				
+
 				const searchResults = await Promise.all(batch.map(async (track: any) => {
 					const searchQuery = track.uri || track.identifier || (track.author ? `${track.title} ${track.author}` : track.title);
 					return client.music.search(searchQuery, { requester: user });
@@ -395,3 +395,5 @@ class LoadPlaylistCommand extends Command {
 }
 
 export default new LoadPlaylistCommand();
+
+// Made by Nikhil Under CodeX Devs

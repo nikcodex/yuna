@@ -125,7 +125,7 @@ class MoveCommand extends Command {
 
   _createSuccessContainer(track: any, fromPos: any, toPos: any, queueLength: any) {
     const content = `Moved [${track.info.title}](${track.info.uri}) from position **${fromPos}** to **${toPos}**.`;
-    const container = buildContainer({ image: undefined, 
+    const container = buildContainer({ image: undefined,
       title: "Track Moved",
       content: content,
       thumbnail: config.assets.defaultThumbnail || config.assets.defaultTrackArtwork,
@@ -333,3 +333,5 @@ class MoveCommand extends Command {
 }
 
 export default new MoveCommand();
+
+// Made by Nikhil Under CodeX Devs

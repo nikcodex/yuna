@@ -18,7 +18,7 @@ export class Middleware {
    * In-memory cooldown storage: Map<string, number>
    */
   static cooldowns = new Map<string, number>();
-  static COOLDOWN_TTL_MS = 5 * 60 * 1000; // 5 minutes max age
+  static COOLDOWN_TTL_MS = 5 * 60 * 1000;
 
   /**
    * Runs the centralized execution pipeline.
@@ -31,7 +31,6 @@ export class Middleware {
     const userId = user.id;
     const guildId = guild?.id;
 
-    // 1. Blacklist check (guild + user)
     if (isBlacklisted(userId, guildId)) {
       return {
         pass: false,
@@ -43,7 +42,6 @@ export class Middleware {
       };
     }
 
-    // 2. Maintenance mode
     if (command.maintenance && !isOwner(userId)) {
       return {
         pass: false,
@@ -55,7 +53,6 @@ export class Middleware {
       };
     }
 
-    // 3. Cooldown check (in-memory)
     const cooldownTime = this.checkCooldown(userId, command);
     if (cooldownTime > 0) {
       return {
@@ -68,7 +65,6 @@ export class Middleware {
       };
     }
 
-    // 4. Owner-only check
     if (command.access?.ownerOnly && !isOwner(userId)) {
       return {
         pass: false,
@@ -80,7 +76,6 @@ export class Middleware {
       };
     }
 
-    // 5. User permissions check
     if (command.access?.permissions?.length > 0) {
       if (!checkPermissions(member, command.access.permissions)) {
         return {
@@ -94,7 +89,6 @@ export class Middleware {
       }
     }
 
-    // 6. Bot permissions check
     if (command.access?.botPermissions?.length > 0) {
       const missing = checkBotPermissions(guild, command.access.botPermissions, channel);
       if (missing.length > 0) {
@@ -109,7 +103,6 @@ export class Middleware {
       }
     }
 
-    // 7. Premium check (user/guild/any)
     if (command.access?.premium) {
       if (!isPremium(userId, guildId, command.access.premium)) {
         return {
@@ -123,7 +116,6 @@ export class Middleware {
       }
     }
 
-    // 8. Voice channel required
     if (command.access?.voice && !member?.voice?.channel) {
       return {
         pass: false,
@@ -135,7 +127,6 @@ export class Middleware {
       };
     }
 
-    // 9. Same voice channel required
     if (command.access?.sameVoice && guild?.members?.me?.voice?.channel) {
       if (member?.voice?.channelId !== guild.members.me.voice.channelId) {
         return {
@@ -149,7 +140,6 @@ export class Middleware {
       }
     }
 
-    // 10 & 11. Player and Playing required
     if (command.access?.player || command.access?.playing) {
       const player = client.music?.getPlayer(guildId as string);
 
@@ -176,7 +166,6 @@ export class Middleware {
       }
     }
 
-    // Success - record cooldown
     this.setCooldown(userId, command);
 
     return { pass: true };
@@ -209,7 +198,7 @@ export class Middleware {
     if (!command.cooldown) return;
     const key = `${userId}-${command.name}`;
     this.cooldowns.set(key, Date.now());
-    // Evict stale entries periodically
+
     if (this.cooldowns.size > 10000) {
       const now = Date.now();
       for (const [k, v] of this.cooldowns.entries()) {
@@ -220,3 +209,5 @@ export class Middleware {
 }
 
 export default Middleware;
+
+// Made by Nikhil Under CodeX Devs

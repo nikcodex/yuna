@@ -69,7 +69,7 @@ class ClearCommand extends Command {
   _createSuccessContainer(pm: any, size: any) {
     const content = `Cleared **${size}** tracks from the queue.`;
     const current = pm.player?.queue?.current;
-    return buildContainer({ image: undefined, 
+    return buildContainer({ image: undefined,
       title: "Queue Cleared",
       content: content,
       thumbnail: current?.info?.artworkUrl || config.assets.defaultTrackArtwork,
@@ -100,3 +100,5 @@ class ClearCommand extends Command {
 }
 
 export default new ClearCommand();
+
+// Made by Nikhil Under CodeX Devs

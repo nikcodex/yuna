@@ -115,7 +115,7 @@ class LoopCommand extends Command {
   }
 
   _createDirectModeContainer(pm: any, mode: any, modeText: any) {
-    const container = buildContainer({ image: undefined, 
+    const container = buildContainer({ image: undefined,
       title: modeText,
       content: `${emoji.get('info')} **${phrases.get('loopMode')}**`,
       thumbnail: config.assets.defaultThumbnail || config.assets.defaultTrackArtwork,
@@ -172,7 +172,7 @@ class LoopCommand extends Command {
         .setStyle(ButtonStyle.Secondary)
     );
 
-    return buildContainer({ image: undefined, 
+    return buildContainer({ image: undefined,
       title: "Loop Settings",
       content,
       thumbnail: artworkUrl,
@@ -197,7 +197,7 @@ class LoopCommand extends Command {
         .setEmoji(emoji.get("reset") || "↩️")
     );
 
-    return buildContainer({ image: undefined, 
+    return buildContainer({ image: undefined,
       title: "Loop Help",
       content,
       components: [buttons],
@@ -317,3 +317,5 @@ class LoopCommand extends Command {
 }
 
 export default new LoopCommand();
+
+// Made by Nikhil Under CodeX Devs

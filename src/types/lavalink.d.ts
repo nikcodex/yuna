@@ -18,3 +18,5 @@ declare module "lavalink-client" {
     bot?: boolean;
   }
 }
+
+// Made by Nikhil Under CodeX Devs

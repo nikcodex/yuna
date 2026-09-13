@@ -108,3 +108,5 @@ class AutoplayCommand extends Command {
 }
 
 export default new AutoplayCommand();
+
+// Made by Nikhil Under CodeX Devs

@@ -3,7 +3,6 @@ import { db } from '#database/Database';
 import { TTLCache } from '#utils/cache';
 import { GuildMember, Guild, GuildChannel } from 'discord.js';
 
-// Cache premium status for 60 seconds
 const premiumCache = new TTLCache(60000, 1000);
 
 /**
@@ -20,14 +19,14 @@ export function checkPermissions(member: GuildMember | null, requiredPerms: bigi
  */
 export function checkBotPermissions(guild: Guild | null, requiredPerms: bigint[], channel: GuildChannel | null = null): string[] {
     if (!guild || !requiredPerms || requiredPerms.length === 0) return [];
-    
+
     const botMember = guild.members.me;
     if (!botMember) return [];
 
     const perms = channel ? botMember.permissionsIn(channel.id) : botMember.permissions;
     return requiredPerms
         .filter(perm => !perms.has(perm))
-        .map(perm => perm.toString()); // Could map to permission names if needed
+        .map(perm => perm.toString());
 }
 
 /**
@@ -38,9 +37,9 @@ export function isPremium(userId: string, guildId?: string | null, type: 'user' 
     if (premiumCache.has(cacheKey)) {
         return premiumCache.get(cacheKey) as boolean;
     }
-    
+
     let result = false;
-    
+
     switch (type) {
         case 'user':
             result = !!db.isUserPremium?.(userId);
@@ -50,7 +49,7 @@ export function isPremium(userId: string, guildId?: string | null, type: 'user' 
             break;
         case 'any':
         default:
-            result = !!db.hasAnyPremium(userId, guildId ?? '');
+            result = !!db.hasAnyPremium?.(userId, guildId ?? '');
             break;
     }
 
@@ -73,3 +72,5 @@ export function isBlacklisted(userId: string, guildId?: string | null): boolean 
     const guildBl = guildId ? db.isGuildBlacklisted?.(guildId) : false;
     return !!(userBl || guildBl);
 }
+
+// Made by Nikhil Under CodeX Devs

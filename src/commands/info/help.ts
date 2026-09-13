@@ -107,7 +107,7 @@ class HelpCommand extends Command {
     }
   }
 
-  async _scanCategoryDirectory(categoryPath: any, categoryName: any, commands: any, categories: any, subcategories: any, 
+  async _scanCategoryDirectory(categoryPath: any, categoryName: any, commands: any, categories: any, subcategories: any,
   ) {
     try {
       const items = fs.readdirSync(categoryPath, { withFileTypes: true });
@@ -1017,7 +1017,7 @@ class HelpCommand extends Command {
     }
   }
 
-  async _sendCommandHelp(messageOrInteraction: any, command: any, type: any, client: Client, commands: any, categories: any, subcategories: any, 
+  async _sendCommandHelp(messageOrInteraction: any, command: any, type: any, client: Client, commands: any, categories: any, subcategories: any,
   ) {
     try {
       const payload = await this._createCommandContainer(command, command.category);
@@ -1055,7 +1055,7 @@ class HelpCommand extends Command {
     }
   }
 
-  _setupCollector(message: Message, userId: any, client: Client, commands: any, categories: any, subcategories: any, 
+  _setupCollector(message: Message, userId: any, client: Client, commands: any, categories: any, subcategories: any,
   ) {
     try {
       let currentCategoryIndex = -1;
@@ -1482,3 +1482,5 @@ class HelpCommand extends Command {
 }
 
 export default new HelpCommand();
+
+// Made by Nikhil Under CodeX Devs

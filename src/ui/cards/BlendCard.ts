@@ -22,7 +22,6 @@ export class BlendCard {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext('2d');
 
-    // Background Gradient (Spotify Blend aesthetic - Deep Purple / Cyan mix)
     const bgGradient = ctx.createLinearGradient(0, 0, width, height);
     bgGradient.addColorStop(0, '#0d0d14');
     bgGradient.addColorStop(0.3, '#1c1335');
@@ -31,7 +30,6 @@ export class BlendCard {
     ctx.fillStyle = bgGradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Decorative Glowing Orbs
     ctx.save();
     ctx.filter = 'blur(60px)';
     ctx.fillStyle = 'rgba(235, 77, 140, 0.25)';
@@ -45,7 +43,6 @@ export class BlendCard {
     ctx.fill();
     ctx.restore();
 
-    // Header Title
     ctx.font = '32px: "Righteous", sans-serif';
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
@@ -55,7 +52,6 @@ export class BlendCard {
     ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
     ctx.fillText('MUSIC COMPATIBILITY ANALYSIS', width / 2, 82);
 
-    // Load User Avatars
     const avatarAUrl = userA.displayAvatarURL?.({ extension: 'png', size: 256 }) || userA.avatarURL || 'https://cdn.discordapp.com/embed/avatars/0.png';
     const avatarBUrl = userB.displayAvatarURL?.({ extension: 'png', size: 256 }) || userB.avatarURL || 'https://cdn.discordapp.com/embed/avatars/1.png';
 
@@ -65,7 +61,6 @@ export class BlendCard {
         loadImage(avatarBUrl).catch(() => null)
       ]);
 
-      // Draw Avatar A (Left)
       const drawAvatar = (img: any, x: any, y: any, radius: any, borderColor: any) => {
         ctx.save();
         ctx.beginPath();
@@ -89,7 +84,6 @@ export class BlendCard {
       drawAvatar(imgB, 650, 200, 65, '#1ed760');
     } catch (_) {}
 
-    // User Names
     ctx.font = '20px: "Righteous", sans-serif';
     ctx.fillStyle = '#ffffff';
     ctx.textAlign = 'center';
@@ -98,7 +92,6 @@ export class BlendCard {
     ctx.fillText(nameA.length > 14 ? nameA.slice(0, 12) + '..' : nameA, 250, 295);
     ctx.fillText(nameB.length > 14 ? nameB.slice(0, 12) + '..' : nameB, 650, 295);
 
-    // Center Compatibility Badge (Score Circle)
     ctx.save();
     ctx.beginPath();
     ctx.arc(width / 2, 200, 60, 0, Math.PI * 2);
@@ -122,7 +115,6 @@ export class BlendCard {
     ctx.fillText('MATCH', width / 2, 225);
     ctx.restore();
 
-    // Bottom Track Highlights Card
     ctx.save();
     ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
     ctx.roundRect(80, 335, 740, 110, 12);
@@ -155,3 +147,5 @@ export class BlendCard {
 }
 
 export default BlendCard;
+
+// Made by Nikhil Under CodeX Devs

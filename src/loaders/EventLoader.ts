@@ -35,7 +35,6 @@ export class EventLoader {
     this.emitterCounts = { client: 0, player: 0, node: 0 };
     this.failedEvents = [];
 
-    // Remove previously registered listeners so a reload doesn't stack duplicates.
     for (const { emitter, eventName, execute } of this.registeredEvents) {
       try {
         emitter.removeListener(eventName, execute);
@@ -116,7 +115,7 @@ export class EventLoader {
   async loadEventFile(filePath: string, emitter: any, rootType: string) {
     const relName = path.relative(process.cwd(), filePath);
     try {
-      const module = await import(`file://${filePath}?t=${Date.now()}`);
+      const module = await import(`file:
       if (!module?.default) {
         this.failedEvents.push({ file: relName, error: 'Missing default export' });
         return;
@@ -128,12 +127,11 @@ export class EventLoader {
 
       const execute = async (...args: any[]) => {
         try {
-          // player/node events come from lavalink emitters; handlers expect the
-          // LavalinkManager as second-to-last arg, followed by the client.
+
           if (rootType === 'player' || rootType === 'node') {
-            await event.execute(...args, this.client.lavalink, this.client);
+            await event.execute(this.client, ...args, this.client.lavalink);
           } else {
-            await event.execute(...args, this.client);
+            await event.execute(this.client, ...args);
           }
         } catch (error) {
           logger.error('EventLoader', `Error executing event ${eventName}:`, error);
@@ -159,3 +157,5 @@ export class EventLoader {
 }
 
 export default EventLoader;
+
+// Made by Nikhil Under CodeX Devs

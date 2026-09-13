@@ -51,7 +51,7 @@ class ShowLikedCommand extends Command {
       content += `\n*...and ${tracks.length - 20} more tracks*`;
     }
 
-    const container = buildContainer({ image: undefined, 
+    const container = buildContainer({ image: undefined,
       title: `❤️ **${user.username}'s Liked Songs**`,
       content: content,
       thumbnail: user.displayAvatarURL({ dynamic: true }),
@@ -74,3 +74,5 @@ class ShowLikedCommand extends Command {
 }
 
 export default new ShowLikedCommand();
+
+// Made by Nikhil Under CodeX Devs

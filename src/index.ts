@@ -7,9 +7,6 @@ const client = new YunaClient();
 const main = async () => {
 	try {
 		await client.init();
-		ErrorHandler.register(async () => {
-			await client.destroy();
-		});
 		logger.success('Main', 'Discord bot initialized successfully');
 	} catch (error: any) {
 		logger.error('Main', 'Failed to initialize Discord bot', error);
@@ -20,3 +17,5 @@ const main = async () => {
 main();
 
 export default client;
+
+// Made by Nikhil Under CodeX Devs

@@ -31,7 +31,7 @@ export class StatsRepo {
     `);
     this._getStats = this.db.prepare('SELECT * FROM user_stats WHERE user_id = ?');
     this._updateStreak = this.db.prepare(`
-      UPDATE user_stats SET 
+      UPDATE user_stats SET
         current_streak = ?,
         longest_streak = MAX(longest_streak, ?),
         last_listen_date = ?,
@@ -56,7 +56,7 @@ export class StatsRepo {
     `);
     this._recentPlays = this.db.prepare('SELECT * FROM track_plays WHERE user_id = ? ORDER BY played_at DESC LIMIT ?');
     this._periodStats = this.db.prepare(`
-      SELECT 
+      SELECT
         COUNT(*) as tracks_played,
         COUNT(DISTINCT track_author) as unique_artists,
         COUNT(DISTINCT track_identifier) as unique_tracks,
@@ -64,7 +64,7 @@ export class StatsRepo {
       FROM track_plays WHERE user_id = ? AND played_at >= ?
     `);
     this._globalTopListeners = this.db.prepare(`
-      SELECT user_id, total_tracks_played, total_listen_time_ms 
+      SELECT user_id, total_tracks_played, total_listen_time_ms
       FROM user_stats ORDER BY total_tracks_played DESC LIMIT ?
     `);
   }
@@ -202,8 +202,7 @@ export class StatsRepo {
 
   static getSinceDate(period = 'all') {
     const now = new Date();
-    // SQLite CURRENT_TIMESTAMP format: 'YYYY-MM-DD HH:MM:SS' (no T/Z).
-    // Comparing against ISO strings misorders the boundary day ('T' > ' ').
+
     const sqliteTimestamp = (d: Date) =>
       d.toISOString().slice(0, 19).replace('T', ' ');
     switch (period) {
@@ -251,3 +250,5 @@ export class StatsRepo {
     return `${minutes}m`;
   }
 }
+
+// Made by Nikhil Under CodeX Devs

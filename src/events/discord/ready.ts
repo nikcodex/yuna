@@ -17,7 +17,6 @@ export default {
     intervals.push(setInterval(() => db.backup(), 30 * 60 * 1000));
     intervals.push(setInterval(() => db.checkpoint(), 15 * 60 * 1000));
 
-    // Store interval IDs for cleanup on disconnect
     client._intervals = intervals;
 
     const { user, guilds } = client;
@@ -50,13 +49,12 @@ export default {
     setInterval(updateStatus, 10 * 60 * 1000);
     user.setStatus(config.status.status || "dnd");
 
-    // Auto-register slash commands on startup
     try {
       logger.info("Bot", "Checking and registering slash commands...");
       const { REST, Routes } = await import('discord.js');
       const slashCommandsData = client.commandHandler.getSlashCommandsData();
       if (slashCommandsData && slashCommandsData.length > 0) {
-        // Run slash command sync asynchronously so it never blocks bot initialization
+
         (async () => {
           try {
             const rest = new REST({ version: '10', timeout: 15000 }).setToken(config.token!);
@@ -142,7 +140,6 @@ async function initialize247Mode(client: any) {
     await Promise.all(connectionPromises);
     logger.success("247Mode", "24/7 mode initialization completed");
 
-    // Restore active player sessions saved before restart/crash
     const activeSessions = db.guild.getAllActiveSessions();
     if (activeSessions && activeSessions.length > 0) {
       logger.info("SessionRestorer", `Restoring ${activeSessions.length} active player sessions...`);
@@ -251,8 +248,8 @@ async function connect247Guild(client: any, guildData: any) {
       return;
     }
 
-    const botMember = guild.members.cache.get(client.user.id);
-    if (!voiceChannel.permissionsFor(botMember).has(["Connect", "Speak"])) {
+    const botMemberId = client.user.id;
+    if (!voiceChannel.permissionsFor(botMemberId).has(["Connect", "Speak"])) {
       logger.warn(
         "247Mode",
         `Missing permissions for voice channel ${voiceChannel.name} in guild ${guild.name}`,
@@ -273,8 +270,7 @@ async function connect247Guild(client: any, guildData: any) {
       selfDeaf: true,
       volume: db.guild.getDefaultVolume(guild.id),
     });
-    
-    
+
     player.set("247Mode", true);
     player.set("247VoiceChannel", voiceChannel.id);
     player.set("247TextChannel", textChannel.id);
@@ -395,3 +391,5 @@ async function checkSingle247Connection(client: any, guildData: any) {
     }
   }
 }
+
+// Made by Nikhil Under CodeX Devs

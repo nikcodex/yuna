@@ -32,7 +32,7 @@ export class GuildRepo {
     this._getAllBlacklisted = this.db.prepare('SELECT * FROM guilds WHERE blacklisted = 1');
     this._get247Guilds = this.db.prepare('SELECT * FROM guilds WHERE stay_247 = 1 AND stay_247_voice_channel IS NOT NULL');
     this._getValid247Guilds = this.db.prepare("SELECT * FROM guilds WHERE stay_247 = 1 AND stay_247_voice_channel IS NOT NULL AND stay_247_voice_channel != ''");
-    
+
     this._saveSession = this.db.prepare(`
       INSERT INTO active_sessions (guild_id, voice_channel_id, text_channel_id, current_track, queue_tracks, position)
       VALUES (?, ?, ?, ?, ?, ?)
@@ -272,3 +272,5 @@ export class GuildRepo {
     this._updateLocale.run(locale, guildId);
   }
 }
+
+// Made by Nikhil Under CodeX Devs

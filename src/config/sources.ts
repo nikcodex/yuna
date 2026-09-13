@@ -1,6 +1,6 @@
 /**
  * Yuna Centralized Music Source Configuration
- * 
+ *
  * Change default search provider, fallback priority, and autoplay recommendations in ONE single place!
  */
 
@@ -73,3 +73,5 @@ export default {
     return this.FALLBACK_SOURCES;
   }
 };
+
+// Made by Nikhil Under CodeX Devs

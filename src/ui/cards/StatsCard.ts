@@ -7,7 +7,6 @@ const CARD_HEIGHT = 560;
 
 let fontsRegisteredGlobally = false;
 
-// Pure Decent Yuna Theme Tokens (NO GLOW, NO YELLOW)
 const YUNA_THEME = {
   bg: '#070811',
   panelBg: 'rgba(13, 16, 26, 0.90)',
@@ -92,7 +91,6 @@ export default class StatsCard {
     ctx.restore();
   }
 
-  // Decent Background Micro-Dot Geometric Pattern (NO GLOW)
   drawBackgroundPattern(ctx: any, width: number, height: number) {
     ctx.save();
     const spacing = 28;
@@ -107,7 +105,6 @@ export default class StatsCard {
     ctx.restore();
   }
 
-  // Decent Background Particles Layer (NO GLOW)
   drawBackgroundStardust(ctx: any, width: number, height: number) {
     ctx.save();
     const dots = [
@@ -132,7 +129,6 @@ export default class StatsCard {
     ctx.restore();
   }
 
-  // Floating Sakura Petals (NO GLOW)
   drawFloatingPetalDrift(ctx: any, width: number, height: number) {
     ctx.save();
     const petals = [
@@ -152,10 +148,9 @@ export default class StatsCard {
     ctx.restore();
   }
 
-  // Botanical Corner Branch Lines (NO GLOW)
   drawBotanicalCornerVines(ctx: any, width: number, height: number) {
     ctx.save();
-    // Top-Left corner botanical branch curve
+
     ctx.beginPath();
     ctx.moveTo(0, 150);
     ctx.bezierCurveTo(75, 115, 115, 55, 150, 0);
@@ -166,7 +161,6 @@ export default class StatsCard {
     this.drawLeaf(ctx, 55, 105, 7, -Math.PI / 4, 'rgba(255, 192, 203, 0.22)');
     this.drawLeaf(ctx, 105, 55, 8, Math.PI / 3, 'rgba(255, 192, 203, 0.22)');
 
-    // Bottom-Right corner botanical branch curve
     ctx.beginPath();
     ctx.moveTo(width, height - 140);
     ctx.bezierCurveTo(width - 85, height - 105, width - 125, height - 55, width - 160, height);
@@ -212,25 +206,21 @@ export default class StatsCard {
       avatarImg = await loadImage(avatarUrl);
     } catch (e) {}
 
-    // 1. Midnight Dark Base Background (NO GLOW AT ALL)
     ctx.fillStyle = YUNA_THEME.bg;
     ctx.fillRect(0, 0, CARD_WIDTH, CARD_HEIGHT);
 
-    // Background Micro-Dot Pattern & Particles (NO Radial Gradient Glow)
     this.drawBackgroundPattern(ctx, CARD_WIDTH, CARD_HEIGHT);
     this.drawBackgroundStardust(ctx, CARD_WIDTH, CARD_HEIGHT);
     this.drawFloatingPetalDrift(ctx, CARD_WIDTH, CARD_HEIGHT);
     this.drawBotanicalCornerVines(ctx, CARD_WIDTH, CARD_HEIGHT);
 
-    // Ambient Sakura Flowers
     this.drawSakuraFlower(ctx, CARD_WIDTH - 60, 45, 14);
     this.drawSakuraFlower(ctx, CARD_WIDTH - 120, CARD_HEIGHT - 45, 10);
     this.drawSakuraFlower(ctx, 40, CARD_HEIGHT - 35, 12);
 
-    // 2. Main Frosted Glass Panel Container
     const px = 20, py = 20;
     const pw = CARD_WIDTH - 40, ph = CARD_HEIGHT - 40;
-    
+
     ctx.save();
     this.roundRect(ctx, px, py, pw, ph, 24);
     ctx.fillStyle = YUNA_THEME.panelBg;
@@ -244,7 +234,6 @@ export default class StatsCard {
     ctx.fill();
     ctx.restore();
 
-    // Clean Glass Border (NO GLOW, Sharp Matte Gradient)
     ctx.save();
     this.roundRect(ctx, px, py, pw, ph, 24);
     const borderGrad = ctx.createLinearGradient(px, py, px + pw, py + ph);
@@ -256,10 +245,8 @@ export default class StatsCard {
     ctx.stroke();
     ctx.restore();
 
-    // === HEADER SECTION ===
     const headerY = 46;
 
-    // User Avatar
     if (avatarImg) {
       ctx.save();
       ctx.beginPath();
@@ -277,19 +264,16 @@ export default class StatsCard {
       ctx.restore();
     }
 
-    // Username (Righteous Font)
     ctx.font = '22px "Righteous"';
     ctx.fillStyle = YUNA_THEME.textPrimary;
     ctx.textAlign = 'left';
     ctx.fillText(user.displayName || user.username, 122, headerY + 24);
 
-    // Period Label Badge (Righteous Font)
     const periodLabels = { all: 'ALL TIME', week: 'THIS WEEK', month: 'THIS MONTH', year: 'THIS YEAR', today: 'TODAY' };
     ctx.font = '12px "Righteous"';
     ctx.fillStyle = YUNA_THEME.textSecondary;
     ctx.fillText(`LISTENING PROFILE · ${(periodLabels as any)[report.periodLabel] || 'ALL TIME'}`, 122, headerY + 50);
 
-    // Top-Right Signature Calligraphic "Yuna 🌸" Logo (Great Vibes Font)
     ctx.save();
     this.drawSakuraFlower(ctx, CARD_WIDTH - px - 28, headerY + 20, 14);
 
@@ -305,11 +289,10 @@ export default class StatsCard {
     ctx.fillText('Yuna', CARD_WIDTH - px - 48, headerY + 20);
     ctx.restore();
 
-    // === 4 METRIC CARDS ===
     const statsY = headerY + 84;
     const stats = report.aggregate || {};
     const period = report.period || {};
-    
+
     const statItems = [
       { label: 'TRACKS PLAYED', value: (period.tracks_played || stats.total_tracks_played || 0).toLocaleString(), color: YUNA_THEME.sakuraMain, bg: 'rgba(255, 105, 180, 0.05)' },
       { label: 'LISTEN TIME', value: this.formatTime(period.total_duration_ms || stats.total_listen_time_ms || 0), color: YUNA_THEME.roseLight, bg: 'rgba(255, 182, 193, 0.05)' },
@@ -321,7 +304,7 @@ export default class StatsCard {
 
     statItems.forEach((item, i) => {
       const sx = px + 16 + i * (statBoxW + 6);
-      
+
       ctx.save();
       this.roundRect(ctx, sx, statsY, statBoxW - 2, 72, 14);
       ctx.fillStyle = item.bg;
@@ -331,23 +314,19 @@ export default class StatsCard {
       ctx.lineWidth = 1;
       ctx.stroke();
 
-      // Label (Righteous Font)
       ctx.font = '11px "Righteous"';
       ctx.fillStyle = YUNA_THEME.textSecondary;
       ctx.textAlign = 'left';
       ctx.fillText(item.label, sx + 14, statsY + 24);
 
-      // Value (Righteous Font)
       ctx.font = '22px "Righteous"';
       ctx.fillStyle = item.color;
       ctx.fillText(item.value, sx + 14, statsY + 54);
       ctx.restore();
     });
 
-    // === DUAL TOP 5 COLUMNS ===
     const listY = statsY + 96;
 
-    // --- TOP ARTISTS (LEFT) ---
     ctx.font = '14px "Righteous"';
     ctx.fillStyle = YUNA_THEME.sakuraMain;
     ctx.textAlign = 'left';
@@ -393,20 +372,17 @@ export default class StatsCard {
       ctx.fillText(`${i + 1}`, px + 36, ay + 15);
       ctx.restore();
 
-      // Artist Name (Righteous Font)
       ctx.font = '13px "Righteous"';
       ctx.fillStyle = YUNA_THEME.textPrimary;
       ctx.textAlign = 'left';
       const artistName = this.truncate(ctx, artist.artist, 180, '13px "Righteous"');
       ctx.fillText(artistName, px + 56, ay + 15);
 
-      // Play Count (Righteous Font)
       ctx.font = '11px "Righteous"';
       ctx.fillStyle = YUNA_THEME.textSecondary;
       ctx.textAlign = 'right';
       ctx.fillText(`${artist.play_count} PLAYS`, px + 56 + barMaxW, ay + 15);
 
-      // Progress Bar (Sakura Pink to Soft Rose)
       ctx.save();
       this.roundRect(ctx, px + 56, ay + 23, barMaxW, 5, 2.5);
       ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
@@ -427,7 +403,6 @@ export default class StatsCard {
       ctx.fillText('NO DATA YET — START LISTENING!', px + 56, listY + 40);
     }
 
-    // --- TOP TRACKS (RIGHT) ---
     const rightColX = px + 410;
     ctx.font = '14px "Righteous"';
     ctx.fillStyle = YUNA_THEME.roseLight;
@@ -474,20 +449,17 @@ export default class StatsCard {
       ctx.fillText(`${i + 1}`, rightColX + 12, ty + 15);
       ctx.restore();
 
-      // Track Title (Righteous Font)
       ctx.font = '13px "Righteous"';
       ctx.fillStyle = YUNA_THEME.textPrimary;
       ctx.textAlign = 'left';
       const trackTitle = this.truncate(ctx, track.title, 170, '13px "Righteous"');
       ctx.fillText(trackTitle, rightColX + 32, ty + 15);
 
-      // Play Count (Righteous Font)
       ctx.font = '11px "Righteous"';
       ctx.fillStyle = YUNA_THEME.textSecondary;
       ctx.textAlign = 'right';
       ctx.fillText(`${track.play_count}×`, rightColX + 32 + barMaxW, ty + 15);
 
-      // Progress Bar (Rose Light to Rose Soft)
       ctx.save();
       this.roundRect(ctx, rightColX + 32, ty + 23, barMaxW, 5, 2.5);
       ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
@@ -508,7 +480,6 @@ export default class StatsCard {
       ctx.fillText('NO DATA YET — START LISTENING!', rightColX + 32, listY + 40);
     }
 
-    // === FOOTER (RIGHTEOUS FONT) ===
     ctx.font = '12px "Righteous"';
     ctx.fillStyle = YUNA_THEME.textMuted;
     ctx.textAlign = 'center';
@@ -517,3 +488,5 @@ export default class StatsCard {
     return canvas.toBuffer('image/png');
   }
 }
+
+// Made by Nikhil Under CodeX Devs

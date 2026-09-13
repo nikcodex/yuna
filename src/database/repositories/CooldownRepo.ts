@@ -27,7 +27,9 @@ export class CooldownRepo {
       VALUES (?, ?, ?, ?, 0, '[]', ?)
       ON CONFLICT(key) DO UPDATE SET
         last_used = excluded.last_used,
-        expires_at = excluded.expires_at
+        expires_at = excluded.expires_at,
+        violation_count = 0,
+        violation_timestamps = '[]'
     `);
     this._deleteExpired = this.db.prepare(`
       DELETE FROM command_cooldowns WHERE expires_at < ?
@@ -97,8 +99,7 @@ export class CooldownRepo {
       : [];
     recent.push(now);
     if (!row) {
-      // Row absent (expired+purged or cross-process purge): insert a fresh one
-      // so the violation is still recorded instead of crashing on a missing row.
+
       this._upsertViolation.run(key, userId, commandName, now, JSON.stringify(recent), now + windowMs);
     } else {
       this._incrementViolation.run(JSON.stringify(recent), key);
@@ -115,3 +116,5 @@ export class CooldownRepo {
     this._deleteExpired.run(Date.now());
   }
 }
+
+// Made by Nikhil Under CodeX Devs

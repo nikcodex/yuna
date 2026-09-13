@@ -20,18 +20,16 @@ export default {
       const title = track?.info?.title;
       const author = track?.info?.author;
 
-      // Automatic Fallback System: If YouTube breaks, search SoundCloud for an alternative stream!
       if (title && client?.music) {
         try {
           const query = `scsearch:${author ? `${author} ` : ''}${title}`;
           logger.info('TrackException', `Attempting SoundCloud fallback for "${query}" in guild ${player.guildId}`);
-          
+
           const fallbackRes = await client.music.search(query);
           if (fallbackRes?.tracks?.length > 0) {
             const fallbackTrack = fallbackRes.tracks[0];
             logger.info('TrackException', `Found SoundCloud fallback stream: "${fallbackTrack.info.title}"`);
-            
-            // Queue and play fallback track
+
             await player.play({ clientTrack: fallbackTrack });
 
             const fallbackNotice = new ContainerBuilder()
@@ -83,3 +81,5 @@ export default {
     }
   }
 };
+
+// Made by Nikhil Under CodeX Devs

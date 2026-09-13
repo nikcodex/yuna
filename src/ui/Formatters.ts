@@ -30,7 +30,7 @@ export function progressBar(current: number, total: number, length: number = 15)
 
   const progressText = '▬'.repeat(progress);
   const emptyProgressText = '▬'.repeat(emptyProgress);
-  
+
   return `${progressText}🔘${emptyProgressText}`;
 }
 
@@ -87,3 +87,5 @@ const Formatters = {
 };
 
 export default Formatters;
+
+// Made by Nikhil Under CodeX Devs

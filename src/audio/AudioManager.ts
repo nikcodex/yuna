@@ -44,8 +44,7 @@ export class AudioManager {
         if (guild?.shard) {
           guild.shard.send(payload);
         } else if (this.client.ws?.shards) {
-          // Compute the shard from the guild ID (discord snowflake: bits 22+)
-          // instead of defaulting to shard 0 for uncached guilds.
+
           const shardCount = this.client.ws.shards.size || 1;
           const shardId = Number((BigInt(guildId) >> 22n) % BigInt(shardCount));
           const shard = this.client.ws.shards.get(shardId) || this.client.ws.shards.first();
@@ -79,17 +78,14 @@ export class AudioManager {
           logger.warn("LavalinkDebug", log.message);
         }
       });
-      
-      // Opt-in deep fetch logging for the Lavalink node (LAVALINK_DEBUG_FETCH=1).
-      // Kept out of the default path so the global fetch pipeline stays untouched;
-      // guarded so re-initialization never stacks multiple wrappers.
+
       if (process.env.LAVALINK_DEBUG_FETCH === '1' && !(globalThis as any).__yunaFetchPatched) {
         (globalThis as any).__yunaFetchPatched = true;
         const origFetch = global.fetch;
         global.fetch = async (url: any, options: any) => {
           if (url.toString().includes('2333')) {
-            logger.info('AudioManager', `FETCH OUTGOING: ${options.method} ${url}`);
-            if (options.body) logger.info('AudioManager', `FETCH BODY: ${options.body}`);
+            logger.info('AudioManager', `FETCH OUTGOING: ${options?.method} ${url}`);
+            if (options?.body) logger.info('AudioManager', `FETCH BODY: ${options?.body}`);
           }
           try {
             const res = await origFetch(url, options);
@@ -220,3 +216,5 @@ export class AudioManager {
 }
 
 export default AudioManager;
+
+// Made by Nikhil Under CodeX Devs

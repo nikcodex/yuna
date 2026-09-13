@@ -16,7 +16,6 @@ export default {
 				guildId: player.guildId,
 			});
 
-			// Clear active update interval and stuck timeouts
 			EventUtils.clearPlayerTimeout(player, "stuckTimeoutId");
 			EventUtils.clearPlayerInterval(player, "updateInterval");
 
@@ -25,7 +24,6 @@ export default {
 			const stuckWarningId = player.get<string | null>("stuckWarningMessageId");
 			const errorMessageId = player.get<string | null>("errorMessageId");
 
-			// Delete Now Playing message immediately when track ends
 			if (messageId && channelId) {
 				await EventUtils.deleteMessage(client, channelId, messageId).catch(() => {});
 			}
@@ -38,7 +36,6 @@ export default {
 				await EventUtils.deleteMessage(client, channelId, errorMessageId).catch(() => {});
 			}
 
-			// Reset all message tracking state on the player
 			player.set("nowPlayingMessageId", null);
 			player.set("nowPlayingChannelId", null);
 			player.set("stuckWarningMessageId", null);
@@ -56,3 +53,5 @@ export default {
 		}
 	},
 };
+
+// Made by Nikhil Under CodeX Devs

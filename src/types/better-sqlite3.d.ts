@@ -61,3 +61,5 @@ declare module 'better-sqlite3' {
 
 	export = Database;
 }
+
+// Made by Nikhil Under CodeX Devs

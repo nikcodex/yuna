@@ -41,21 +41,23 @@ export class QueueManager {
   async bumpToTop(start: number, end: number = start) {
     const { tracks } = this.player.queue;
     if (tracks.length === 0) return { success: false, message: "The queue is empty." };
-    
+
     const startIndex = start - 1;
     const endIndex = end - 1;
-    
-    if (startIndex >= tracks.length || endIndex >= tracks.length || startIndex < 0 || endIndex < 0) {
-      return { success: false, message: "Position out of range." };
+
+    if (startIndex >= tracks.length || endIndex >= tracks.length || startIndex < 0 || endIndex < 0 || startIndex > endIndex) {
+      return { success: false, message: "Position out of range or inverted." };
     }
-    
+
     if (startIndex === 0 && endIndex < tracks.length - 1) {
       return { success: false, message: "Tracks are already at the top." };
     }
-    
+
     const tracksToMove = tracks.slice(startIndex, endIndex + 1);
     for (let i = endIndex; i >= startIndex; i--) tracks.splice(i, 1);
     tracks.unshift(...tracksToMove);
     return { success: true, message: `Moved **${tracksToMove.length}** track(s) to top of queue.` };
   }
 }
+
+// Made by Nikhil Under CodeX Devs

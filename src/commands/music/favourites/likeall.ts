@@ -78,3 +78,5 @@ class LikeAllCommand extends Command {
 }
 
 export default new LikeAllCommand();
+
+// Made by Nikhil Under CodeX Devs

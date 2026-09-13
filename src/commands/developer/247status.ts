@@ -46,7 +46,7 @@ class Status247Command extends Command {
       const player = ctx.client.music?.getPlayer(guildData.id);
       const guild = ctx.client.guilds.cache.get(guildData.id);
       const name = guild ? guild.name : `Unknown (${guildData.id})`;
-      
+
       if (player && player.connected) {
         activeCount++;
         details += `🟢 **${name}**: Connected (Ch: <#${player.voiceChannelId}>)\n`;
@@ -82,3 +82,5 @@ class Status247Command extends Command {
 }
 
 export default new Status247Command();
+
+// Made by Nikhil Under CodeX Devs

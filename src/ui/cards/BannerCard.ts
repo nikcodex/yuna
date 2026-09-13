@@ -64,24 +64,20 @@ class YunaBanner {
     const ctx = canvas.getContext('2d');
     const centerX = width / 2;
 
-    // 1. Midnight Dark Rose Background
     ctx.fillStyle = '#06070E';
     ctx.fillRect(0, 0, width, height);
 
-    // Sakura Pink & Rose Ambient Glows (Centered)
     const bgGlow1 = ctx.createRadialGradient(centerX, 90, 10, centerX, 90, 380);
     bgGlow1.addColorStop(0, 'rgba(255, 105, 180, 0.28)');
     bgGlow1.addColorStop(1, 'rgba(6, 7, 14, 0)');
     ctx.fillStyle = bgGlow1;
     ctx.fillRect(0, 0, width, height);
 
-    // Floating Petals Background Accents
     this.drawSakuraFlower(ctx, 70, 45, 14);
     this.drawSakuraFlower(ctx, 730, 45, 16);
     this.drawSakuraFlower(ctx, 750, 135, 11);
     this.drawSakuraFlower(ctx, 50, 135, 10);
 
-    // 2. Main Glass Card Container
     const pMargin = 12;
     const pWidth = width - pMargin * 2;
     const pHeight = height - pMargin * 2;
@@ -100,7 +96,6 @@ class YunaBanner {
     ctx.fill();
     ctx.restore();
 
-    // Glass Border
     ctx.save();
     this._roundRect(ctx, pMargin, pMargin, pWidth, pHeight, pRadius);
     const borderGrad = ctx.createLinearGradient(pMargin, pMargin, pMargin + pWidth, pMargin + pHeight);
@@ -112,7 +107,6 @@ class YunaBanner {
     ctx.stroke();
     ctx.restore();
 
-    // 3. Calligraphic Banner Title: "Yuna 🌸" (Perfectly Centered)
     ctx.save();
     this.drawSakuraFlower(ctx, centerX - 140, 70, 18);
     this.drawSakuraFlower(ctx, centerX + 140, 70, 18);
@@ -129,7 +123,6 @@ class YunaBanner {
     ctx.fillText('Yuna', centerX, 68);
     ctx.restore();
 
-    // Subtitle (Using Righteous, Perfectly Centered)
     ctx.save();
     ctx.font = '14px "Righteous"';
     ctx.fillStyle = 'rgba(255, 255, 255, 0.78)';
@@ -144,3 +137,5 @@ class YunaBanner {
 
 export { YunaBanner as BannerCard, YunaBanner };
 export default YunaBanner;
+
+// Made by Nikhil Under CodeX Devs

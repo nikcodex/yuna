@@ -49,6 +49,7 @@ export class EconomyRepo {
    * @returns {number|boolean} The new balance, or false if insufficient funds
    */
   removeCoins(userId: string, amount: number) {
+    if (!Number.isInteger(amount) || amount <= 0) throw new Error('Invalid amount');
     let newAmount;
     this.db.transaction(() => {
       const current = this.getCoins(userId);
@@ -106,3 +107,5 @@ export class EconomyRepo {
     return tx(fromUserId, toUserId, amount);
   }
 }
+
+// Made by Nikhil Under CodeX Devs

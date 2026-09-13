@@ -12,7 +12,7 @@ import { formatDuration } from './Formatters';
 
 export function createPlayerControls(options: any = {}) {
   const { mode = 'default' } = options;
-  
+
   if (mode === 'playback') {
     return new ActionRowBuilder().addComponents(
       new ButtonBuilder().setCustomId('yuna:music:rewind10').setLabel('-10s').setStyle(ButtonStyle.Secondary),
@@ -112,7 +112,7 @@ export function createPlayerContainer(mode: any = 'default', options: any = {}) 
     const duration = track.info.duration || 0;
     const position = options.position || 0;
     let progressBar = '';
-    
+
     if (duration > 0 && !track.info.isStream) {
       const length = 15;
       const index = Math.max(0, Math.min(length, Math.round((position / duration) * length)));
@@ -142,3 +142,5 @@ const Components = {
 };
 
 export default Components;
+
+// Made by Nikhil Under CodeX Devs

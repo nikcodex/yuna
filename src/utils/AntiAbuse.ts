@@ -2,8 +2,8 @@ import { logger } from '#utils/logger';
 import { BloomFilter } from './BloomFilter';
 import type { CooldownRepo } from '#database/repositories/CooldownRepo';
 
-const VIOLATION_WINDOW_MS = 60_000; // 1 minute rolling window
-const MAX_VIOLATIONS = 5; // auto-blacklist after 5 violations in the window
+const VIOLATION_WINDOW_MS = 60_000;
+const MAX_VIOLATIONS = 5;
 
 /**
  * Centralized anti-abuse gating for Yuna.
@@ -106,3 +106,5 @@ export class AntiAbuse {
     return false;
   }
 }
+
+// Made by Nikhil Under CodeX Devs

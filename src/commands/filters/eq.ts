@@ -246,3 +246,5 @@ class EqualizerCommand extends Command {
 }
 
 export default new EqualizerCommand();
+
+// Made by Nikhil Under CodeX Devs

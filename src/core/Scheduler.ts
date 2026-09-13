@@ -45,7 +45,7 @@ export class Scheduler {
 
   async init() {
     this.loadState();
-    // Reschedule any past-due jobs to avoid firing all at once on startup
+
     const now = Date.now();
     for (const [, job] of this.jobs.entries()) {
       if (job.nextRun < now) {
@@ -66,9 +66,9 @@ export class Scheduler {
 
   /**
    * Schedule a task to run every interval
-   * @param {string} name 
+   * @param {string} name
    * @param {Object} interval { seconds, minutes, hours }
-   * @param {Function} [taskFunc] 
+   * @param {Function} [taskFunc]
    */
   every(name: string, interval: SchedulerInterval = {}, taskFunc: Function | null = null) {
     if (taskFunc) this.register(name, taskFunc);
@@ -105,14 +105,14 @@ export class Scheduler {
 
   /**
    * Schedule a task with a simple cron-like syntax (e.g. '@hourly', '@daily', 'every 15 mins')
-   * @param {string} name 
-   * @param {string} pattern 
-   * @param {Function} [taskFunc] 
+   * @param {string} name
+   * @param {string} pattern
+   * @param {Function} [taskFunc]
    */
   cron(name: string, pattern: string, taskFunc: Function | null = null) {
     if (taskFunc) this.register(name, taskFunc);
 
-    let intervalSeconds = 3600; // default 1 hour
+    let intervalSeconds = 3600;
     if (pattern === '@minutely') intervalSeconds = 60;
     else if (pattern === '@hourly') intervalSeconds = 3600;
     else if (pattern === '@daily') intervalSeconds = 86400;
@@ -161,7 +161,6 @@ export class Scheduler {
         job.totalRuns = (job.totalRuns || 0) + 1;
         job.nextRun = now + job.intervalSeconds * 1000;
 
-        // Execute handler asynchronously with error boundary
         (async () => {
           try {
             await handler(this.client);
@@ -193,10 +192,10 @@ export class Scheduler {
     }
   }
 
-  saveState() {
+  async saveState() {
     try {
       const dir = path.dirname(this.persistencePath);
-      if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+      if (!fs.existsSync(dir)) await fs.promises.mkdir(dir, { recursive: true });
 
       const stateArray = Array.from(this.jobs.values()).map(job => ({
         name: job.name,
@@ -208,9 +207,9 @@ export class Scheduler {
         enabled: job.enabled
       }));
 
-      fs.writeFileSync(this.persistencePath, JSON.stringify(stateArray, null, 2), 'utf8');
+      await fs.promises.writeFile(this.persistencePath, JSON.stringify(stateArray, null, 2), 'utf8');
     } catch (_) {
-      // Ignore background save errors
+
     }
   }
 
@@ -227,3 +226,5 @@ export class Scheduler {
 }
 
 export default Scheduler;
+
+// Made by Nikhil Under CodeX Devs

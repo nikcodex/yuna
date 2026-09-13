@@ -30,3 +30,5 @@ export class Event {
         throw new Error(`Event ${this.name} doesn't provide an execute method!`);
     }
 }
+
+// Made by Nikhil Under CodeX Devs

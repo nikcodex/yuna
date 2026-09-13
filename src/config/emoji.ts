@@ -16,3 +16,5 @@ export const emoji = {
 };
 
 export default emoji;
+
+// Made by Nikhil Under CodeX Devs

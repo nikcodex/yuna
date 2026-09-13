@@ -60,3 +60,5 @@ class CoinsCommand extends Command {
 }
 
 export default new CoinsCommand();
+
+// Made by Nikhil Under CodeX Devs

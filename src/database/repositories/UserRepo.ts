@@ -22,7 +22,7 @@ export class UserRepo {
     this.db = db;
     this._getUser = this.db.prepare('SELECT * FROM users WHERE id = ?');
     this._ensureUser = this.db.prepare('INSERT INTO users (id) VALUES (?) ON CONFLICT(id) DO NOTHING');
-    
+
     this._updateNoPrefix = this.db.prepare('UPDATE users SET no_prefix = ?, no_prefix_expiry = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?');
     this._updateNpStyle = this.db.prepare('UPDATE users SET np_style = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?');
     this._updateAutoplayCooldown = this.db.prepare('UPDATE users SET autoplay_cooldown = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?');
@@ -191,7 +191,7 @@ export class UserRepo {
   addTrackToHistory(userId: string, trackInfo: any) {
     if (!trackInfo || !trackInfo.identifier) return;
     this.ensureUser(userId);
-    
+
     let history = [];
     const user = this.getUser(userId);
     if (user && user.history) {
@@ -318,3 +318,5 @@ export class UserRepo {
     this._updateLocale.run(locale, userId);
   }
 }
+
+// Made by Nikhil Under CodeX Devs

@@ -13,7 +13,7 @@ function getCommandFile(interaction: any, client: any) {
   try {
     subCommandName = interaction.options.getSubcommand(false);
   } catch (e) {}
-  
+
   const key = subCommandName ? [commandName, subCommandName].toString() : commandName;
   return client.commands.get(key) || client.commands.get(commandName);
 }
@@ -62,10 +62,10 @@ export default {
       member: interaction.member,
       channel: interaction.channel,
       player,
-      
+
       pm: player ? new PlayerManager(player) : null,
-      locale: db.users?.getLocale(interaction.user?.id) || db.guilds?.getLocale(interaction.guild?.id) || 'en-US',
-      t: (category: string, replacements: Record<string, unknown> = {}) => i18n.t(db.users?.getLocale(interaction.user?.id) || db.guilds?.getLocale(interaction.guild?.id) || 'en-US', category, replacements)
+      locale: db.user?.getLocale(interaction.user?.id) || db.guild?.getLocale(interaction.guild?.id) || 'en-US',
+      t: (category: string, replacements: Record<string, unknown> = {}) => i18n.t(db.user?.getLocale(interaction.user?.id) || db.guild?.getLocale(interaction.guild?.id) || 'en-US', category, replacements)
     };
 
     try {
@@ -98,7 +98,7 @@ export default {
         return;
       }
 
-      await localeStore.run({ locale: ctx.locale || db?.guilds?.getLocale(ctx.guild?.id) || 'en-US' }, async () => {
+      await localeStore.run({ locale: ctx.locale || db?.guild?.getLocale(ctx.guild?.id) || 'en-US' }, async () => {
         await command.execute(ctx);
       });
       await command.afterExecute(ctx);
@@ -120,3 +120,5 @@ export default {
     }
   },
 };
+
+// Made by Nikhil Under CodeX Devs

@@ -33,7 +33,7 @@ export class PlayerManager {
     const settings = (db as any).guild?.get247Settings(this.guildId);
     return settings?.enabled === true;
   }
-  
+
   async play(options: any = {}) {
     if (!options.clientTrack && !options.track && this.player.queue.tracks.length > 0) {
       const nextTrack = this.player.queue.tracks.shift();
@@ -45,28 +45,27 @@ export class PlayerManager {
     }
     return this;
   }
-  
+
   async playPrevious() {
     const prev = this.player.queue.previous;
     if (!prev || prev.length === 0) return false;
     const previousTrack = prev.pop();
     if (!previousTrack) return false;
-    // Keep the current track in the history stack so repeated
-    // playPrevious calls can walk back through the queue.
+
     const current = this.player.queue.current;
     if (current) prev.push(current);
-    await this.player.play({ track: previousTrack });
+    await this.play({ track: previousTrack });
     return true;
   }
 
   async pause() { await this.player.pause(); return this; }
   async resume() { await this.player.resume(); return this; }
-  
+
   async stop() {
     const is247ModeEnabled = this.is247ModeEnabled();
-    
-    this.player.queue.tracks = [];
-    
+
+    this.player.queue.tracks.splice(0, this.player.queue.tracks.length);
+
     if (!is247ModeEnabled) {
       await this.player.destroy("Stop command");
     } else {
@@ -93,7 +92,7 @@ export class PlayerManager {
   }
 
   async seek(position: number) { await this.player.seek(position); return this; }
-  
+
   async forward(amount: number = 10000) {
     const track = this.currentTrack;
     if (!track || track.info?.isStream) return false;
@@ -165,7 +164,7 @@ export class PlayerManager {
       const currentTrack = this.player.queue.current;
       const queueTracks = this.player.queue.tracks || [];
       const position = this.player.position || 0;
-      
+
       if (!currentTrack && queueTracks.length === 0) {
         (db as any).guild.deleteActiveSession(this.guildId);
         return;
@@ -188,3 +187,5 @@ export class PlayerManager {
     return this.player.toJSON();
   }
 }
+
+// Made by Nikhil Under CodeX Devs

@@ -98,7 +98,7 @@ class ShuffleCommand extends Command {
         .setEmoji(emoji.get('reset') || "↩️")
     );
 
-    return buildContainer({ image: undefined, 
+    return buildContainer({ image: undefined,
       title: "Shuffle Guide",
       content,
       components: [buttons],
@@ -112,7 +112,7 @@ class ShuffleCommand extends Command {
       `└─ **${emoji.get("folder") || "📁"} Tracks in Queue:** ${pm.queueSize}\n` +
       `└─ **${emoji.get("music") || "🎵"} Now Playing:** ${pm.currentTrack?.info?.title || "None"}`;
 
-    const container = buildContainer({ image: undefined, 
+    const container = buildContainer({ image: undefined,
       title: "Queue Shuffled",
       content: content,
       thumbnail: config.assets.defaultThumbnail || config.assets.defaultTrackArtwork,
@@ -264,3 +264,5 @@ class ShuffleCommand extends Command {
 }
 
 export default new ShuffleCommand();
+
+// Made by Nikhil Under CodeX Devs

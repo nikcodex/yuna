@@ -37,7 +37,7 @@ export class PremiumRepo {
         active = 1,
         updated_at = excluded.updated_at
     `);
-    
+
     this._grantGuildPremium = this.db.prepare(`
       INSERT INTO guild_premium (guild_id, granted_by, granted_at, expires_at, reason, active, updated_at)
       VALUES (?, ?, ?, ?, ?, 1, ?)
@@ -52,7 +52,7 @@ export class PremiumRepo {
 
     this._revokeUserPremium = this.db.prepare('UPDATE user_premium SET active = 0, updated_at = ? WHERE user_id = ? AND active = 1');
     this._revokeGuildPremium = this.db.prepare('UPDATE guild_premium SET active = 0, updated_at = ? WHERE guild_id = ? AND active = 1');
-    
+
     this._getUserPremium = this.db.prepare('SELECT * FROM user_premium WHERE user_id = ? AND active = 1 AND (expires_at IS NULL OR expires_at > ?)');
     this._getGuildPremium = this.db.prepare('SELECT * FROM guild_premium WHERE guild_id = ? AND active = 1 AND (expires_at IS NULL OR expires_at > ?)');
 
@@ -64,10 +64,10 @@ export class PremiumRepo {
 
     this._revokeExpiredUsers = this.db.prepare('UPDATE user_premium SET active = 0, updated_at = ? WHERE active = 1 AND expires_at IS NOT NULL AND expires_at <= ?');
     this._revokeExpiredGuilds = this.db.prepare('UPDATE guild_premium SET active = 0, updated_at = ? WHERE active = 1 AND expires_at IS NOT NULL AND expires_at <= ?');
-    
+
     this._updateUserExpiresAt = this.db.prepare('UPDATE user_premium SET expires_at = ?, updated_at = ? WHERE user_id = ?');
     this._updateGuildExpiresAt = this.db.prepare('UPDATE guild_premium SET expires_at = ?, updated_at = ? WHERE guild_id = ?');
-    
+
     this._deleteUserPremium = this.db.prepare('DELETE FROM user_premium WHERE user_id = ?');
     this._deleteGuildPremium = this.db.prepare('DELETE FROM guild_premium WHERE guild_id = ?');
 
@@ -246,13 +246,15 @@ export class PremiumRepo {
     if (type === 'user') {
       current = this._getUserPremium.get(id, -1);
       if (!current) return false;
-      newExpiresAt = current.expires_at === null ? Date.now() + additionalTime : Math.max(current.expires_at, Date.now()) + additionalTime;
+      if (current.expires_at === null) return this.isUserPremium(id);
+      newExpiresAt = Math.max(current.expires_at, Date.now()) + additionalTime;
       this._updateUserExpiresAt.run(newExpiresAt, Date.now(), id);
       return this.isUserPremium(id);
     } else {
       current = this._getGuildPremium.get(id, -1);
       if (!current) return false;
-      newExpiresAt = current.expires_at === null ? Date.now() + additionalTime : Math.max(current.expires_at, Date.now()) + additionalTime;
+      if (current.expires_at === null) return this.isGuildPremium(id);
+      newExpiresAt = Math.max(current.expires_at, Date.now()) + additionalTime;
       this._updateGuildExpiresAt.run(newExpiresAt, Date.now(), id);
       return this.isGuildPremium(id);
     }
@@ -274,3 +276,5 @@ export class PremiumRepo {
     this._deleteGuildPremium.run(guildId);
   }
 }
+
+// Made by Nikhil Under CodeX Devs

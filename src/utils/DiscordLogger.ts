@@ -29,7 +29,6 @@ export class DiscordLogger {
     }
   }
 
-  // 1. Guild Join Log (1535515373049356308)
   static async logGuildJoin(client: any, guild: any) {
     const channelId = config.logChannels?.guildJoin;
     if (!channelId) return;
@@ -55,7 +54,6 @@ export class DiscordLogger {
     await this.sendLog(client, channelId, container);
   }
 
-  // 2. Guild Leave Log (1535515407694307348)
   static async logGuildLeave(client: any, guild: any) {
     const channelId = config.logChannels?.guildLeave;
     if (!channelId) return;
@@ -80,7 +78,6 @@ export class DiscordLogger {
     await this.sendLog(client, channelId, container);
   }
 
-  // 3. Command Execution Log (1535515435880161280)
   static async logCmdRun(client: any, { user, commandName, guild, type = 'Prefix', args = [] }: { user: any; commandName: string; guild: any; type?: string; args?: string[] }) {
     const channelId = config.logChannels?.cmdRun;
     if (!channelId) return;
@@ -107,7 +104,6 @@ export class DiscordLogger {
     await this.sendLog(client, channelId, container);
   }
 
-  // 4. Error Log (1535515512514289717)
   static async logError(client: any, { context, error, message }: { context: string; error?: any; message?: string }) {
     const channelId = config.logChannels?.errorLogs;
     if (!channelId) return;
@@ -132,7 +128,6 @@ export class DiscordLogger {
     await this.sendLog(client, channelId, container);
   }
 
-  // 5. Music Log (1535516152581595207)
   static async logMusic(client: any, { event, guild, track, requester }: { event: string; guild?: any; track?: any; requester?: any }) {
     const channelId = config.logChannels?.musicLogs;
     if (!channelId) return;
@@ -160,7 +155,6 @@ export class DiscordLogger {
     await this.sendLog(client, channelId, container);
   }
 
-  // 6. Abuse & Blacklist Log (1535516194067718164)
   static async logAbuseBlacklist(client: any, { action, targetId, targetType = 'User', reason, admin }: { action: string; targetId: string; targetType?: string; reason?: string; admin?: any }) {
     const channelId = config.logChannels?.abuseBlacklist;
     if (!channelId) return;
@@ -185,7 +179,6 @@ export class DiscordLogger {
     await this.sendLog(client, channelId, container);
   }
 
-  // 7. Cluster & Lavalink Log (1535516683047936070)
   static async logClusterLavalink(client: any, { title, message, status = 'INFO' }: { title: string; message: string; status?: string }) {
     const channelId = config.logChannels?.clusterLavalink;
     if (!channelId) return;
@@ -207,3 +200,5 @@ export class DiscordLogger {
     await this.sendLog(client, channelId, container);
   }
 }
+
+// Made by Nikhil Under CodeX Devs

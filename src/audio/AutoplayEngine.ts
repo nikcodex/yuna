@@ -8,8 +8,7 @@ import { Player, Track } from "lavalink-client";
 
 export class AutoplayEngine {
   public client: Client & { music?: any };
-  // Shared across all instances (rec command + queueEnd each create one)
-  // so duplicate-filtering state stays consistent per guild.
+
   public sessionHistory: Map<string, Set<string>>;
   private static _sessionHistory = new Map<string, Set<string>>();
   constructor(client: Client & { music?: any }) {
@@ -280,3 +279,5 @@ export class AutoplayEngine {
 }
 
 export default AutoplayEngine;
+
+// Made by Nikhil Under CodeX Devs

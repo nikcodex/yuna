@@ -7,7 +7,6 @@ const CARD_HEIGHT = 380;
 
 let fontsRegisteredGlobally = false;
 
-// Pure Decent Yuna Theme Tokens (NO GLOW, NO YELLOW)
 const YUNA_THEME = {
   bg: '#070811',
   panelBg: 'rgba(13, 16, 26, 0.90)',
@@ -59,11 +58,10 @@ export default class ProfileCard {
   drawSakuraFlower(ctx: any, x: number, y: number, size: number) {
     const petals = 5;
     const colors = ['#FFC0CB', '#FFB6C1', '#FF69B4'];
-    
+
     ctx.save();
     ctx.translate(x, y);
-    
-    // Draw leaves
+
     this.drawLeaf(ctx, -size * 0.5, size * 0.5, size * 0.8, Math.PI * 0.8, '#FF69B4');
     this.drawLeaf(ctx, size * 0.5, -size * 0.5, size * 0.8, -Math.PI * 0.2, '#FFB6C1');
 
@@ -78,7 +76,7 @@ export default class ProfileCard {
       ctx.lineWidth = 1;
       ctx.stroke();
     }
-    
+
     ctx.beginPath();
     ctx.arc(0, 0, size * 0.25, 0, Math.PI * 2);
     ctx.fillStyle = '#FFFFFF';
@@ -108,11 +106,9 @@ export default class ProfileCard {
     const canvas = createCanvas(CARD_WIDTH, CARD_HEIGHT);
     const ctx = canvas.getContext('2d');
 
-    // 1. BASE BACKGROUND
     ctx.fillStyle = YUNA_THEME.bg;
     ctx.fillRect(0, 0, CARD_WIDTH, CARD_HEIGHT);
 
-    // Subtle background mesh/lines to match aesthetic
     ctx.strokeStyle = 'rgba(255,255,255,0.02)';
     ctx.lineWidth = 1;
     for (let i = 0; i < CARD_WIDTH; i += 40) {
@@ -126,7 +122,6 @@ export default class ProfileCard {
     const py = 40;
     const pw = CARD_WIDTH - (px * 2);
 
-    // Main Content Panel
     ctx.save();
     this.roundRect(ctx, px, py, pw, CARD_HEIGHT - (py * 2), 20);
     ctx.fillStyle = YUNA_THEME.panelBg;
@@ -136,7 +131,6 @@ export default class ProfileCard {
     ctx.stroke();
     ctx.restore();
 
-    // 2. YUNA BRANDING (Top Right)
     ctx.save();
     const brandY = py + 30;
     this.drawSakuraFlower(ctx, CARD_WIDTH - px - 28, brandY, 14);
@@ -153,13 +147,12 @@ export default class ProfileCard {
     ctx.fillText('Yuna', CARD_WIDTH - px - 48, brandY);
     ctx.restore();
 
-    // 3. AVATAR
     let avatarImg;
     try {
       const avatarUrl = user.displayAvatarURL({ extension: 'png', size: 256, forceStatic: true });
       avatarImg = await loadImage(avatarUrl);
     } catch (e) {
-      // Fallback if avatar fails
+
     }
 
     const avatarSize = 120;
@@ -175,10 +168,9 @@ export default class ProfileCard {
       ctx.drawImage(avatarImg, avatarX, avatarY, avatarSize, avatarSize);
       ctx.restore();
 
-      // Avatar Border
       ctx.beginPath();
       ctx.arc(avatarX + avatarSize / 2, avatarY + avatarSize / 2, avatarSize / 2, 0, Math.PI * 2);
-      
+
       let borderGrad = ctx.createLinearGradient(avatarX, avatarY, avatarX + avatarSize, avatarY + avatarSize);
       if (profileData.premium) {
         borderGrad.addColorStop(0, YUNA_THEME.sakuraMain);
@@ -187,17 +179,15 @@ export default class ProfileCard {
         borderGrad.addColorStop(0, 'rgba(255,255,255,0.2)');
         borderGrad.addColorStop(1, 'rgba(255,255,255,0.05)');
       }
-      
+
       ctx.strokeStyle = borderGrad;
       ctx.lineWidth = 4;
       ctx.stroke();
     }
 
-    // 4. USER INFO
     const textX = avatarX + avatarSize + 32;
     const textY = avatarY + 36;
-    
-    // Display Name
+
     ctx.font = '32px "Righteous"';
     ctx.fillStyle = YUNA_THEME.textPrimary;
     ctx.textAlign = 'left';
@@ -205,12 +195,10 @@ export default class ProfileCard {
     const dispName = this.truncate(ctx, user.displayName || user.username, 400, '32px "Righteous"');
     ctx.fillText(dispName.toUpperCase(), textX, textY);
 
-    // Username tag
     ctx.font = '16px "Righteous"';
     ctx.fillStyle = YUNA_THEME.textSecondary;
     ctx.fillText(`@${user.username}`, textX, textY + 28);
 
-    // Premium Badge (if applicable)
     if (profileData.premium) {
       const badgeY = textY - 24;
       const badgeX = textX + ctx.measureText(dispName.toUpperCase()).width + 16;
@@ -221,28 +209,27 @@ export default class ProfileCard {
       ctx.strokeStyle = YUNA_THEME.sakuraMain;
       ctx.lineWidth = 1;
       ctx.stroke();
-      
+
       ctx.font = '11px "Righteous"';
       ctx.fillStyle = YUNA_THEME.sakuraMain;
       ctx.fillText('PREMIUM', badgeX + 16, badgeY + 2);
       ctx.restore();
     }
 
-    // 5. STAT BOXES
     const statsY = avatarY + avatarSize + 40;
-    
+
     const statItems = [
       { label: 'WALLET BALANCE', value: `${(profileData.coins || 0).toLocaleString()} COINS`, color: YUNA_THEME.sakuraMain, bg: 'rgba(255, 105, 180, 0.05)' },
       { label: 'TRACKS PLAYED', value: (profileData.stats?.total_tracks_played || 0).toLocaleString(), color: YUNA_THEME.roseLight, bg: 'rgba(255, 182, 193, 0.05)' },
       { label: 'LISTEN TIME', value: this.formatTime(profileData.stats?.total_listen_time_ms || 0), color: YUNA_THEME.roseSoft, bg: 'rgba(244, 194, 194, 0.05)' }
     ];
 
-    const totalSpacing = 20; // 10px between each
+    const totalSpacing = 20;
     const statBoxW = (pw - 80 - totalSpacing) / 3;
 
     statItems.forEach((item, i) => {
       const sx = px + 40 + i * (statBoxW + 10);
-      
+
       ctx.save();
       this.roundRect(ctx, sx, statsY, statBoxW, 72, 14);
       ctx.fillStyle = item.bg;
@@ -252,13 +239,11 @@ export default class ProfileCard {
       ctx.lineWidth = 1;
       ctx.stroke();
 
-      // Label
       ctx.font = '11px "Righteous"';
       ctx.fillStyle = YUNA_THEME.textSecondary;
       ctx.textAlign = 'left';
       ctx.fillText(item.label, sx + 16, statsY + 24);
 
-      // Value
       ctx.font = '20px "Righteous"';
       ctx.fillStyle = item.color;
       ctx.fillText(item.value, sx + 16, statsY + 52);
@@ -268,3 +253,5 @@ export default class ProfileCard {
     return canvas.toBuffer('image/png');
   }
 }
+
+// Made by Nikhil Under CodeX Devs

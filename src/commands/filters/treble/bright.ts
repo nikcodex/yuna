@@ -143,3 +143,5 @@ class BrightFilterCommand extends Command {
 }
 
 export default new BrightFilterCommand();
+
+// Made by Nikhil Under CodeX Devs

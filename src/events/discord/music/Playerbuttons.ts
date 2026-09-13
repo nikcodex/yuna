@@ -31,7 +31,6 @@ function registerPlayerButtons(client: any) {
         client.components.register(yunaName, handler, options);
     };
 
-    // Previous
     registerBoth('music_previous', 'yuna:music:previous', async (interaction: any) => {
         const player = client.music?.getPlayer(interaction.guild.id);
         if (!player) return interaction.editReply({ components: [buildResponseContainer('Error', 'No active player in this server.')], flags: MessageFlags.IsComponentsV2 });
@@ -41,7 +40,6 @@ function registerPlayerButtons(client: any) {
         await interaction.editReply({ components: [buildResponseContainer('Previous Track', response)], flags: MessageFlags.IsComponentsV2 });
     });
 
-    // Pause / Resume
     registerBoth('music_pause', 'yuna:music:pause', async (interaction: any) => {
         const player = client.music?.getPlayer(interaction.guild.id);
         if (!player) return interaction.editReply({ components: [buildResponseContainer('Error', 'No active player in this server.')], flags: MessageFlags.IsComponentsV2 });
@@ -60,7 +58,6 @@ function registerPlayerButtons(client: any) {
         await interaction.editReply({ components: [buildResponseContainer(title, response)], flags: MessageFlags.IsComponentsV2 });
     });
 
-    // Skip
     registerBoth('music_skip', 'yuna:music:skip', async (interaction: any) => {
         const player = client.music?.getPlayer(interaction.guild.id);
         if (!player) return interaction.editReply({ components: [buildResponseContainer('Error', 'No active player in this server.')], flags: MessageFlags.IsComponentsV2 });
@@ -70,7 +67,6 @@ function registerPlayerButtons(client: any) {
         await interaction.editReply({ components: [buildResponseContainer('Track Skipped', `Skipped: **${trackTitle}**`)], flags: MessageFlags.IsComponentsV2 });
     });
 
-    // Stop
     registerBoth('music_stop', 'yuna:music:stop', async (interaction: any) => {
         const player = client.music?.getPlayer(interaction.guild.id);
         if (!player) return interaction.editReply({ components: [buildResponseContainer('Error', 'No active player in this server.')], flags: MessageFlags.IsComponentsV2 });
@@ -79,7 +75,6 @@ function registerPlayerButtons(client: any) {
         await interaction.editReply({ components: [buildResponseContainer('Music Stopped', 'Music stopped and queue cleared.')], flags: MessageFlags.IsComponentsV2 });
     });
 
-    // Like
     registerBoth('music_like', 'yuna:music:like', async (interaction: any) => {
         const player = client.music?.getPlayer(interaction.guild.id);
         if (!player) return interaction.editReply({ components: [buildResponseContainer('Error', 'No active player in this server.')], flags: MessageFlags.IsComponentsV2 });
@@ -97,7 +92,6 @@ function registerPlayerButtons(client: any) {
         await interaction.editReply({ components: [buildResponseContainer('Favourites', response)], flags: MessageFlags.IsComponentsV2 });
     });
 
-    // Seek / Rewind / Forward
     registerBoth('music_rewind10', 'yuna:music:rewind10', async (interaction: any) => {
         const player = client.music?.getPlayer(interaction.guild.id);
         if (!player) return interaction.editReply({ components: [buildResponseContainer('Error', 'No active player in this server.')], flags: MessageFlags.IsComponentsV2 });
@@ -138,7 +132,6 @@ function registerPlayerButtons(client: any) {
         await interaction.editReply({ components: [buildResponseContainer('Track Replay', 'Replaying track from start.')], flags: MessageFlags.IsComponentsV2 });
     });
 
-    // Menus
     registerBoth('np_feature_menu', 'yuna:music:feature', async (interaction: any) => {
         const player = client.music?.getPlayer(interaction.guild.id);
         if (!player) return interaction.editReply({ components: [buildResponseContainer('Error', 'No active player in this server.')], flags: MessageFlags.IsComponentsV2 });
@@ -156,7 +149,7 @@ function registerPlayerButtons(client: any) {
                 components: [newContainer],
                 flags: MessageFlags.IsComponentsV2
             });
-            // Dismiss the deferred ephemeral reply so the user isn't left with a hanging "Thinking..." state.
+
             await interaction.deleteReply().catch(() => {});
         } catch (err: any) {
             logger.debug('PlayerButtons', `Failed to update mode controls: ${err?.message}`);
@@ -192,3 +185,5 @@ export default {
         }
     }
 };
+
+// Made by Nikhil Under CodeX Devs

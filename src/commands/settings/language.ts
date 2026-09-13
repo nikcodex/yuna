@@ -35,7 +35,6 @@ class LanguageCommand extends Command {
 		const currentLocaleCode = db.users.getLocale(userId) || "en-US";
 		const currentMeta = i18n.getLocaleMeta(currentLocaleCode) || i18n.getLocaleMeta("en-US");
 
-		// Build the dropdown options
 		const locales = i18n.getLocales();
 		const options: any[] = [];
 		locales.forEach((data, code) => {
@@ -99,7 +98,6 @@ class LanguageCommand extends Command {
 					selectedLocaleCode = interaction.values[0];
 					const meta = i18n.getLocaleMeta(selectedLocaleCode);
 
-					// Generate a preview using old language vs new language
 					const currentLocaleCode = db.users.getLocale(userId) || "en-US";
 					const oldPreview = i18n.t(currentLocaleCode, "languagePreviewTest");
 					const newPreview = i18n.t(selectedLocaleCode, "languagePreviewTest");
@@ -124,9 +122,9 @@ class LanguageCommand extends Command {
 				} else if (interaction.customId === "lang_confirm") {
 					db.users.setLocale(userId, selectedLocaleCode);
 					const successMsg = i18n.t(selectedLocaleCode, "languageSuccess");
-					
+
 					const successContainer = buildSuccess(successMsg, "Success");
-					
+
 					await interaction.update({
 						components: [successContainer],
 						flags: MessageFlags.IsComponentsV2,
@@ -158,3 +156,5 @@ class LanguageCommand extends Command {
 }
 
 export default new LanguageCommand();
+
+// Made by Nikhil Under CodeX Devs

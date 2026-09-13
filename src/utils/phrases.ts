@@ -9,7 +9,7 @@ import emoji from "#config/emoji";
  * Provides randomized response variations so user-facing messages never feel repetitive.
  */
 export const phrases = {
-  // Cooldown messages
+
   cooldown: [
     "Hold on a moment! Please wait **${time}** more second(s) before using this command again.",
     "Woah, slow down a bit! You can use this command again in **${time}** second(s).",
@@ -23,7 +23,6 @@ export const phrases = {
     "Speed demon! Let Yuna catch up for **${time}** second(s)."
   ],
 
-  // Voice channel required
   voiceRequired: [
     "You need to join a voice channel first before using music commands!",
     "Please hop into a voice channel so Yuna knows where to stream!",
@@ -35,7 +34,6 @@ export const phrases = {
     "Connect to a voice channel so Yuna can play your favorite tunes!"
   ],
 
-  // Not your interaction / menu owner check
   notYourInteraction: [
     "This menu isn't for you! Please run your own command to use the controls.",
     "Hey! That button belongs to another user. Run your own command to interact!",
@@ -47,7 +45,6 @@ export const phrases = {
     "Nice try! This component is controlled exclusively by the command requester."
   ],
 
-  // Same voice channel required
   sameVoiceRequired: [
     "You must be in the same voice channel as Yuna to control playback!",
     "Please join Yuna's voice channel to use this command!",
@@ -57,7 +54,6 @@ export const phrases = {
     "You must share the same voice channel with the bot to execute this command."
   ],
 
-  // No music playing
   noTrackPlaying: [
     "No music is currently playing in this server!",
     "The queue is quiet right now! Use `/play <song>` to start listening.",
@@ -67,7 +63,6 @@ export const phrases = {
     "The soundstage is clear! Add a song to start the music player."
   ],
 
-  // Track added to queue
   trackQueued: [
     "Track added to your queue successfully!",
     "Queued up! Added your song to the queue.",
@@ -78,7 +73,6 @@ export const phrases = {
     "Added to the sound list! Sit back and enjoy the vibe."
   ],
 
-  // Track playing now
   nowPlaying: [
     "Now streaming high-fidelity audio in your voice channel!",
     "Started playback for your requested track!",
@@ -88,7 +82,6 @@ export const phrases = {
     "Audio stream initialized! Enjoy the high quality tunes."
   ],
 
-  // Playback paused
   playbackPaused: [
     "Paused music playback! Type `/resume` to continue playing.",
     "Player paused. Take your time, then type `/resume`!",
@@ -97,7 +90,6 @@ export const phrases = {
     "Audio hold enabled! Resume whenever you are ready."
   ],
 
-  // Playback resumed
   playbackResumed: [
     "Resumed music playback! Back to the tunes!",
     "Unpaused! Resuming your music queue now.",
@@ -106,7 +98,6 @@ export const phrases = {
     "Unpaused audio stream! Back in action."
   ],
 
-  // Track skipped
   trackSkipped: [
     "Skipped to the next track in queue!",
     "Skipping current song! On to the next track.",
@@ -115,7 +106,6 @@ export const phrases = {
     "Jumped to the next song in the queue list."
   ],
 
-  // Queue cleared
   queueCleared: [
     "Cleared all songs from the queue!",
     "The queue has been emptied successfully!",
@@ -124,7 +114,6 @@ export const phrases = {
     "Queue reset! Ready for brand new tracks."
   ],
 
-  // Player required
   playerRequired: [
     "No active music player found for this server!",
     "There is no music player active right now!",
@@ -132,7 +121,6 @@ export const phrases = {
     "No active player session exists! Start one with `/play`."
   ],
 
-  // No results
   noResults: [
     "No tracks found matching your query!",
     "Could not find any songs with that search term.",
@@ -140,7 +128,6 @@ export const phrases = {
     "Search yields zero tracks! Try different keywords or direct links."
   ],
 
-  // Volume
   volumeChanged: [
     "Playback volume has been updated successfully!",
     "Volume level adjusted!",
@@ -153,7 +140,6 @@ export const phrases = {
     "Please enter a valid volume percentage (0 to 150)."
   ],
 
-  // Seek / Rewind / Forward / Replay / Previous / Stop
   seekSuccess: [
     "Seeked to the specified timestamp successfully!",
     "Player playback position updated!",
@@ -189,7 +175,6 @@ export const phrases = {
     "Cleared queue, stopped audio engine, and left the voice channel."
   ],
 
-  // Queue manipulation
   loopMode: [
     "Updated loop settings!",
     "Queue loop mode has been updated.",
@@ -216,7 +201,6 @@ export const phrases = {
     "Prioritized track to position #1 in queue!"
   ],
 
-  // Favorites
   likeAdded: [
     "Added current track to your favorites list!",
     "Saved song to your favorites!",
@@ -238,7 +222,6 @@ export const phrases = {
     "No liked songs found in your library."
   ],
 
-  // Playlists
   playlistCreated: [
     "Playlist created successfully!",
     "New custom playlist initialized!",
@@ -260,7 +243,6 @@ export const phrases = {
     "Successfully imported playlist songs into queue."
   ],
 
-  // Filters
   filterApplied: [
     "Audio filter applied to playback!",
     "DJ audio filter activated!",
@@ -272,7 +254,6 @@ export const phrases = {
     "Equalizer and audio filters returned to flat baseline."
   ],
 
-  // Settings
   modeToggled: [
     "Settings updated successfully!",
     "Configuration toggled for this server.",
@@ -289,7 +270,6 @@ export const phrases = {
     "Updated bot trigger prefix!"
   ],
 
-  // Extra features
   apToggled: [
     "Autoplay status updated successfully!",
     "Autoplay setting toggled.",
@@ -311,19 +291,17 @@ export const phrases = {
     "No recent tracks recorded in history."
   ],
 
-  // Info commands
   pingSuccess: [
     "Pong! Latency details retrieved.",
     "Connection stats fetched successfully!",
     "Ping latency calculated."
   ],
-  // Premium 
+
     premiumSuccess: [
   "Thanks for supporting Yuna! Your perks are live.",
   "Premium activated — enjoy the extras!"
 ],
 
-  // Developer commands
   devOnly: [
     "This command is restricted to bot developers only.",
     "Access denied. Developer authorization required.",
@@ -354,7 +332,6 @@ export const phrases = {
     "Node statistics fetched."
   ],
 
-  // Generic error fallbacks
   errorGeneric: [
     "Something went wrong while processing your request. Please try again!",
     "An unexpected error occurred. Feel free to try again in a moment.",
@@ -365,8 +342,8 @@ export const phrases = {
 
   /**
    * Returns a random phrase from the specified pool category.
-   * @param {string} category 
-   * @param {Object} [replacements] 
+   * @param {string} category
+   * @param {Object} [replacements]
    * @returns {string}
    */
   get(category: string, replacements: Record<string, any> = {}): string {
@@ -377,3 +354,5 @@ export const phrases = {
 };
 
 export default phrases;
+
+// Made by Nikhil Under CodeX Devs

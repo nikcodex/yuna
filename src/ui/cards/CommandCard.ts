@@ -70,7 +70,7 @@ export class CommandCard {
 
   /**
    * Generates a PNG Buffer matching PingCard.js theme.
-   * @param {Object} command 
+   * @param {Object} command
    * @returns {Promise<Buffer>}
    */
   static async generate(command: any) {
@@ -84,11 +84,9 @@ export class CommandCard {
     const canvas = createCanvas(width, height);
     const ctx = canvas.getContext("2d");
 
-    // 1. Midnight Dark Matte Background
     ctx.fillStyle = "#06070E";
     ctx.fillRect(0, 0, width, height);
 
-    // Subtle Ambient Radial Spotlights
     const bgGlow1 = ctx.createRadialGradient(250, 100, 10, 250, 100, 450);
     bgGlow1.addColorStop(0, "rgba(255, 105, 180, 0.20)");
     bgGlow1.addColorStop(1, "rgba(6, 7, 14, 0)");
@@ -101,13 +99,11 @@ export class CommandCard {
     ctx.fillStyle = bgGlow2;
     ctx.fillRect(0, 0, width, height);
 
-    // Floating Sakura Flower Background Accents
     this.drawSakuraFlower(ctx, 80, 70, 14);
     this.drawSakuraFlower(ctx, 920, 60, 16);
     this.drawSakuraFlower(ctx, 940, 460, 15);
     this.drawSakuraFlower(ctx, 60, 470, 12);
 
-    // 2. Main Matte Card Container
     const pMargin = 16;
     const pWidth = width - pMargin * 2;
     const pHeight = height - pMargin * 2;
@@ -119,7 +115,6 @@ export class CommandCard {
     ctx.fill();
     ctx.restore();
 
-    // Clean Solid Glass Border
     ctx.save();
     this._roundRect(ctx, pMargin, pMargin, pWidth, pHeight, pRadius);
     ctx.strokeStyle = "rgba(255, 182, 193, 0.35)";
@@ -127,7 +122,6 @@ export class CommandCard {
     ctx.stroke();
     ctx.restore();
 
-    // 3. Calligraphic Header Title: "Yuna 🌸"
     ctx.save();
     this.drawSakuraFlower(ctx, 240, 75, 22);
 
@@ -143,7 +137,6 @@ export class CommandCard {
     ctx.fillText("Yuna", 50, 75);
     ctx.restore();
 
-    // Clean Command Specification Header Banner
     const rawCmdName = (command.name || "COMMAND").toUpperCase();
     ctx.save();
     ctx.font = '15px: "Righteous", sans-serif';
@@ -152,7 +145,6 @@ export class CommandCard {
     ctx.fillText(`⚡ COMMAND SPECIFICATION · .${rawCmdName.toLowerCase()}`, 50, 132);
     ctx.restore();
 
-    // Category Badge (Top Right) - Square Curved Rectangle (r=8px)
     const categoryText = (command.category || "General").toUpperCase();
     ctx.save();
     ctx.font = '13px: "Righteous", sans-serif';
@@ -171,7 +163,6 @@ export class CommandCard {
     ctx.fillText(categoryText, catX + catWidth / 2, 76);
     ctx.restore();
 
-    // 4. Description Glass Box (With Multi-Line Truncation)
     const descY = 158;
     const descW = pWidth - 68;
     const descH = 95;
@@ -191,14 +182,12 @@ export class CommandCard {
       maxTextWidth: descW - 32
     });
 
-    // 5. Specs Grid (4 Square-Curved Glass Cards with Strict Truncation)
     const specsY = 270;
     const numCols = 4;
     const gap = 14;
     const cardW = (descW - gap * (numCols - 1)) / numCols;
     const cardH = 98;
 
-    // Card 1: USAGE SYNTAX
     const usageStr = command.usage ? `.${command.usage}` : `.${command.name}`;
     this._renderMetricBox(ctx, descX, specsY, cardW, cardH, {
       label: "⚡ USAGE SYNTAX",
@@ -212,7 +201,6 @@ export class CommandCard {
       color: "#FF69B4"
     });
 
-    // Card 2: COOLDOWN TIMER
     const cdStr = `${command.cooldown || 3}`;
     this._renderMetricBox(ctx, descX + (cardW + gap), specsY, cardW, cardH, {
       label: "⏱️ COOLDOWN",
@@ -226,7 +214,6 @@ export class CommandCard {
       color: "#FFB6C1"
     });
 
-    // Card 3: ALIASES (Strict Truncation if 5+ aliases or long text)
     const aliasesList = command.aliases?.length ? command.aliases : ["None"];
     const aliasStr = aliasesList.join(", ");
 
@@ -242,7 +229,6 @@ export class CommandCard {
       color: "#FFD166"
     });
 
-    // Card 4: SLASH SUPPORTED
     const isSlash = command.enabledSlash !== false && command.slash?.enabled !== false;
     const slashVal = isSlash ? "YES" : "NO";
     const slashColor = isSlash ? "#00B894" : "#FF5964";
@@ -258,7 +244,6 @@ export class CommandCard {
       color: slashColor
     });
 
-    // 6. Requirements Glass Panel (Footer) - Square Curved Rectangles (r=6px)
     const reqY = 385;
     const reqH = 88;
 
@@ -301,12 +286,11 @@ export class CommandCard {
       const badgeText = reqObj.text;
       const bWidth = ctx.measureText(badgeText).width + 22;
 
-      // Overflow protection for requirement badges
       if (reqX + bWidth > descX + descW - 16) {
         reqX = descX + 16;
         reqYPos += 30;
       }
-      if (reqYPos > reqY + reqH - 24) break; // Clamp inside requirements container height
+      if (reqYPos > reqY + reqH - 24) break;
 
       this._roundRect(ctx, reqX, reqYPos, bWidth, 26, 6);
       ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
@@ -338,13 +322,11 @@ export class CommandCard {
     ctx.lineWidth = 1.2;
     ctx.stroke();
 
-    // 1. Label
     ctx.font = config.labelFont;
     ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
     ctx.textAlign = "left";
     ctx.fillText(config.label, x + 16, y + 24);
 
-    // 2. Value (With Truncation Overflow Protection)
     ctx.font = config.numFont;
     ctx.fillStyle = config.color;
 
@@ -409,3 +391,5 @@ export class CommandCard {
 }
 
 export default CommandCard;
+
+// Made by Nikhil Under CodeX Devs

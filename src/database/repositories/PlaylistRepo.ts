@@ -32,11 +32,11 @@ export class PlaylistRepo {
     this._updatePlaylistTracksAdmin = this.db.prepare('UPDATE playlists SET tracks = ?, total_duration = ?, track_count = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?');
     this._searchPlaylists = this.db.prepare('SELECT * FROM playlists WHERE user_id = ? AND (name LIKE ? OR description LIKE ?) ORDER BY created_at DESC');
     this._getStats = this.db.prepare(`
-      SELECT 
+      SELECT
         COUNT(*) as total_playlists,
         COALESCE(SUM(track_count), 0) as total_tracks,
         COALESCE(SUM(total_duration), 0) as total_duration
-      FROM playlists 
+      FROM playlists
       WHERE user_id = ?
     `);
   }
@@ -81,7 +81,7 @@ export class PlaylistRepo {
     const playlist = this.getPlaylist(playlistId);
     if (!playlist) throw new Error('Playlist not found');
     if (playlist.user_id !== userId) throw new Error('Access denied');
-    
+
     const result = this._deletePlaylist.run(playlistId, userId);
     return result.changes > 0;
   }
@@ -129,7 +129,7 @@ export class PlaylistRepo {
   updatePlaylist(playlistId: any, userId: any, updates: any) {
     const playlist = this.getPlaylist(playlistId);
     if (!playlist || playlist.user_id !== userId) throw new Error('Playlist not found or access denied');
-    
+
     let newName = playlist.name;
     let newDesc = playlist.description;
 
@@ -200,7 +200,7 @@ export class PlaylistRepo {
     let tracks = playlist.tracks || [];
     const originalLength = tracks.length;
     tracks = tracks.filter((t: any) => t.identifier !== trackIdentifier);
-    
+
     if (tracks.length === originalLength) throw new Error('Track not found in playlist');
 
     const totalDuration = tracks.reduce((sum: any, track: any) => sum + (track.duration || 0), 0);
@@ -271,3 +271,5 @@ export class PlaylistRepo {
     logger.info('PlaylistsDB', `Cleaned up playlists for user ${userId}`);
   }
 }
+
+// Made by Nikhil Under CodeX Devs

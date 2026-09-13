@@ -4,13 +4,13 @@ import { logger } from '#utils/logger';
 dotenv.config();
 
 export const config = {
-  // === Bot Configuration ===
+
   token: process.env.TOKEN || process.env.token,
   clientId: process.env.CLIENT_ID || "",
   prefix: process.env.PREFIX || '.',
   ownerIds: (process.env.OWNER_IDS || '').split(',').map(id => id.trim()).filter(Boolean),
   botName: branding.botName,
-  
+
   // === Branding & Assets ===
   branding: branding,
   links: branding.links,
@@ -91,7 +91,6 @@ export const config = {
     return nodeList;
   })(),
 
-  // === Features & Limits ===
   features: {
     stay247: true
   },
@@ -116,13 +115,11 @@ export const config = {
     }
   },
 
-  // === External APIs ===
   spotify: {
     clientId: process.env.SPOTIFY_CLIENT_ID,
     clientSecret: process.env.SPOTIFY_CLIENT_SECRET
   },
 
-  // === Logging & Webhooks ===
   logChannels: {
     guildJoin: process.env.LOG_GUILD_JOIN,
     guildLeave: process.env.LOG_GUILD_LEAVE,
@@ -132,7 +129,7 @@ export const config = {
     abuseBlacklist: process.env.LOG_ABUSE_BLACKLIST,
     clusterLavalink: process.env.LOG_CLUSTER_LAVALINK
   },
-  
+
   webhook: {
     enabled: process.env.WEBHOOK_ENABLED !== 'false',
     url: process.env.WEBHOOK_URL || null,
@@ -150,10 +147,9 @@ export const config = {
 
 if (!config.token) {
   logger.error("Config", "TOKEN environment variable is not set. The bot cannot start.", undefined);
+  process.exit(1);
 }
 
-// Fail fast on invalid Discord snowflake IDs instead of shipping a bogus
-// fallback client ID that causes cryptic auth failures deep in Lavalink.
 const snowflakeRe = /^\d{17,20}$/;
 if (!snowflakeRe.test(config.clientId)) {
   logger.error("Config", `CLIENT_ID is missing or not a valid Discord ID (got "${config.clientId || 'empty'}"). Set CLIENT_ID in your environment.`, undefined);
@@ -162,3 +158,5 @@ if (!snowflakeRe.test(config.clientId)) {
 if (config.ownerIds.length === 0) {
   logger.warn("Config", "OWNER_IDS is not set. No user has owner-level bot access.");
 }
+
+// Made by Nikhil Under CodeX Devs

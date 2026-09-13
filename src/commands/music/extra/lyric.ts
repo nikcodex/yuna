@@ -326,8 +326,8 @@ class LyricsCommand extends Command {
     });
 		container.addSeparatorComponents(new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Small).setDivider(true));
 
-		const lyricsContent = prevLines.map((l: any) => l.text).join('\n') + 
-			`\n> **${currentLine?.text || ''}**\n` + 
+		const lyricsContent = prevLines.map((l: any) => l.text).join('\n') +
+			`\n> **${currentLine?.text || ''}**\n` +
 			nextLines.map((l: any) => l.text).join('\n');
 		container.addTextDisplayComponents(
 			new TextDisplayBuilder().setContent(lyricsContent)
@@ -568,3 +568,5 @@ class LyricsCommand extends Command {
 }
 
 export default new LyricsCommand();
+
+// Made by Nikhil Under CodeX Devs
