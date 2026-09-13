@@ -1,322 +1,322 @@
 export default {
 	meta: {
-  "name": "Portuguese",
-  "nativeName": "Português",
-  "emoji": "🇧🇷"
-},
+   "name": "Portuguese",
+   "nativeName": "Português",
+   "emoji": "🇧🇷"
+ },
 	phrases: {
   "languagePreviewTest": [
-    "Current track added to your favorites list!",
-    "Song saved to your favorites!"
+    "Faixa atual adicionada à sua lista de favoritos!",
+    "Música salva nos seus favoritos!"
   ],
   "languageSuccess": [
-    "Your language has been successfully updated!",
-    "I will now speak to you in this language."
+    "Seu idioma foi atualizado com sucesso!",
+    "Agora vou falar com você neste idioma."
   ],
   "cooldown": [
-    "Hold on a moment! Please wait **${time}** more second(s) before using this command again.",
-    "Woah, slow down a bit! You can use this command again in **${time}** second(s).",
-    "Take a breath! This command is on cooldown for another **${time}** second(s).",
-    "Easy there! Please allow **${time}** more second(s) before sending another request.",
-    "Yuna needs a quick moment! Please wait **${time}** second(s) before trying again.",
-    "Command on cooldown! You can run this command again in **${time}** second(s).",
-    "Please give it a pause! Cooldown expires in **${time}** second(s).",
-    "Pacing is key! Re-use available in **${time}** second(s).",
-    "Just a quick breather! Wait **${time}** second(s) before triggering this again.",
-    "Speed demon! Let Yuna catch up for **${time}** second(s)."
+    "Espere um momento! Por favor, espere **${time}** segundo(s) a mais antes de usar este comando novamente.",
+    "Nossa, acelere um pouco! Você pode usar este comando novamente em **${time}** segundo(s).",
+    "Respire! Este comando está em tempo de recarga por mais **${time}** segundo(s).",
+    "Calma aí! Por favor, permita **${time}** segundo(s) a mais antes de enviar outro pedido.",
+    "Yuna precisa de um momento rápido! Por favor, espere **${time}** segundo(s) antes de tentar novamente.",
+    "Comando em recarga! Você pode executar este comando novamente em **${time}** segundo(s).",
+    "Por favor, faça uma pausa! O tempo de recarga expira em **${time}** segundo(s).",
+    "O ritmo é a chave! Reutilização disponível em **${time}** segundo(s).",
+    "Apenas uma pequena pausa! Espere **${time}** segundo(s) antes de disparar isso novamente.",
+    "Demônio da velocidade! Deixe Yuna alcançar **${time}** segundo(s)."
   ],
   "voiceRequired": [
-    "You need to join a voice channel first before using music commands!",
-    "Please hop into a voice channel so Yuna knows where to stream!",
-    "Join a voice channel to start listening to your favorite music!",
-    "You must be connected to a voice channel to run this command.",
-    "No voice channel detected! Connect to a voice channel and try again.",
-    "Yuna needs to hear you! Jump into a voice channel first.",
-    "Please step into a voice channel before playing audio streams.",
-    "Connect to a voice channel so Yuna can play your favorite tunes!"
+    "Você precisa entrar em um canal de voz primeiro antes de usar comandos de música!",
+    "Por favor, entre em um canal de voz para que Yuna saiba onde transmitir!",
+    "Entre em um canal de voz para começar a ouvir sua música favorita!",
+    "Você deve estar conectado a um canal de voz para executar este comando.",
+    "Nenhum canal de voz detectado! Conecte-se a um canal de voz e tente novamente.",
+    "Yuna precisa ouvir você! Entre em um canal de voz primeiro.",
+    "Por favor, entre em um canal de voz antes de reproduzir transmissões de áudio.",
+    "Conecte-se a um canal de voz para que Yuna possa tocar suas músicas favoritas!"
   ],
   "notYourInteraction": [
-    "This menu isn't for you! Please run your own command to use the controls.",
-    "Hey! That button belongs to another user. Run your own command to interact!",
-    "Only the user who ran this command can use these controls!",
-    "Hands off! This interactive menu is reserved for the command requester.",
-    "This interactive control panel belongs to someone else!",
-    "You don't have permission to interact with this menu. Type your own command!",
-    "Control access denied! Run your own command to get an interactive menu.",
-    "Nice try! This component is controlled exclusively by the command requester."
+    "Este menu não é para você! Por favor, execute seu próprio comando para usar os controles.",
+    "Ei! Esse botão pertence a outro usuário. Execute seu próprio comando para interagir!",
+    "Apenas o usuário que executou este comando pode usar esses controles!",
+    "Fora as mãos! Este menu interativo é reservado para o solicitante do comando.",
+    "Este painel de controle interativo pertence a outra pessoa!",
+    "Você não tem permissão para interagir com este menu. Digite seu próprio comando!",
+    "Acesso ao controle negado! Execute seu próprio comando para obter um menu interativo.",
+    "Boa tentativa! Este componente é controlado exclusivamente pelo solicitante do comando."
   ],
   "sameVoiceRequired": [
-    "You must be in the same voice channel as Yuna to control playback!",
-    "Please join Yuna's voice channel to use this command!",
-    "You need to be in the same voice channel as the bot to run this.",
-    "Connect to the same voice channel as Yuna to manage audio controls!",
-    "Join Yuna in her current voice channel to interact with music controls.",
-    "You must share the same voice channel with the bot to execute this command."
+    "Você deve estar no mesmo canal de voz que Yuna para controlar a reprodução!",
+    "Por favor, entre no canal de voz de Yuna para usar este comando!",
+    "Você precisa estar no mesmo canal de voz que o bot para executar isso.",
+    "Conecte-se ao mesmo canal de voz que Yuna para gerenciar os controles de áudio!",
+    "Junte-se a Yuna em seu canal de voz atual para interagir com os controles de música.",
+    "Você deve compartilhar o mesmo canal de voz com o bot para executar este comando."
   ],
   "noTrackPlaying": [
-    "No music is currently playing in this server!",
-    "The queue is quiet right now! Use `/play <song>` to start listening.",
-    "There are no active tracks playing at the moment.",
-    "Playback is idle right now! Queue up some music to get started.",
-    "Nothing streaming currently! Pass a song name or link to begin.",
-    "The soundstage is clear! Add a song to start the music player."
+    "Nenhuma música está sendo reproduzida neste servidor atualmente!",
+    "A fila está silenciosa agora mesmo! Use `/play <song>` para começar a ouvir.",
+    "Não há faixas ativas sendo reproduzidas no momento.",
+    "A reprodução está inativa agora! Coloque alguma música na fila para começar.",
+    "Nada transmitindo atualmente! Passe o nome de uma música ou um link para começar.",
+    "O palco sonoro está vazio! Adicione uma música para iniciar o reprodutor de música."
   ],
   "trackQueued": [
-    "Track added to your queue successfully!",
-    "Queued up! Added your song to the queue.",
-    "Added to queue! Your song is lined up to play next.",
-    "Successfully queued your requested track!",
-    "Got it! Track appended to the active music queue.",
-    "Lined up! Your song has been placed into the queue.",
-    "Added to the sound list! Sit back and enjoy the vibe."
+    "Faixa adicionada à sua fila com sucesso!",
+    "Na fila! Você adicionou sua música à fila.",
+    "Adicionado à fila! Sua música está pronta para tocar a seguir.",
+    "Sua faixa solicitada foi colocada na fila com sucesso!",
+    "Entendi! Faixa adicionada à fila de música ativa.",
+    "Em fila! Sua música foi colocada na fila.",
+    "Adicionado à lista de sons! Sente-se e aproveite a atmosfera."
   ],
   "nowPlaying": [
-    "Now streaming high-fidelity audio in your voice channel!",
-    "Started playback for your requested track!",
-    "Now playing your music stream!",
-    "Spinning your track live in high audio quality!",
-    "Broadcasting your selection right now!",
-    "Audio stream initialized! Enjoy the high quality tunes."
+    "Agora transmitindo áudio de alta fidelidade em seu canal de voz!",
+    "A reprodução da faixa solicitada começou!",
+    "Agora reproduzindo seu streaming de música!",
+    "Tocando sua faixa ao vivo com alta qualidade de áudio!",
+    "Transmitindo sua seleção agora mesmo!",
+    "Streaming de áudio inicializado! Aproveite as melodias de alta qualidade."
   ],
   "playbackPaused": [
-    "Paused music playback! Type `/resume` to continue playing.",
-    "Player paused. Take your time, then type `/resume`!",
-    "Playback has been paused successfully.",
-    "Track paused! Press play or type `/resume` when ready.",
-    "Audio hold enabled! Resume whenever you are ready."
+    "Reprodução de música pausada! Digite `/resume` para continuar tocando.",
+    "O reprodutor pausou. Tire seu tempo, depois digite `/resume`!",
+    "A reprodução foi pausada com sucesso.",
+    "Faixa pausada! Pressione play ou digite `/resume` quando estiver pronto.",
+    "Retenção de áudio ativada! Retome quando estiver pronto."
   ],
   "playbackResumed": [
-    "Resumed music playback! Back to the tunes!",
-    "Unpaused! Resuming your music queue now.",
-    "Playback resumed successfully!",
-    "Music is rolling again! Enjoy the stream.",
-    "Unpaused audio stream! Back in action."
+    "Reprodução de música retomada! De volta às melodias!",
+    "Sem pausa! Retomando sua fila de música agora.",
+    "A reprodução foi retomada com sucesso!",
+    "A música está tocando novamente! Aproveite o streaming.",
+    "Streaming de áudio sem pausa! De volta à ação."
   ],
   "trackSkipped": [
-    "Skipped to the next track in queue!",
-    "Skipping current song! On to the next track.",
-    "Successfully skipped track!",
-    "Next track up! Current song skipped.",
-    "Jumped to the next song in the queue list."
+    "Pulado para a próxima faixa na fila!",
+    "Pulando a música atual! Vamos para a próxima faixa.",
+    "Faixa pulada com sucesso!",
+    "Próxima faixa! Música atual pulada.",
+    "Pulado para a próxima música na lista da fila."
   ],
   "queueCleared": [
-    "Cleared all songs from the queue!",
-    "The queue has been emptied successfully!",
-    "All queued tracks have been removed.",
-    "Wiped the entire queue clean!",
-    "Queue reset! Ready for brand new tracks."
+    "Você limpou todas as músicas da fila!",
+    "A fila foi esvaziada com sucesso!",
+    "Todas as faixas na fila foram removidas.",
+    "Limpei toda a fila!",
+    "Fila reiniciada! Pronto para faixas novas."
   ],
   "playerRequired": [
-    "No active music player found for this server!",
-    "There is no music player active right now!",
-    "Yuna isn't currently connected or playing audio in this server.",
-    "No active player session exists! Start one with `/play`."
+    "Nenhum reprodutor de música ativo encontrado para este servidor!",
+    "Não há nenhum reprodutor de música ativo neste momento!",
+    "Yuna não está atualmente conectada nem reproduzindo áudio neste servidor.",
+    "Não existe nenhuma sessão de reprodutor ativa! Comece uma com `/play`."
   ],
   "noResults": [
-    "No tracks found matching your query!",
-    "Could not find any songs with that search term.",
-    "No music results found! Please check your search query.",
-    "Search yields zero tracks! Try different keywords or direct links."
+    "Nenhuma faixa encontrada que corresponda à sua pesquisa!",
+    "Não foi possível encontrar músicas com esse termo de pesquisa.",
+    "Nenhum resultado musical encontrado! Por favor, verifique sua consulta.",
+    "A pesquisa não retorna faixas! Tente palavras-chave diferentes ou links diretos."
   ],
   "volumeChanged": [
-    "Playback volume has been updated successfully!",
-    "Volume level adjusted!",
-    "Player volume updated to your requested setting.",
-    "Sound level updated for this playback session!"
+    "O volume de reprodução foi atualizado com sucesso!",
+    "Nível de volume ajustado!",
+    "Volume do reprodutor atualizado para a configuração solicitada.",
+    "Nível de som atualizado para esta sessão de reprodução!"
   ],
   "volumeInvalid": [
-    "Volume level must be a number between 0 and 150.",
-    "Invalid volume specified! Please enter a value between 0 and 150.",
-    "Please enter a valid volume percentage (0 to 150)."
+    "O nível de volume deve ser um número entre 0 e 150.",
+    "Volume inválido especificado! Por favor, insira um valor entre 0 e 150.",
+    "Por favor, insira uma porcentagem de volume válida (0 a 150)."
   ],
   "seekSuccess": [
-    "Seeked to the specified timestamp successfully!",
-    "Player playback position updated!",
-    "Jumped to the target audio position!"
+    "Busca bem-sucedida até o carimbo de tempo especificado!",
+    "Posição de reprodução do reprodutor atualizada!",
+    "Pulado para a posição de áudio alvo!"
   ],
   "seekInvalid": [
-    "Invalid position or timestamp specified.",
-    "Please provide a valid timestamp or duration in seconds."
+    "Posição ou carimbo de tempo especificado inválido.",
+    "Por favor, forneça um carimbo de tempo válido ou duração em segundos."
   ],
   "rewindSuccess": [
-    "Rewound the current track!",
-    "Skipped backward in playback!",
-    "Stepped back in time on the current song!"
+    "Rebobine a faixa atual!",
+    "Pulado para trás na reprodução!",
+    "Viajou no tempo na música atual!"
   ],
   "forwardSuccess": [
-    "Skipped forward in the current track!",
-    "Advanced track playback position!",
-    "Stepped forward in playback!"
+    "Pulado para frente na faixa atual!",
+    "Posição de reprodução da faixa avançada!",
+    "Um passo à frente na reprodução!"
   ],
   "replaySuccess": [
-    "Replaying the current track from the start!",
-    "Track restarted from the beginning.",
-    "Spinning the current track again from 0:00!"
+    "Reproduzindo a faixa atual desde o início!",
+    "Faixa reiniciada desde o começo.",
+    "Tocando a faixa atual novamente a partir de 0:00!"
   ],
   "previousSuccess": [
-    "Skipped back to the previous track!",
-    "Playing previous song in history.",
-    "Rewound to the previous song in queue history."
+    "Voltou para a faixa anterior!",
+    "Reproduzindo a música anterior do histórico.",
+    "Rebobinando para a música anterior no histórico da fila."
   ],
   "stopSuccess": [
-    "Stopped playback and left the voice channel.",
-    "Music player stopped and disconnected.",
-    "Cleared queue, stopped audio engine, and left the voice channel."
+    "Parei a reprodução e saí do canal de voz.",
+    "O reprodutor de música parou e foi desconectado.",
+    "Fila limpa, motor de áudio parado e saída do canal de voz."
   ],
   "loopMode": [
-    "Updated loop settings!",
-    "Queue loop mode has been updated.",
-    "Repeat mode set to your new selection!"
+    "Configurações de loop atualizadas!",
+    "O modo de loop da fila foi atualizado.",
+    "Modo de repetição definido para sua nova seleção!"
   ],
   "shuffleSuccess": [
-    "Shuffled all tracks in the queue!",
-    "Queue order randomized successfully.",
-    "Mixed up the queue sequence!"
+    "Todas as faixas na fila foram misturadas!",
+    "A ordem da fila foi randomizada com sucesso.",
+    "Misturei a sequência da fila!"
   ],
   "trackRemoved": [
-    "Removed the specified track from the queue!",
-    "Track successfully removed from queue.",
-    "Selected track removed from playback queue!"
+    "A faixa especificada foi removida da fila!",
+    "Faixa removida com sucesso da fila.",
+    "Faixa selecionada removida da fila de reprodução!"
   ],
   "trackMoved": [
-    "Moved track to the requested queue position!",
-    "Queue position updated successfully.",
-    "Track position reordered in queue!"
+    "Faixa movida para a posição da fila solicitada!",
+    "Posição da fila atualizada com sucesso.",
+    "Posição da faixa reorganizada na fila!"
   ],
   "bumpSuccess": [
-    "Track bumped to the top of the queue!",
-    "Song moved to play next!",
-    "Prioritized track to position #1 in queue!"
+    "A faixa foi para o topo da fila!",
+    "A música foi movida para tocar a seguir!",
+    "Faixa priorizada na posição nº1 na fila!"
   ],
   "likeAdded": [
-    "Added current track to your favorites list!",
-    "Saved song to your favorites!",
-    "Added to your liked tracks collection!"
+    "Faixa atual adicionada à sua lista de favoritos!",
+    "Música salva nos seus favoritos!",
+    "Adicionado à sua coleção de faixas favoritas!"
   ],
   "likeRemoved": [
-    "Removed track from your favorites list!",
-    "Song removed from favorites.",
-    "Deleted track from your liked songs collection."
+    "Faixa removida da sua lista de favoritos!",
+    "Música removida dos favoritos.",
+    "Faixa excluída da sua coleção de músicas que você gosta."
   ],
   "likedAll": [
-    "Added all tracks in queue to your favorites!",
-    "All current queue tracks saved to favorites!",
-    "Entire queue added to your personal liked songs!"
+    "Todas as faixas na fila foram adicionadas aos seus favoritos!",
+    "Todas as faixas atuais da fila foram salvas nos favoritos!",
+    "Toda a fila foi adicionada às suas músicas favoritas pessoais!"
   ],
   "noLikedTracks": [
-    "You haven't saved any favorite tracks yet!",
-    "Your favorites list is currently empty.",
-    "No liked songs found in your library."
+    "Você ainda não salvou nenhuma faixa favorita!",
+    "Sua lista de favoritos está atualmente vazia.",
+    "Nenhuma música que você gosta foi encontrada na sua biblioteca."
   ],
   "playlistCreated": [
-    "Playlist created successfully!",
-    "New custom playlist initialized!",
-    "Your custom playlist is ready to receive tracks."
+    "Playlist criada com sucesso!",
+    "Nova playlist personalizada inicializada!",
+    "Sua playlist personalizada está pronta para receber faixas."
   ],
   "playlistDeleted": [
-    "Playlist deleted successfully!",
-    "Removed custom playlist from your collection.",
-    "Custom playlist deleted."
+    "Playlist excluída com sucesso!",
+    "Lista de reprodução personalizada removida da sua coleção.",
+    "Playlist personalizada excluída."
   ],
   "playlistUpdated": [
-    "Playlist updated successfully!",
-    "Saved new tracks into your playlist collection.",
-    "Playlist library updated!"
+    "Playlist atualizada com sucesso!",
+    "Novas faixas salvas na sua coleção de playlists.",
+    "Biblioteca de playlists atualizada!"
   ],
   "playlistLoaded": [
-    "Loaded playlist tracks into the player queue!",
-    "Playlist tracks loaded and queued up!",
-    "Successfully imported playlist songs into queue."
+    "Faixas da playlist carregadas na fila do reprodutor!",
+    "Faixas da playlist carregadas e colocadas na fila!",
+    "Músicas da playlist importadas com sucesso para a fila."
   ],
   "filterApplied": [
-    "Audio filter applied to playback!",
-    "DJ audio filter activated!",
-    "Audio DSP preset applied successfully!"
+    "Filtro de áudio aplicado à reprodução!",
+    "Filtro de áudio DJ ativado!",
+    "Predefinição de áudio DSP aplicada com sucesso!"
   ],
   "filterCleared": [
-    "Cleared all active audio filters!",
-    "Reset audio DSP filters to default state.",
-    "Equalizer and audio filters returned to flat baseline."
+    "Todos os filtros de áudio ativos removidos!",
+    "Redefina os filtros de áudio DSP para o estado padrão.",
+    "O equalizador e os filtros de áudio retornaram à linha de base plana."
   ],
   "modeToggled": [
-    "Settings updated successfully!",
-    "Configuration toggled for this server.",
-    "Server setting updated!"
+    "Configurações atualizadas com sucesso!",
+    "Configuração alternada para este servidor.",
+    "Configuração do servidor atualizada!"
   ],
   "presetUpdated": [
-    "Player UI preset updated successfully!",
-    "Card display preset saved!",
-    "Now Playing presentation style updated!"
+    "A predefinição da interface do reprodutor foi atualizada com sucesso!",
+    "Predefinição de exibição do cartão salva!",
+    "O estilo de apresentação Now Playing foi atualizado!"
   ],
   "prefixUpdated": [
-    "Prefix settings updated successfully!",
-    "Server custom prefix configured!",
-    "Updated bot trigger prefix!"
+    "Configurações de prefixo atualizadas com sucesso!",
+    "Prefixo personalizado do servidor configurado!",
+    "Prefixo de ativação do bot atualizado!"
   ],
   "apToggled": [
-    "Autoplay status updated successfully!",
-    "Autoplay setting toggled.",
-    "Dynamic recommendation autoplay updated!"
+    "Status de reprodução automática atualizado com sucesso!",
+    "Configuração de reprodução automática alternada.",
+    "Reprodução automática de recomendações dinâmicas atualizada!"
   ],
   "radioStarted": [
-    "Radio station playback started!",
-    "Streaming radio station now.",
-    "Live radio stream initialized!"
+    "A reprodução da estação de rádio começou!",
+    "Transmitindo estação de rádio agora.",
+    "Streaming de rádio ao vivo inicializado!"
   ],
   "lyricNotFound": [
-    "No lyrics found for this track.",
-    "Lyrics could not be retrieved for the requested song.",
-    "Synchronized lyrics unavailable for this track."
+    "Nenhuma letra encontrada para esta faixa.",
+    "As letras não puderam ser recuperadas para a música solicitada.",
+    "Letras sincronizadas não disponíveis para esta faixa."
   ],
   "historyEmpty": [
-    "No song history recorded yet.",
-    "Playback history is currently empty.",
-    "No recent tracks recorded in history."
+    "Nenhum histórico de músicas foi registrado ainda.",
+    "O histórico de reprodução está atualmente vazio.",
+    "Nenhuma faixa recente registrada no histórico."
   ],
   "pingSuccess": [
-    "Pong! Latency details retrieved.",
-    "Connection stats fetched successfully!",
-    "Ping latency calculated."
+    "Pong! Detalhes de latência recuperados.",
+    "Estatísticas de conexão recuperadas com sucesso!",
+    "Latência do Ping calculada."
   ],
   "premiumSuccess": [
-    "Thanks for supporting Yuna! Your perks are live.",
-    "Premium activated — enjoy the extras!"
+    "Obrigado por apoiar Yuna! Seus benefícios estão ativos.",
+    "Premium ativado – aproveite os extras!"
   ],
   "devOnly": [
-    "This command is restricted to bot developers only.",
-    "Access denied. Developer authorization required.",
-    "Developer privileges required to execute this command."
+    "Este comando é restrito apenas a desenvolvedores de bots.",
+    "Acesso negado. Autorização de desenvolvedor necessária.",
+    "Privilégios de desenvolvedor necessários para executar este comando."
   ],
   "blacklisted": [
-    "User or guild blacklist updated.",
-    "Blacklist status updated successfully."
+    "Lista negra de usuários ou guildas atualizada.",
+    "Status da lista negra atualizado com sucesso."
   ],
   "reloaded": [
-    "Bot modules reloaded successfully.",
-    "Reload completed!"
+    "Módulos do bot foram recarregados com sucesso.",
+    "Recarga concluída!"
   ],
   "rebooting": [
-    "Restarting Yuna bot processes...",
-    "Reboot sequence initiated."
+    "Reiniciando processos do bot Yuna...",
+    "Sequência de reinício iniciada."
   ],
   "slashSynced": [
-    "Slash commands synchronized successfully.",
-    "Application commands updated."
+    "Comandos Slash foram sincronizados com sucesso.",
+    "Comandos do aplicativo atualizados."
   ],
   "serversListed": [
-    "Server overview generated.",
-    "Fetched server stats successfully."
+    "Visão geral do servidor gerada.",
+    "Estatísticas do servidor recuperadas com sucesso."
   ],
   "lavalinkStats": [
-    "Lavalink node status retrieved.",
-    "Node statistics fetched."
+    "Status do nó Lavalink recuperado.",
+    "Estatísticas do nó recuperadas."
   ],
   "errorGeneric": [
-    "Something went wrong while processing your request. Please try again!",
-    "An unexpected error occurred. Feel free to try again in a moment.",
-    "Unable to complete request right now. Please try again later.",
-    "An issue occurred while processing this command.",
-    "Request failed to process cleanly. Please retry shortly."
+    "Algo deu errado ao processar sua solicitação. Por favor, tente novamente!",
+    "Ocorreu um erro inesperado. Sinta-se à vontade para tentar novamente em um momento.",
+    "Não foi possível concluir a solicitação agora. Por favor, tente novamente mais tarde.",
+    "Ocorreu um problema ao processar este comando.",
+    "A solicitação não pôde ser processada corretamente. Tente novamente em breve."
   ]
 }
 };

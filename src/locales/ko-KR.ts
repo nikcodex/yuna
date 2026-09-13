@@ -1,322 +1,322 @@
 export default {
 	meta: {
-  "name": "Korean",
-  "nativeName": "한국어",
-  "emoji": "🇰🇷"
-},
+   "name": "Korean",
+   "nativeName": "한국어",
+   "emoji": "🇰🇷"
+ },
 	phrases: {
   "languagePreviewTest": [
-    "Current track added to your favorites list!",
-    "Song saved to your favorites!"
+    "현재 트랙이 즐겨찾기 목록에 추가되었습니다!",
+    "노래가 즐겨찾기에 저장되었습니다!"
   ],
   "languageSuccess": [
-    "Your language has been successfully updated!",
-    "I will now speak to you in this language."
+    "언어가 성공적으로 업데이트되었습니다!",
+    "이제 이 언어로 여러분과 이야기하겠습니다."
   ],
   "cooldown": [
-    "Hold on a moment! Please wait **${time}** more second(s) before using this command again.",
-    "Woah, slow down a bit! You can use this command again in **${time}** second(s).",
-    "Take a breath! This command is on cooldown for another **${time}** second(s).",
-    "Easy there! Please allow **${time}** more second(s) before sending another request.",
-    "Yuna needs a quick moment! Please wait **${time}** second(s) before trying again.",
-    "Command on cooldown! You can run this command again in **${time}** second(s).",
-    "Please give it a pause! Cooldown expires in **${time}** second(s).",
-    "Pacing is key! Re-use available in **${time}** second(s).",
-    "Just a quick breather! Wait **${time}** second(s) before triggering this again.",
-    "Speed demon! Let Yuna catch up for **${time}** second(s)."
+    "잠시만요! 이 명령을 다시 사용하려면 **${time}**초 더 기다리세요.",
+    "좀 천천히 해! **${time}**초 후에 이 명령을 다시 사용할 수 있습니다.",
+    "숨 쉬세요! 이 명령은 **${time}**초 더 쿨다운 중입니다.",
+    "천천히 가세요! 다음 요청을 보내기 전에 **${time}**초 더 기다리세요.",
+    "유나는 시간이 필요합니다! **${time}**초 후 다시 시도하세요.",
+    "명령어 쿨다운 중! **${time}**초 후에 다시 실행할 수 있습니다.",
+    "잠시만요! 쿨다운이 **${time}**초 후에 만료됩니다.",
+    "속도가 중요! 재사용은 **${time}**초 후에 가능합니다.",
+    "잠깐만요! 다시 실행하려면 **${time}**초 기다리세요.",
+    "스피드 귀신! 유나가 **${time}**초 후에 따라잡도록 하세요."
   ],
   "voiceRequired": [
-    "You need to join a voice channel first before using music commands!",
-    "Please hop into a voice channel so Yuna knows where to stream!",
-    "Join a voice channel to start listening to your favorite music!",
-    "You must be connected to a voice channel to run this command.",
-    "No voice channel detected! Connect to a voice channel and try again.",
-    "Yuna needs to hear you! Jump into a voice channel first.",
-    "Please step into a voice channel before playing audio streams.",
-    "Connect to a voice channel so Yuna can play your favorite tunes!"
+    "음악 명령을 사용하려면 먼저 보이스 채널에 참여하세요!",
+    "Yuna가 스트리밍할 장소를 알 수 있도록 보이스 채널에 참여하세요!",
+    "보이스 채널에 참여하여 좋아하는 음악을 들어보세요!",
+    "이 명령을 실행하려면 보이스 채널에 연결되어 있어야 합니다.",
+    "보이스 채널이 감지되지 않았습니다! 보이스 채널에 연결하고 다시 시도하세요.",
+    "Yuna는 당신의 목소리를 듣고 싶어 해요! 먼저 보이스 채널에 참여하세요.",
+    "오디오 스트림을 재생하기 전에 보이스 채널에 참여하세요.",
+    "보이스 채널에 연결하여 Yuna가 당신 좋아하는 음악을 재생할 수 있게 하세요!"
   ],
   "notYourInteraction": [
-    "This menu isn't for you! Please run your own command to use the controls.",
-    "Hey! That button belongs to another user. Run your own command to interact!",
-    "Only the user who ran this command can use these controls!",
-    "Hands off! This interactive menu is reserved for the command requester.",
-    "This interactive control panel belongs to someone else!",
-    "You don't have permission to interact with this menu. Type your own command!",
-    "Control access denied! Run your own command to get an interactive menu.",
-    "Nice try! This component is controlled exclusively by the command requester."
+    "이 메뉴는 당신을 위한 것이 아닙니다! 컨트롤을 사용하려면 자신의 명령을 실행하세요.",
+    "야! 그 버튼은 다른 사용자의 거야. 자신의 명령을 실행해 इंट라랙트 해!",
+    "이 명령을 실행한 사용자만 이 컨트롤을 사용할 수 있습니다!",
+    "손 떼세요! 이 인터랙티브 메뉴는 명령 요청자를 위한 것입니다.",
+    "이 인터랙티브 컨트롤 패널은 다른 사람의 것입니다!",
+    "이 메뉴와 인터랙트할 권한이 없습니다. 자신의 명령을 입력하세요!",
+    "컨트롤 접근 거부! 자신의 명령을 실행하여 인터랙티브 메뉴를 얻으세요.",
+    "잘 시도했어요! 이 컴포넌트는 명령 요청자만 제어할 수 있습니다."
   ],
   "sameVoiceRequired": [
-    "You must be in the same voice channel as Yuna to control playback!",
-    "Please join Yuna's voice channel to use this command!",
-    "You need to be in the same voice channel as the bot to run this.",
-    "Connect to the same voice channel as Yuna to manage audio controls!",
-    "Join Yuna in her current voice channel to interact with music controls.",
-    "You must share the same voice channel with the bot to execute this command."
+    "Yuna와 같은 보이스 채널에 있지 않으면 재생을 제어할 수 없습니다!",
+    "Yuna의 보이스 채널에 참여하여 이 명령을 사용하세요!",
+    "이 작업을 실행하려면 봇과 같은 보이스 채널에 있어야 합니다.",
+    "Yuna와 같은 보이스 채널에 연결하여 오디오 컨트롤을 관리하세요!",
+    "Yuna의 현재 보이스 채널에 참여하여 음악 컨트롤과 인터랙트하세요.",
+    "이 명령을 실행하려면 봇과 같은 보이스 채널을 공유해야 합니다."
   ],
   "noTrackPlaying": [
-    "No music is currently playing in this server!",
-    "The queue is quiet right now! Use `/play <song>` to start listening.",
-    "There are no active tracks playing at the moment.",
-    "Playback is idle right now! Queue up some music to get started.",
-    "Nothing streaming currently! Pass a song name or link to begin.",
-    "The soundstage is clear! Add a song to start the music player."
+    "현재 이 서버에서 음악이 재생되지 않습니다!",
+    "플레이리스트는 지금 조용합니다! `/play <song>`을 사용하여 음악을 들어보세요.",
+    "현재 재생 중인 트랙이 없습니다.",
+    "재생이 현재 비활성 상태입니다! 음악을 큐에 추가하여 시작하세요.",
+    "현재 스트리밍 중인 것이 없습니다! 노래 이름이나 링크를 전달하여 시작하세요.",
+    "사운드 스테이지가 비어 있습니다! 음악 플레이어를 시작하기 위해 노래를 추가하세요."
   ],
   "trackQueued": [
-    "Track added to your queue successfully!",
-    "Queued up! Added your song to the queue.",
-    "Added to queue! Your song is lined up to play next.",
-    "Successfully queued your requested track!",
-    "Got it! Track appended to the active music queue.",
-    "Lined up! Your song has been placed into the queue.",
-    "Added to the sound list! Sit back and enjoy the vibe."
+    "트랙이 플레이리스트에 정상적으로 추가되었습니다!",
+    "큐에 추가되었습니다! 자신의 노래를 큐에 추가했습니다.",
+    "큐에 추가되었습니다! 자신의 노래가 다음에 재생될 차례입니다.",
+    "요청한 트랙을 정상적으로 큐에 추가했습니다!",
+    "알겠습니다! 트랙이 활성 음악 큐에 추가되었습니다.",
+    "줄을 섰습니다! 자신의 노래가 큐에 배치되었습니다.",
+    "사운드 리스트에 추가되었습니다! 앉아 있으면 분위기가 즐거워집니다."
   ],
   "nowPlaying": [
-    "Now streaming high-fidelity audio in your voice channel!",
-    "Started playback for your requested track!",
-    "Now playing your music stream!",
-    "Spinning your track live in high audio quality!",
-    "Broadcasting your selection right now!",
-    "Audio stream initialized! Enjoy the high quality tunes."
+    "보이스 채널에서 고품질 오디오를 스트리밍 중!",
+    "요청한 트랙의 재생이 시작되었습니다!",
+    "지금 자신의 음악 스트림을 재생 중!",
+    "고품질 오디오로 트랙을 라이브 스피닝 중!",
+    "자신의 선택곡을 지금 스트리밍 중!",
+    "오디오 스트림이 초기화되었습니다! 고품질 멜로디를 즐기세요."
   ],
   "playbackPaused": [
-    "Paused music playback! Type `/resume` to continue playing.",
-    "Player paused. Take your time, then type `/resume`!",
-    "Playback has been paused successfully.",
-    "Track paused! Press play or type `/resume` when ready.",
-    "Audio hold enabled! Resume whenever you are ready."
+    "음악 재생이 일시 중지되었습니다! 계속 재생하려면 `/resume`을 입력하세요.",
+    "플레이어가 일시 중지되었습니다. 시간을 두고 `/resume`을 입력하세요!",
+    "재생이 정상적으로 일시 중지되었습니다.",
+    "트랙이 일시 중지되었습니다! 준비가 되면 재생 버튼을 누르거나 `/resume`을 입력하세요.",
+    "오디오 홀드가 활성화되었습니다! 준비가 되면 재개하세요."
   ],
   "playbackResumed": [
-    "Resumed music playback! Back to the tunes!",
-    "Unpaused! Resuming your music queue now.",
-    "Playback resumed successfully!",
-    "Music is rolling again! Enjoy the stream.",
-    "Unpaused audio stream! Back in action."
+    "음악 재생이 재개되었습니다! 다시 멜로디로 돌아갑니다!",
+    "중단되지 않았습니다! 지금 자신의 음악 플레이리스트를 재개합니다.",
+    "재생이 정상적으로 재개되었습니다!",
+    "음악이 다시 재생 중입니다! 스트림을 즐기세요.",
+    "오디오 스트림이 재개되었습니다! 다시 액션 중입니다."
   ],
   "trackSkipped": [
-    "Skipped to the next track in queue!",
-    "Skipping current song! On to the next track.",
-    "Successfully skipped track!",
-    "Next track up! Current song skipped.",
-    "Jumped to the next song in the queue list."
+    "큐의 다음 트랙으로 이동했습니다!",
+    "현재 노래를 스킵하여 다음 트랙으로 이동합니다!",
+    "트랙을 정상적으로 스킵했습니다!",
+    "다음 트랙! 현재 노래는 스킵되었습니다.",
+    "큐 리스트에서 다음 노래로 점프했습니다."
   ],
   "queueCleared": [
-    "Cleared all songs from the queue!",
-    "The queue has been emptied successfully!",
-    "All queued tracks have been removed.",
-    "Wiped the entire queue clean!",
-    "Queue reset! Ready for brand new tracks."
+    "모든 노래를 큐에서 제거했습니다!",
+    "큐가 정상적으로 비워졌습니다!",
+    "큐에 있던 모든 트랙이 제거되었습니다.",
+    "큐 전체를 깨끗이 지웠습니다!",
+    "플레이리스트가 리셋되었습니다! 새로운 트랙을 위해 준비 완료."
   ],
   "playerRequired": [
-    "No active music player found for this server!",
-    "There is no music player active right now!",
-    "Yuna isn't currently connected or playing audio in this server.",
-    "No active player session exists! Start one with `/play`."
+    "이 서버에서 활성 음악 플레이어를 찾을 수 없습니다!",
+    "현재 활성 음악 플레이어가 없습니다!",
+    "Yuna는 현재 이 서버에 연결되어 있거나 오디오를 재생하지 않습니다.",
+    "활성 플레이어 세션이 존재하지 않습니다! `/play`로 시작하세요."
   ],
   "noResults": [
-    "No tracks found matching your query!",
-    "Could not find any songs with that search term.",
-    "No music results found! Please check your search query.",
-    "Search yields zero tracks! Try different keywords or direct links."
+    "쿼리에 일치하는 트랙이 없습니다!",
+    "그 검색어로 노래를 찾을 수 없었습니다.",
+    "음악 결과가 없습니다! 검색 쿼리를 확인하세요.",
+    "검색이 0개의 트랙을 반환했습니다! 다른 키워드나 직접 링크를 시도하세요."
   ],
   "volumeChanged": [
-    "Playback volume has been updated successfully!",
-    "Volume level adjusted!",
-    "Player volume updated to your requested setting.",
-    "Sound level updated for this playback session!"
+    "재생 볼륨이 정상적으로 업데이트되었습니다!",
+    "볼륨 레벨이 조정되었습니다!",
+    "플레이어 볼륨이 요청한 설정으로 업데이트되었습니다.",
+    "이 재생 세션의 사운드 레벨이 업데이트되었습니다!"
   ],
   "volumeInvalid": [
-    "Volume level must be a number between 0 and 150.",
-    "Invalid volume specified! Please enter a value between 0 and 150.",
-    "Please enter a valid volume percentage (0 to 150)."
+    "볼륨 레벨은 0과 150 사이의 숫자여야 합니다.",
+    "유효하지 않은 볼륨이 지정되었습니다! 0과 150 사이의 값을 입력하세요.",
+    "0에서 150까지의 유효한 볼륨 백분율을 입력하세요."
   ],
   "seekSuccess": [
-    "Seeked to the specified timestamp successfully!",
-    "Player playback position updated!",
-    "Jumped to the target audio position!"
+    "지정된 타임스탬프로 정상적으로 시크했습니다!",
+    "플레이어 재생 위치가 업데이트되었습니다!",
+    "대상 오디오 위치로 점프했습니다!"
   ],
   "seekInvalid": [
-    "Invalid position or timestamp specified.",
-    "Please provide a valid timestamp or duration in seconds."
+    "지정된 위치나 타임스탬프가 유효하지 않습니다.",
+    "유효한 타임스탬프나 초 단위의 기간을 제공하세요."
   ],
   "rewindSuccess": [
-    "Rewound the current track!",
-    "Skipped backward in playback!",
-    "Stepped back in time on the current song!"
+    "현재 트랙을 되감았습니다!",
+    "재생 중에 뒤로 점프했습니다!",
+    "현재 노래의 시간대를 되감았습니다!"
   ],
   "forwardSuccess": [
-    "Skipped forward in the current track!",
-    "Advanced track playback position!",
-    "Stepped forward in playback!"
+    "현재 트랙을 앞으로 점프했습니다!",
+    "트랙의 재생 위치가 전진했습니다!",
+    "재생 중에 앞으로 점프했습니다!"
   ],
   "replaySuccess": [
-    "Replaying the current track from the start!",
-    "Track restarted from the beginning.",
-    "Spinning the current track again from 0:00!"
+    "현재 트랙을 처음부터 다시 재생했습니다!",
+    "트랙이 처음부터 재시작되었습니다.",
+    "0:00부터 현재 트랙을 다시 스피닝했습니다!"
   ],
   "previousSuccess": [
-    "Skipped back to the previous track!",
-    "Playing previous song in history.",
-    "Rewound to the previous song in queue history."
+    "이전 트랙으로 스킵 백했습니다!",
+    "이전 노래를 재생 중입니다.",
+    "큐의 이전 노래로 되감았습니다."
   ],
   "stopSuccess": [
-    "Stopped playback and left the voice channel.",
-    "Music player stopped and disconnected.",
-    "Cleared queue, stopped audio engine, and left the voice channel."
+    "재생 중지하고 보이스 채널에서 나갔습니다.",
+    "음악 플레이어가 중지되고 연결이 끊겼습니다.",
+    "큐가 비워지고, 오디오 엔진이 중지되었으며, 보이스 채널에서 나갔습니다."
   ],
   "loopMode": [
-    "Updated loop settings!",
-    "Queue loop mode has been updated.",
-    "Repeat mode set to your new selection!"
+    "루프 설정이 업데이트되었습니다!",
+    "큐의 루프 모드가 업데이트되었습니다.",
+    "리피트 모드가 새로운 선택에 맞게 설정되었습니다!"
   ],
   "shuffleSuccess": [
-    "Shuffled all tracks in the queue!",
-    "Queue order randomized successfully.",
-    "Mixed up the queue sequence!"
+    "큐의 모든 트랙을 섞었습니다!",
+    "큐의 순서가 정상적으로 랜덤화되었습니다.",
+    "큐의 순서를 섞었습니다!"
   ],
   "trackRemoved": [
-    "Removed the specified track from the queue!",
-    "Track successfully removed from queue.",
-    "Selected track removed from playback queue!"
+    "지정된 트랙을 큐에서 제거했습니다!",
+    "트랙이 정상적으로 큐에서 제거되었습니다.",
+    "선택된 트랙이 재생 큐에서 제거되었습니다!"
   ],
   "trackMoved": [
-    "Moved track to the requested queue position!",
-    "Queue position updated successfully.",
-    "Track position reordered in queue!"
+    "트랙을 요청된 큐 위치로 이동했습니다!",
+    "큐의 위치가 정상적으로 업데이트되었습니다.",
+    "트랙의 위치가 큐에서 재정렬되었습니다!"
   ],
   "bumpSuccess": [
-    "Track bumped to the top of the queue!",
-    "Song moved to play next!",
-    "Prioritized track to position #1 in queue!"
+    "트랙이 큐의 상단으로 올라왔습니다!",
+    "노래가 다음에 재생되도록 이동되었습니다!",
+    "트랙이 큐의 #1 위치에 우선순위로 배치되었습니다!"
   ],
   "likeAdded": [
-    "Added current track to your favorites list!",
-    "Saved song to your favorites!",
-    "Added to your liked tracks collection!"
+    "현재 트랙이 즐겨찾기 목록에 추가되었습니다!",
+    "노래가 즐겨찾기에 저장되었습니다!",
+    "좋아하는 트랙 컬렉션에 추가되었습니다!"
   ],
   "likeRemoved": [
-    "Removed track from your favorites list!",
-    "Song removed from favorites.",
-    "Deleted track from your liked songs collection."
+    "트랙이 즐겨찾기 목록에서 제거되었습니다!",
+    "노래가 즐겨찾기에서 제거되었습니다.",
+    "트랙이 좋아하는 노래 컬렉션에서 삭제되었습니다."
   ],
   "likedAll": [
-    "Added all tracks in queue to your favorites!",
-    "All current queue tracks saved to favorites!",
-    "Entire queue added to your personal liked songs!"
+    "큐의 모든 트랙을 즐겨찾기에 추가했습니다!",
+    "큐의 현재 모든 트랙이 즐겨찾기에 저장되었습니다!",
+    "전체 큐가 개인적인 좋아하는 노래에 추가되었습니다!"
   ],
   "noLikedTracks": [
-    "You haven't saved any favorite tracks yet!",
-    "Your favorites list is currently empty.",
-    "No liked songs found in your library."
+    "아직 좋아하는 트랙을 저장하지 않았습니다!",
+    "즐겨찾기 목록은 현재 비어 있습니다.",
+    "좋아하는 노래가 당신의 라이브러리에서 발견되지 않았습니다."
   ],
   "playlistCreated": [
-    "Playlist created successfully!",
-    "New custom playlist initialized!",
-    "Your custom playlist is ready to receive tracks."
+    "플레이리스트가 정상적으로 생성되었습니다!",
+    "새로운 사용자 정의 플레이리스트가 초기화되었습니다!",
+    "사용자 정의 플레이리스트는 트랙을 받기 위해 준비되었습니다."
   ],
   "playlistDeleted": [
-    "Playlist deleted successfully!",
-    "Removed custom playlist from your collection.",
-    "Custom playlist deleted."
+    "플레이리스트가 정상적으로 삭제되었습니다!",
+    "사용자 정의 플레이리스트가 당신 컬렉션에서 제거되었습니다.",
+    "사용자 정의 플레이리스트가 삭제되었습니다."
   ],
   "playlistUpdated": [
-    "Playlist updated successfully!",
-    "Saved new tracks into your playlist collection.",
-    "Playlist library updated!"
+    "플레이리스트가 정상적으로 업데이트되었습니다!",
+    "새로운 트랙이 당신의 플레이리스트 컬렉션에 저장되었습니다.",
+    "플레이리스트 라이브러리가 업데이트되었습니다!"
   ],
   "playlistLoaded": [
-    "Loaded playlist tracks into the player queue!",
-    "Playlist tracks loaded and queued up!",
-    "Successfully imported playlist songs into queue."
+    "플레이리스트의 트랙이 플레이어 큐에 로드되었습니다!",
+    "플레이리스트의 트랙이 로드되어 큐에 추가되었습니다!",
+    "플레이리스트의 노래를 큐에 정상적으로 가져왔습니다."
   ],
   "filterApplied": [
-    "Audio filter applied to playback!",
-    "DJ audio filter activated!",
-    "Audio DSP preset applied successfully!"
+    "오디오 필터가 재생에 적용되었습니다!",
+    "DJ 오디오 필터가 활성화되었습니다!",
+    "오디오 DSP 프리셋이 정상적으로 적용되었습니다!"
   ],
   "filterCleared": [
-    "Cleared all active audio filters!",
-    "Reset audio DSP filters to default state.",
-    "Equalizer and audio filters returned to flat baseline."
+    "모든 활성 오디오 필터가 제거되었습니다!",
+    "오디오 DSP 필터가 기본 상태로 리셋되었습니다.",
+    "이퀄라이저와 오디오 필터가 플랫 베이스라인으로 돌아왔습니다."
   ],
   "modeToggled": [
-    "Settings updated successfully!",
-    "Configuration toggled for this server.",
-    "Server setting updated!"
+    "설정이 정상적으로 업데이트되었습니다!",
+    "이 서버의 구성이 전환되었습니다.",
+    "서버 설정이 업데이트되었습니다!"
   ],
   "presetUpdated": [
-    "Player UI preset updated successfully!",
-    "Card display preset saved!",
-    "Now Playing presentation style updated!"
+    "플레이어 UI 프리셋이 정상적으로 업데이트되었습니다!",
+    "카드 디스플레이 프리셋이 저장되었습니다!",
+    "Now Playing 프리젠테이션 스타일이 업데이트되었습니다!"
   ],
   "prefixUpdated": [
-    "Prefix settings updated successfully!",
-    "Server custom prefix configured!",
-    "Updated bot trigger prefix!"
+    "프리픽스 설정이 정상적으로 업데이트되었습니다!",
+    "서버 사용자 정의 프리픽스가 구성되었습니다!",
+    "봇 트리거 프리픽스가 업데이트되었습니다!"
   ],
   "apToggled": [
-    "Autoplay status updated successfully!",
-    "Autoplay setting toggled.",
-    "Dynamic recommendation autoplay updated!"
+    "오토플레이 상태이 정상적으로 업데이트되었습니다!",
+    "오토플레이 설정이 전환되었습니다.",
+    "다이내믹 레코멘데이션을 오토플레이를 업데이트했습니다!"
   ],
   "radioStarted": [
-    "Radio station playback started!",
-    "Streaming radio station now.",
-    "Live radio stream initialized!"
+    "라디오 방송의 재생이 시작되었습니다!",
+    "라디오 방송이 지금 스트리밍 중입니다.",
+    "라이브 라디오 스트림이 초기화되었습니다!"
   ],
   "lyricNotFound": [
-    "No lyrics found for this track.",
-    "Lyrics could not be retrieved for the requested song.",
-    "Synchronized lyrics unavailable for this track."
+    "이 트랙의 가사가 발견되지 않았습니다.",
+    "요청한 곡의 가사를 가져올 수 없었습니다.",
+    "이 트랙에는 동기화된 가사가 없습니다."
   ],
   "historyEmpty": [
-    "No song history recorded yet.",
-    "Playback history is currently empty.",
-    "No recent tracks recorded in history."
+    "아직 노래의 기록이 없습니다.",
+    "재생 기록은 현재 비어 있습니다.",
+    "최근 트랙이 기록되지 않았습니다."
   ],
   "pingSuccess": [
-    "Pong! Latency details retrieved.",
-    "Connection stats fetched successfully!",
-    "Ping latency calculated."
+    "핑! 지연 세부 정보가 검색되었습니다.",
+    "연결 통계가 정상적으로 검색되었습니다!",
+    "핑 지연이 계산되었습니다."
   ],
   "premiumSuccess": [
-    "Thanks for supporting Yuna! Your perks are live.",
-    "Premium activated — enjoy the extras!"
+    "Yuna를 지원해 주셔서 감사합니다! 당신의 혜택이 활성화되었습니다.",
+    "프리미엄이 활성화되었습니다 - 보너스를 즐기세요!"
   ],
   "devOnly": [
-    "This command is restricted to bot developers only.",
-    "Access denied. Developer authorization required.",
-    "Developer privileges required to execute this command."
+    "이 명령은 봇 개발자에게만 제한됩니다.",
+    "접근이 거부되었습니다. 개발자의 인증이 필요합니다.",
+    "이 명령을 실행하려면 개발자 특권이 필요합니다."
   ],
   "blacklisted": [
-    "User or guild blacklist updated.",
-    "Blacklist status updated successfully."
+    "사용자 또는 길드의 블랙리스트가 업데이트되었습니다.",
+    "블랙리스트 상태가 정상적으로 업데이트되었습니다."
   ],
   "reloaded": [
-    "Bot modules reloaded successfully.",
-    "Reload completed!"
+    "봇 모듈이 정상적으로 재로딩되었습니다.",
+    "재로딩 완료!"
   ],
   "rebooting": [
-    "Restarting Yuna bot processes...",
-    "Reboot sequence initiated."
+    "Yuna 봇 프로세스의 재시작 중...",
+    "재시작 시퀀스가 시작되었습니다."
   ],
   "slashSynced": [
-    "Slash commands synchronized successfully.",
-    "Application commands updated."
+    "슬래시 명령이 정상적으로 동기화되었습니다.",
+    "애플리케이션 명령이 업데이트되었습니다."
   ],
   "serversListed": [
-    "Server overview generated.",
-    "Fetched server stats successfully."
+    "서버 개요가 생성되었습니다.",
+    "서버 통계가 정상적으로 검색되었습니다."
   ],
   "lavalinkStats": [
-    "Lavalink node status retrieved.",
-    "Node statistics fetched."
+    "Lavalink 노드 상태가 검색되었습니다.",
+    "노드 통계가 검색되었습니다."
   ],
   "errorGeneric": [
-    "Something went wrong while processing your request. Please try again!",
-    "An unexpected error occurred. Feel free to try again in a moment.",
-    "Unable to complete request right now. Please try again later.",
-    "An issue occurred while processing this command.",
-    "Request failed to process cleanly. Please retry shortly."
+    "요청 처리 중 오류가 발생했습니다. 다시 시도해주세요!",
+    "예상치 못한 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
+    "현재 요청을 완료할 수 없습니다. 나중에 다시 시도해주세요.",
+    "이 명령을 처리하는 동안 문제가 발생했습니다.",
+    "요청이 깨끗이 처리되지 않았습니다. 잠시 후 다시 시도해주세요."
   ]
 }
 };
