@@ -104,22 +104,21 @@ export class Database {
   }
 
   backup() {
-    try {
-      const backupDir = path.resolve(process.cwd(), 'backups');
-      if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir, { recursive: true });
-      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-      const backupPath = path.join(backupDir, `${timestamp}-yuna.yuna`);
+    return new Promise<void>((resolve, reject) => {
+      try {
+        const backupDir = path.resolve(process.cwd(), 'backups');
+        if (!fs.existsSync(backupDir)) fs.mkdirSync(backupDir, { recursive: true });
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        const backupPath = path.join(backupDir, `${timestamp}-yuna.yuna`);
 
-      this.db.backup(backupPath)
-        .then(() => {
-          logger.info('Backup', `Database backup completed: ${backupPath}`);
-        })
-        .catch((err: any) => {
-          logger.error('Backup', 'Failed to backup database', err);
-        });
-    } catch (error) {
-      logger.error('Backup', 'Failed to initialize database backup', error);
-    }
+        this.db.backup(backupPath);
+        logger.info('Backup', `Database backup completed: ${backupPath}`);
+        resolve();
+      } catch (error) {
+        logger.error('Backup', 'Failed to initialize database backup', error);
+        reject(error);
+      }
+    });
   }
 
   get guild() { return this.guilds; }

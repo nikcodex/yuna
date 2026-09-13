@@ -203,7 +203,7 @@ export class AudioManager {
       ? { query: cleanQuery }
       : { query: cleanQuery, source: options.source || 'jssearch' };
 
-    return await node.search({ ...searchOptions, source: searchOptions.source } as any, requester);
+    return await node.search({ ...searchOptions } as any, requester);
   }
 
   /**

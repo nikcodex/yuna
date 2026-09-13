@@ -1,322 +1,322 @@
 export default {
 	meta: {
-  "name": "Hindi",
-  "nativeName": "हिन्दी",
-  "emoji": "🇮🇳"
-},
+   "name": "Hindi",
+   "nativeName": "हिन्दी",
+   "emoji": "🇮🇳"
+ },
 	phrases: {
   "languagePreviewTest": [
-    "Current track added to your favorites list!",
-    "Song saved to your favorites!"
+    "वर्तमान ट्रैक आपकी पसंदीदा सूची में जोड़ा गया!",
+    "गाना आपकी पसंदों में सहेजा गया!"
   ],
   "languageSuccess": [
-    "Your language has been successfully updated!",
-    "I will now speak to you in this language."
+    "आपकी भाषा सफलतापूर्वक अपडेट की गई!",
+    "मैं अब इस भाषा में आपसे बात करूंगा।"
   ],
   "cooldown": [
-    "Hold on a moment! Please wait **${time}** more second(s) before using this command again.",
-    "Woah, slow down a bit! You can use this command again in **${time}** second(s).",
-    "Take a breath! This command is on cooldown for another **${time}** second(s).",
-    "Easy there! Please allow **${time}** more second(s) before sending another request.",
-    "Yuna needs a quick moment! Please wait **${time}** second(s) before trying again.",
-    "Command on cooldown! You can run this command again in **${time}** second(s).",
-    "Please give it a pause! Cooldown expires in **${time}** second(s).",
-    "Pacing is key! Re-use available in **${time}** second(s).",
-    "Just a quick breather! Wait **${time}** second(s) before triggering this again.",
-    "Speed demon! Let Yuna catch up for **${time}** second(s)."
+    "क्षण के लिए रुकें! कृपया इस कमांड को दोबारा उपयोग करने से पहले **${time}** सेकंड और प्रतीक्षा करें।",
+    "वाह, थोड़ा धीमा हो जाओ! आप **${time}** सेकंड में इस कमांड को दोबारा उपयोग कर सकते हो।",
+    "सांस ले लो! यह कमांड **${time}** सेकंड और कूलडाउन पर है।",
+    "शांत से चल! भेजने से पहले **${time}** सेकंड और प्रतीक्षा करें।",
+    "यूना को थोड़ा समय चाहिए! कृपया पुनः प्रयास करने से पहले **${time}** सेकंड प्रतीक्षा करें।",
+    "कमांड कूलडाउन पर है! आप **${time}** सेकंड में इस कमांड को दोबारा चला सकते हैं।",
+    "कृपया थोड़ा विश्राम लो! कूलडाउन **${time}** सेकंड में समाप्त हो जाएगा।",
+    "गति की चाबी है! पुनः उपयोग **${time}** सेकंड में उपलब्ध है।",
+    "बस एक छोटी सी सांस लो! इसे फिर से ट्रिगर करने से पहले **${time}** सेकंड प्रतीक्षा करें।",
+    "स्पीड डेमन! यूना को **${time}** सेकंड में पकड़ने दो।"
   ],
   "voiceRequired": [
-    "You need to join a voice channel first before using music commands!",
-    "Please hop into a voice channel so Yuna knows where to stream!",
-    "Join a voice channel to start listening to your favorite music!",
-    "You must be connected to a voice channel to run this command.",
-    "No voice channel detected! Connect to a voice channel and try again.",
-    "Yuna needs to hear you! Jump into a voice channel first.",
-    "Please step into a voice channel before playing audio streams.",
-    "Connect to a voice channel so Yuna can play your favorite tunes!"
+    "संगीत कमांड्स का उपयोग करने से पहले आप पहले वॉइस चैनल में शामिल होने की जरूरत है!",
+    "यूना को यह जानने के लिए वॉइस चैनल में जाएं कि वह कहां स्ट्रीम करे!",
+    "अपनी पसंदीदा संगीत सुनने शुरू करने के लिए वॉइस चैनल में शामिल हों!",
+    "इस कमांड को निष्पादित करने के लिए आपको वॉइस चैनल से जुड़े होना चाहिए।",
+    "कोई वॉइस चैनल पाया नहीं गया! वॉइस चैनल से जुड़ें और फिर से प्रयास करें।",
+    "यूना को आपकी आवाज़ सुननी होगी! पहले वॉइस चैनल में जाएं।",
+    "ऑडियो स्ट्रीम चलाने से पहले वॉइस चैनल में शामिल हों।",
+    "यूना को आपकी पसंदीदा धुनें बजाने के लिए वॉइस चैनल से जुड़ें!"
   ],
   "notYourInteraction": [
-    "This menu isn't for you! Please run your own command to use the controls.",
-    "Hey! That button belongs to another user. Run your own command to interact!",
-    "Only the user who ran this command can use these controls!",
-    "Hands off! This interactive menu is reserved for the command requester.",
-    "This interactive control panel belongs to someone else!",
-    "You don't have permission to interact with this menu. Type your own command!",
-    "Control access denied! Run your own command to get an interactive menu.",
-    "Nice try! This component is controlled exclusively by the command requester."
+    "यह मेनू आपके लिए नहीं है! कंट्रोल्स का उपयोग करने के लिए कृपया अपना खुद का कमांड चलाएं।",
+    "अरे! यह बटन किसी और उपयोगकर्ता का है। इंटरैक्ट करने के लिए अपना खुद का कमांड चलाएं!",
+    "केवल उसी उपयोगकर्ता को जिसने यह कमांड चलाया है इन कंट्रोल्स का उपयोग करने की अनुमति है!",
+    "हाथ दूर! यह इंटरैक्टिव मेनू कमांड रिक्वेस्टर के लिए है।",
+    "यह इंटरैक्टिव कंट्रोल पैनल किसी और का है!",
+    "आप इस मेनू से इंटरैक्ट करने के लिए अनुमति नहीं रखते। अपना खुद का कमांड टाइप करें!",
+    "कंट्रोल एक्सेस अस्वीकृत! इंटरैक्टिव मेनू प्राप्त करने के लिए अपना खुद का कमांड चलाएं।",
+    "बढ़िया प्रयास किया! यह कंपोनेंट केवल कमांड रिक्वेस्टर द्वारा नियंत्रित है।"
   ],
   "sameVoiceRequired": [
-    "You must be in the same voice channel as Yuna to control playback!",
-    "Please join Yuna's voice channel to use this command!",
-    "You need to be in the same voice channel as the bot to run this.",
-    "Connect to the same voice channel as Yuna to manage audio controls!",
-    "Join Yuna in her current voice channel to interact with music controls.",
-    "You must share the same voice channel with the bot to execute this command."
+    "यूना के साथ एक ही वॉइस चैनल में होना चाहिए ताकि आप प्लेबैक को नियंत्रित कर सकें!",
+    "इस कमांड का उपयोग करने के लिए कृपया यूना के वॉइस चैनल में शामिल हों!",
+    "इसे निष्पादित करने के लिए आपको बॉट के समान वॉइस चैनल में होना चाहिए।",
+    "ऑडियो कंट्रोल का प्रबंधन करने के लिए यूना के समान वॉइस चैनल से जुड़ें!",
+    "संगीत कंट्रोल के साथ इंटरैक्ट करने के लिए यूना के वर्तमान वॉइस चैनल में शामिल हों।",
+    "इस कमांड को निष्पादित करने के लिए आपको बॉट के साथ एक ही वॉइस चैनल साझा करना होगा।"
   ],
   "noTrackPlaying": [
-    "No music is currently playing in this server!",
-    "The queue is quiet right now! Use `/play <song>` to start listening.",
-    "There are no active tracks playing at the moment.",
-    "Playback is idle right now! Queue up some music to get started.",
-    "Nothing streaming currently! Pass a song name or link to begin.",
-    "The soundstage is clear! Add a song to start the music player."
+    "इस सर्वर पर वर्तमान में कोई संगीत नहीं चल रहा है!",
+    "क्यू इस समय शांत है! सुनना शुरू करने के लिए `/play <song>` का उपयोग करें।",
+    "इस समय कोई सक्रिय ट्रैक नहीं चल रही है।",
+    "प्लेबैक वर्तमान में निष्क्रिय है! शुरू करने के लिए कुछ संगीत क्यू में डालें।",
+    "वर्तमान में कुछ भी स्ट्रीम नहीं हो रहा! शुरू करने के लिए गाने का नाम या लिंक दें।",
+    "ध्वनि मंच साफ है! संगीत प्लेयर शुरू करने के लिए एक गाना जोड़ें।"
   ],
   "trackQueued": [
-    "Track added to your queue successfully!",
-    "Queued up! Added your song to the queue.",
-    "Added to queue! Your song is lined up to play next.",
-    "Successfully queued your requested track!",
-    "Got it! Track appended to the active music queue.",
-    "Lined up! Your song has been placed into the queue.",
-    "Added to the sound list! Sit back and enjoy the vibe."
+    "ट्रैक को सफलतापूर्वक आपकी क्यू में जोड़ा गया!",
+    "क्यू में! आपने अपना गाना क्यू में जोड़ा।",
+    "क्यू में जोड़ा! आपका गाना अगला बजने के लिए तैयार है।",
+    "आपकी मांग की गई ट्रैक को सफलतापूर्वक क्यू में जोड़ा गया!",
+    "समझ गया! सक्रिय संगीत क्यू में ट्रैक जोड़ा गया।",
+    "लाइन अप! आपका गाना क्यू में रखा गया।",
+    "ध्वनि सूची में जोड़ा! बैठिए और माहौल का आनंद लें।"
   ],
   "nowPlaying": [
-    "Now streaming high-fidelity audio in your voice channel!",
-    "Started playback for your requested track!",
-    "Now playing your music stream!",
-    "Spinning your track live in high audio quality!",
-    "Broadcasting your selection right now!",
-    "Audio stream initialized! Enjoy the high quality tunes."
+    "अब आपके वॉइस चैनल में हाई फिडेलिटी ऑडियो स्ट्रीम हो रहा है!",
+    "आपकी मांग की गई ट्रैक का प्लेबैक शुरू हुआ!",
+    "अब आप अपना म्यूजिक स्ट्रीम चला रहे हैं!",
+    "अपनी ट्रैक को हाई ऑडियो क्वालिटी में लाइव स्पिन कर रहे हैं!",
+    "अपना चयन अभी स्ट्रीम कर रहे हैं!",
+    "ऑडियो स्ट्रीम प्रारंभ हुआ! हाई क्वालिटी धुनों का आनंद लें।"
   ],
   "playbackPaused": [
-    "Paused music playback! Type `/resume` to continue playing.",
-    "Player paused. Take your time, then type `/resume`!",
-    "Playback has been paused successfully.",
-    "Track paused! Press play or type `/resume` when ready.",
-    "Audio hold enabled! Resume whenever you are ready."
+    "संगीत प्लेबैक थम गया! जारी रखने के लिए `/resume` टाइप करें।",
+    "प्लेयर थम गया। समय लें, फिर `/resume` टाइप करें!",
+    "प्लेबैक सफलतापूर्वक थम लिया गया।",
+    "ट्रैक थम गया! जब तैयार हों तो प्ले दबाएं या `/resume` टाइप करें।",
+    "ऑडियो होल्ड सक्रिय है! जब तैयार हों तो जारी रखें।"
   ],
   "playbackResumed": [
-    "Resumed music playback! Back to the tunes!",
-    "Unpaused! Resuming your music queue now.",
-    "Playback resumed successfully!",
-    "Music is rolling again! Enjoy the stream.",
-    "Unpaused audio stream! Back in action."
+    "संगीत प्लेबैक फिर से शुरू हुआ! धुनों की ओर वापस!",
+    "बिना रुके! अभी अपनी म्यूजिक क्यू फिर से शुरू करें।",
+    "प्लेबैक सफलतापूर्वक फिर से शुरू हुआ!",
+    "संगीत फिर से बजने लगा! स्ट्रीम का आनंद लें।",
+    "बिना रोके ऑडियो स्ट्रीम! वापस कार्य में।"
   ],
   "trackSkipped": [
-    "Skipped to the next track in queue!",
-    "Skipping current song! On to the next track.",
-    "Successfully skipped track!",
-    "Next track up! Current song skipped.",
-    "Jumped to the next song in the queue list."
+    "क्यू में अगली ट्रैक को स्किप किया गया!",
+    "वर्तमान गाने को स्किप किया जा रहा है! अगली ट्रैक को।",
+    "ट्रैक सफलतापूर्वक स्किप की गई!",
+    "अगली ट्रैक! वर्तमान गाना स्किप किया गया।",
+    "क्यू सूची में अगले गाने को स्किप किया गया।"
   ],
   "queueCleared": [
-    "Cleared all songs from the queue!",
-    "The queue has been emptied successfully!",
-    "All queued tracks have been removed.",
-    "Wiped the entire queue clean!",
-    "Queue reset! Ready for brand new tracks."
+    "क्यू से सभी गाने हटाए गए!",
+    "क्यू सफलतापूर्वक खाली किया गया!",
+    "क्यू में सभी ट्रैक हटाए गए।",
+    "पूरी क्यू साफ कर दी!",
+    "क्यू रीसेट! ब्रांड नई ट्रैक्स के लिए तैयार।"
   ],
   "playerRequired": [
-    "No active music player found for this server!",
-    "There is no music player active right now!",
-    "Yuna isn't currently connected or playing audio in this server.",
-    "No active player session exists! Start one with `/play`."
+    "इस सर्वर के लिए कोई सक्रिय संगीत प्लेयर नहीं मिला!",
+    "इस समय कोई संगीत प्लेयर सक्रिय नहीं है!",
+    "यूना वर्तमान में इस सर्वर से जुड़ी नहीं है और ऑडियो नहीं बजा रही।",
+    "कोई सक्रिय प्लेयर सेशन मौजूद नहीं है! `/play` के साथ शुरू करें।"
   ],
   "noResults": [
-    "No tracks found matching your query!",
-    "Could not find any songs with that search term.",
-    "No music results found! Please check your search query.",
-    "Search yields zero tracks! Try different keywords or direct links."
+    "आपकी क्वेरी से मेल खाने वाली कोई ट्रैक नहीं मिली!",
+    "इस सर्च टर्म के साथ कोई भी गाना नहीं मिल सकता।",
+    "कोई संगीत परिणाम नहीं मिला! कृपया अपनी खोज क्वेरी जांचें।",
+    "खोज शून्य ट्रैक देती है! अलग-अलग कीवर्ड या सीधे लिंक आज़माएं।"
   ],
   "volumeChanged": [
-    "Playback volume has been updated successfully!",
-    "Volume level adjusted!",
-    "Player volume updated to your requested setting.",
-    "Sound level updated for this playback session!"
+    "प्लेबैक वॉल्यूम सफलतापूर्वक अपडेट किया गया!",
+    "वॉल्यूम लेवल समायोजित!",
+    "प्लेयर वॉल्यूम आपकी मांग के अनुसार अपडेट किया गया।",
+    "इस प्लेबैक सत्र के लिए साउंड लेवल अपडेट किया गया!"
   ],
   "volumeInvalid": [
-    "Volume level must be a number between 0 and 150.",
-    "Invalid volume specified! Please enter a value between 0 and 150.",
-    "Please enter a valid volume percentage (0 to 150)."
+    "वॉल्यूम लेवल 0 और 150 के बीच एक संख्या होनी चाहिए।",
+    "अमान्य वॉल्यूम निर्दिष्ट किया गया! कृपया 0 और 150 के बीच एक मान दर्ज करें।",
+    "कृपया एक वैध वॉल्यूम प्रतिशत (0 से 150) दर्ज करें।"
   ],
   "seekSuccess": [
-    "Seeked to the specified timestamp successfully!",
-    "Player playback position updated!",
-    "Jumped to the target audio position!"
+    "निर्दिष्ट टाइमस्टैम्प पर सफलतापूर्वक सीक किया गया!",
+    "प्लेयर प्लेबैक स्थिति अपडेट की गई!",
+    "टारगेट ऑडियो पोजीशन पर जाम्प किया गया!"
   ],
   "seekInvalid": [
-    "Invalid position or timestamp specified.",
-    "Please provide a valid timestamp or duration in seconds."
+    "निर्दिष्ट स्थिति या टाइमस्टैम्प अमान्य है।",
+    "कृपया सेकंड में एक वैध टाइमस्टैम्प या अवधि प्रदान करें।"
   ],
   "rewindSuccess": [
-    "Rewound the current track!",
-    "Skipped backward in playback!",
-    "Stepped back in time on the current song!"
+    "वर्तमान ट्रैक को रिवाइंड किया!",
+    "प्लेबैक में पीछे जाम्प किया!",
+    "वर्तमान गाने में समय को पीछे ले गए!"
   ],
   "forwardSuccess": [
-    "Skipped forward in the current track!",
-    "Advanced track playback position!",
-    "Stepped forward in playback!"
+    "वर्तमान ट्रैक में आगे जाम्प किया!",
+    "ट्रैक प्लेबैक स्थिति आगे बढ़ी!",
+    "प्लेबैक में आगे की ओर कदम रखा!"
   ],
   "replaySuccess": [
-    "Replaying the current track from the start!",
-    "Track restarted from the beginning.",
-    "Spinning the current track again from 0:00!"
+    "वर्तमान ट्रैक को शुरुआत से दोबारा बजा रहे हैं!",
+    "ट्रैक को शुरुआत से दोबारा शुरू किया गया।",
+    "0:00 से वर्तमान ट्रैक को फिर से स्पिन कर रहे हैं!"
   ],
   "previousSuccess": [
-    "Skipped back to the previous track!",
-    "Playing previous song in history.",
-    "Rewound to the previous song in queue history."
+    "पिछली ट्रैक को स्किप बैक किया!",
+    "इतिहास में पिछला गाना चल रहा है।",
+    "क्यू इतिहास में पिछले गाने को रिवाइंड किया।"
   ],
   "stopSuccess": [
-    "Stopped playback and left the voice channel.",
-    "Music player stopped and disconnected.",
-    "Cleared queue, stopped audio engine, and left the voice channel."
+    "प्लेबैक रोका और वॉइस चैनल छोड़ दिया।",
+    "संगीत प्लेयर रुक गया और कनेक्टेड हट गया।",
+    "क्यू साफ की, ऑडियो इंजन रुका और वॉइस चैनल छोड़ दिया।"
   ],
   "loopMode": [
-    "Updated loop settings!",
-    "Queue loop mode has been updated.",
-    "Repeat mode set to your new selection!"
+    "लूप सेटिंग्स अपडेट की गई!",
+    "क्यू लूप मोड अपडेट किया गया।",
+    "रिपीट मोड आपके नए चयन के अनुसार सेट किया गया!"
   ],
   "shuffleSuccess": [
-    "Shuffled all tracks in the queue!",
-    "Queue order randomized successfully.",
-    "Mixed up the queue sequence!"
+    "क्यू में सभी ट्रैक्स को शफल किया गया!",
+    "क्यू का क्रम सफलतापूर्वक रैंडमाइज़ किया गया।",
+    "क्यू की अनुक्रम को शफल किया!"
   ],
   "trackRemoved": [
-    "Removed the specified track from the queue!",
-    "Track successfully removed from queue.",
-    "Selected track removed from playback queue!"
+    "निर्दिष्ट ट्रैक को क्यू से हटाया गया!",
+    "ट्रैक सफलतापूर्वक क्यू से हटाया गया।",
+    "चयनित ट्रैक को प्लेबैक क्यू से हटाया गया!"
   ],
   "trackMoved": [
-    "Moved track to the requested queue position!",
-    "Queue position updated successfully.",
-    "Track position reordered in queue!"
+    "ट्रैक को अनुरोधित क्यू स्थिति में स्थानांतरित किया गया!",
+    "क्यू स्थिति सफलतापूर्वक अपडेट की गई।",
+    "ट्रैक स्थिति को क्यू में फिर से व्यवस्थित किया गया!"
   ],
   "bumpSuccess": [
-    "Track bumped to the top of the queue!",
-    "Song moved to play next!",
-    "Prioritized track to position #1 in queue!"
+    "ट्रैक को क्यू के शीर्ष पर ले जाया गया!",
+    "गाना अगला बजने के लिए स्थानांतरित किया गया!",
+    "ट्रैक को क्यू में पोजीशन #1 पर प्राथमिकता दी गई!"
   ],
   "likeAdded": [
-    "Added current track to your favorites list!",
-    "Saved song to your favorites!",
-    "Added to your liked tracks collection!"
+    "वर्तमान ट्रैक को आपकी पसंदीदा सूची में जोड़ा गया!",
+    "गाना आपकी पसंदों में सहेजा गया!",
+    "अपनी पसंदीदा ट्रैक संग्रह में जोड़ा गया!"
   ],
   "likeRemoved": [
-    "Removed track from your favorites list!",
-    "Song removed from favorites.",
-    "Deleted track from your liked songs collection."
+    "ट्रैक को आपकी पसंदीदा सूची से हटाया गया!",
+    "गाना पसंदों से हटाया गया।",
+    "ट्रैक को आपकी पसंदीदा गाने संग्रह से हटाया गया।"
   ],
   "likedAll": [
-    "Added all tracks in queue to your favorites!",
-    "All current queue tracks saved to favorites!",
-    "Entire queue added to your personal liked songs!"
+    "क्यू में सभी ट्रैक्स को आपकी पसंदों में जोड़ा गया!",
+    "क्यू के सभी वर्तमान ट्रैक्स को पसंदों में सहेजा गया!",
+    "पूरी क्यू को आपकी व्यक्तिगत पसंदीदा गानों में जोड़ा गया!"
   ],
   "noLikedTracks": [
-    "You haven't saved any favorite tracks yet!",
-    "Your favorites list is currently empty.",
-    "No liked songs found in your library."
+    "आपने अभी तक कोई पसंदीदा ट्रैक सहेजा नहीं है!",
+    "आपकी पसंदों की सूची वर्तमान में खाली है।",
+    "आपकी लाइब्रेरी में आपको पसंद आने वाले कोई गाने नहीं मिले।"
   ],
   "playlistCreated": [
-    "Playlist created successfully!",
-    "New custom playlist initialized!",
-    "Your custom playlist is ready to receive tracks."
+    "प्लेलिस्ट सफलतापूर्वक बनाई गई!",
+    "नई कस्टम प्लेलिस्ट प्रारंभ की गई!",
+    "आपकी कस्टम प्लेलिस्ट ट्रैक्स स्वीकार करने के लिए तैयार है।"
   ],
   "playlistDeleted": [
-    "Playlist deleted successfully!",
-    "Removed custom playlist from your collection.",
-    "Custom playlist deleted."
+    "प्लेलिस्ट सफलतापूर्वक हटाई गई!",
+    "कस्टम प्लेलिस्ट आपके संग्रह से हटाई गई।",
+    "कस्टम प्लेलिस्ट हटाई गई।"
   ],
   "playlistUpdated": [
-    "Playlist updated successfully!",
-    "Saved new tracks into your playlist collection.",
-    "Playlist library updated!"
+    "प्लेलिस्ट सफलतापूर्वक अपडेट की गई!",
+    "नए ट्रैक्स को आपकी प्लेलिस्ट संग्रह में सहेजा गया।",
+    "प्लेलिस्ट लाइब्रेरी अपडेट की गई!"
   ],
   "playlistLoaded": [
-    "Loaded playlist tracks into the player queue!",
-    "Playlist tracks loaded and queued up!",
-    "Successfully imported playlist songs into queue."
+    "प्लेलिस्ट के ट्रैक्स को प्लेयर क्यू में लोड किया गया!",
+    "प्लेलिस्ट के ट्रैक्स को लोड किया गया और क्यू में रखा गया!",
+    "प्लेलिस्ट के गाने को सफलतापूर्वक क्यू में आयात किया गया।"
   ],
   "filterApplied": [
-    "Audio filter applied to playback!",
-    "DJ audio filter activated!",
-    "Audio DSP preset applied successfully!"
+    "प्लेबैक पर ऑडियो फिल्टर लागू किया गया!",
+    "डीजे ऑडियो फिल्टर सक्रिय किया गया!",
+    "ऑडियो DSP प्रीसेट सफलतापूर्वक लागू किया गया!"
   ],
   "filterCleared": [
-    "Cleared all active audio filters!",
-    "Reset audio DSP filters to default state.",
-    "Equalizer and audio filters returned to flat baseline."
+    "सभी सक्रिय ऑडियो फिल्टर हटाए गए!",
+    "ऑडियो DSP फिल्टर को डिफ़ॉल्ट स्थिति पर रीसेट किया गया।",
+    "इक्वलाइज़र और ऑडियो फिल्टर सपाट बेसलाइन पर लौट आए।"
   ],
   "modeToggled": [
-    "Settings updated successfully!",
-    "Configuration toggled for this server.",
-    "Server setting updated!"
+    "सेटिंग्स सफलतापूर्वक अपडेट की गई!",
+    "इस सर्वर के लिए कॉन्फ़िगरेशन टॉगल किया गया।",
+    "सर्वर सेटिंग अपडेट की गई!"
   ],
   "presetUpdated": [
-    "Player UI preset updated successfully!",
-    "Card display preset saved!",
-    "Now Playing presentation style updated!"
+    "प्लेयर यूआई प्रीसेट सफलतापूर्वक अपडेट किया गया!",
+    "कार्ड डिस्प्ले प्रीसेट सहेजा गया!",
+    "नाउ प्लेइंग प्रेजेंटेशन स्टाइल अपडेट किया गया!"
   ],
   "prefixUpdated": [
-    "Prefix settings updated successfully!",
-    "Server custom prefix configured!",
-    "Updated bot trigger prefix!"
+    "प्रीफिक्स सेटिंग्स सफलतापूर्वक अपडेट की गई!",
+    "सर्वर कस्टम प्रीफिक्स कॉन्फ़िगर किया गया!",
+    "बॉट ट्रिगर प्रीफिक्स अपडेट किया गया!"
   ],
   "apToggled": [
-    "Autoplay status updated successfully!",
-    "Autoplay setting toggled.",
-    "Dynamic recommendation autoplay updated!"
+    "ऑटोप्ले स्थिति सफलतापूर्वक अपडेट की गई!",
+    "ऑटोप्ले सेटिंग टॉगल की गई।",
+    "डायनामिक रिकॉमेंडेशन ऑटोप्ले अपडेट किया गया!"
   ],
   "radioStarted": [
-    "Radio station playback started!",
-    "Streaming radio station now.",
-    "Live radio stream initialized!"
+    "रेडियो स्टेशन का प्लेबैक शुरू हुआ!",
+    "रेडियो स्टेशन स्ट्रीम हो रहा है।",
+    "लाइव रेडियो स्ट्रीम प्रारंभ हुआ!"
   ],
   "lyricNotFound": [
-    "No lyrics found for this track.",
-    "Lyrics could not be retrieved for the requested song.",
-    "Synchronized lyrics unavailable for this track."
+    "इस ट्रैक के लिए कोई गीत नहीं मिला।",
+    "अनुरोधित गाने के लिए गीत प्राप्त नहीं किए जा सके।",
+    "इस ट्रैक के लिए सिंक्रनाइज़्ड गीत उपलब्ध नहीं हैं।"
   ],
   "historyEmpty": [
-    "No song history recorded yet.",
-    "Playback history is currently empty.",
-    "No recent tracks recorded in history."
+    "अभी तक कोई गाने का इतिहास दर्ज नहीं किया गया।",
+    "प्लेबैक इतिहास वर्तमान में खाली है।",
+    "कोई हाल की ट्रैक इतिहास में दर्ज नहीं की गई।"
   ],
   "pingSuccess": [
-    "Pong! Latency details retrieved.",
-    "Connection stats fetched successfully!",
-    "Ping latency calculated."
+    "पोंग! देरी का विवरण प्राप्त हुआ।",
+    "कनेक्शन सांख्यिकी सफलतापूर्वक प्राप्त हुई!",
+    "पिंग देरी की गणना की गई।"
   ],
   "premiumSuccess": [
-    "Thanks for supporting Yuna! Your perks are live.",
-    "Premium activated — enjoy the extras!"
+    "यूना का समर्थन करने के लिए धन्यवाद! आपके फायदे सक्रिय हैं।",
+    "प्रीमियम सक्रिय किया गया – एक्स्ट्रा का आनंद लें!"
   ],
   "devOnly": [
-    "This command is restricted to bot developers only.",
-    "Access denied. Developer authorization required.",
-    "Developer privileges required to execute this command."
+    "यह कमांड केवल बॉट डेवलपर्स के लिए प्रतिबंधित है।",
+    "अपनी अनुमति अस्वीकार की गई। डेवलपर प्राधिकरण आवश्यक है।",
+    "इस कमांड को निष्पादित करने के लिए डेवलपर विशेषाधिकार आवश्यक हैं।"
   ],
   "blacklisted": [
-    "User or guild blacklist updated.",
-    "Blacklist status updated successfully."
+    "उपयोगकर्ता या गिल्ड ब्लैकलिस्ट अपडेट किया गया।",
+    "ब्लैकलिस्ट स्थिति सफलतापूर्वक अपडेट की गई।"
   ],
   "reloaded": [
-    "Bot modules reloaded successfully.",
-    "Reload completed!"
+    "बॉट मॉड्यूल सफलतापूर्वक रीलोड किए गए।",
+    "रीलोड पूर्ण!"
   ],
   "rebooting": [
-    "Restarting Yuna bot processes...",
-    "Reboot sequence initiated."
+    "Yuna बॉट प्रक्रियाओं को पुनः आरंभ किया जा रहा है...",
+    "रीबूट सीक्वेंस प्रारंभ की गई।"
   ],
   "slashSynced": [
-    "Slash commands synchronized successfully.",
-    "Application commands updated."
+    "स्लैश कमांड्स सफलतापूर्वक सिंक्रनाइज़ किए गए।",
+    "एप्लिकेशन कमांड्स अपडेट किए गए।"
   ],
   "serversListed": [
-    "Server overview generated.",
-    "Fetched server stats successfully."
+    "सर्वर अवलोकन उत्पन्न किया गया।",
+    "सर्वर सांख्यिकी सफलतापूर्वक प्राप्त की गई।"
   ],
   "lavalinkStats": [
-    "Lavalink node status retrieved.",
-    "Node statistics fetched."
+    "Lavalink नोड स्थिति प्राप्त की गई।",
+    "नोड सांख्यिकी प्राप्त की गई।"
   ],
   "errorGeneric": [
-    "Something went wrong while processing your request. Please try again!",
-    "An unexpected error occurred. Feel free to try again in a moment.",
-    "Unable to complete request right now. Please try again later.",
-    "An issue occurred while processing this command.",
-    "Request failed to process cleanly. Please retry shortly."
+    "आपके अनुरोध को संसाधित करते समय कुछ गलत हुआ। कृपया दोबारा प्रयास करें!",
+    "एक अप्रत्याशित त्रुटि हुई। कृपया थोड़ी देर में दोबारा प्रयास करें।",
+    "अभी अनुरोध पूरा नहीं किया जा सकता। कृपया बाद में दोबारा प्रयास करें।",
+    "इस कमांड को संसाधित करते समय एक समस्या आई।",
+    "अनुरोध को साफ़ तरीके से संसाधित नहीं किया जा सका। कृपया थोड़ी देर में दोबारा प्रयास करें।"
   ]
 }
 };

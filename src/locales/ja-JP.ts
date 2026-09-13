@@ -1,322 +1,322 @@
 export default {
 	meta: {
-  "name": "Japanese",
-  "nativeName": "日本語",
-  "emoji": "🇯🇵"
-},
+   "name": "Japanese",
+   "nativeName": "日本語",
+   "emoji": "🇯🇵"
+ },
 	phrases: {
   "languagePreviewTest": [
-    "Current track added to your favorites list!",
-    "Song saved to your favorites!"
+    "現在のトラックがお気に入りリストに追加されました！",
+    "曲がお気に入りに保存されました！"
   ],
   "languageSuccess": [
-    "Your language has been successfully updated!",
-    "I will now speak to you in this language."
+    "言語が正常に更新されました！",
+    "これからこの言語でお話しします。"
   ],
   "cooldown": [
-    "Hold on a moment! Please wait **${time}** more second(s) before using this command again.",
-    "Woah, slow down a bit! You can use this command again in **${time}** second(s).",
-    "Take a breath! This command is on cooldown for another **${time}** second(s).",
-    "Easy there! Please allow **${time}** more second(s) before sending another request.",
-    "Yuna needs a quick moment! Please wait **${time}** second(s) before trying again.",
-    "Command on cooldown! You can run this command again in **${time}** second(s).",
-    "Please give it a pause! Cooldown expires in **${time}** second(s).",
-    "Pacing is key! Re-use available in **${time}** second(s).",
-    "Just a quick breather! Wait **${time}** second(s) before triggering this again.",
-    "Speed demon! Let Yuna catch up for **${time}** second(s)."
+    "お待ちください！このコマンドを再度使用する前に **${time}** 秒お待ちください。",
+    "ちょっとゆっくりしてください！**${time}** 秒後にこのコマンドを再度使用できます。",
+    "深呼吸してください！このコマンドは **${time}** 秒間クールダウン中です。",
+    "ゆっくりしてください！次のリクエストを送る前に **${time}** 秒お待ちください。",
+    "Yunaは少し時間が必要です！**${time}** 秒お待ちになってからもう一度お試しください。",
+    "クールダウン中です！**${time}** 秒後にこのコマンドを再実行できます。",
+    "少し休憩してください！クールダウンは **${time}** 秒後に終了します。",
+    "テンポが重要です！再使用は **${time}** 秒後に可能です。",
+    "少し休憩してください！この操作を再度実行する前に **${time}** 秒お待ちください。",
+    "スピードの鬼！Yunaが **${time}** 秒で追いつくのを待ってください。"
   ],
   "voiceRequired": [
-    "You need to join a voice channel first before using music commands!",
-    "Please hop into a voice channel so Yuna knows where to stream!",
-    "Join a voice channel to start listening to your favorite music!",
-    "You must be connected to a voice channel to run this command.",
-    "No voice channel detected! Connect to a voice channel and try again.",
-    "Yuna needs to hear you! Jump into a voice channel first.",
-    "Please step into a voice channel before playing audio streams.",
-    "Connect to a voice channel so Yuna can play your favorite tunes!"
+    "音楽コマンドを使用する前に、まずボイスチャンネルに参加してください！",
+    "Yunaが配信場所を知れるようにボイスチャンネルに参加してください！",
+    "ボイスチャンネルに参加して、お気に入りの音楽を聴き始めましょう！",
+    "このコマンドを実行するには、ボイスチャンネルに接続している必要があります。",
+    "ボイスチャンネルが検出されませんでした！ボイスチャンネルに接続して再試行してください。",
+    "Yunaはあなたの声を聞く必要があります！まずボイスチャンネルに参加してください。",
+    "音声ストリームを再生する前にボイスチャンネルに参加してください。",
+    "ボイスチャンネルに接続して、Yunaにあなたのお気に入りの曲を再生させましょう！"
   ],
   "notYourInteraction": [
-    "This menu isn't for you! Please run your own command to use the controls.",
-    "Hey! That button belongs to another user. Run your own command to interact!",
-    "Only the user who ran this command can use these controls!",
-    "Hands off! This interactive menu is reserved for the command requester.",
-    "This interactive control panel belongs to someone else!",
-    "You don't have permission to interact with this menu. Type your own command!",
-    "Control access denied! Run your own command to get an interactive menu.",
-    "Nice try! This component is controlled exclusively by the command requester."
+    "このメニューはあなたのためのものではありません！コントロールを使用するには自分のコマンドを実行してください。",
+    "ねえ！そのボタンは別のユーザーのものです。自分のコマンドを実行してインタラクトしてください！",
+    "このコマンドを実行したユーザーのみがこれらのコントロールを使用できます！",
+    "手を離してください！このインタラクティブメニューはコマンドリクエスター専用です。",
+    "このインタラクティブコントロールパネルは他の人のものです！",
+    "このメニューとインタラクトする権限がありません。自分のコマンドを入力してください！",
+    "コントロールアクセス拒否！自分のコマンドを実行してインタラクティブメニューを取得してください。",
+    "よくやりました！このコンポーネントはコマンドリクエスターによってのみ制御されます。"
   ],
   "sameVoiceRequired": [
-    "You must be in the same voice channel as Yuna to control playback!",
-    "Please join Yuna's voice channel to use this command!",
-    "You need to be in the same voice channel as the bot to run this.",
-    "Connect to the same voice channel as Yuna to manage audio controls!",
-    "Join Yuna in her current voice channel to interact with music controls.",
-    "You must share the same voice channel with the bot to execute this command."
+    "Yunaと同じボイスチャンネルに参加していないと再生を制御できません！",
+    "Yunaのボイスチャンネルに参加してこのコマンドを使用してください！",
+    "この操作を実行するには、ボットと同じボイスチャンネルにいる必要があります。",
+    "Yunaと同じボイスチャンネルに接続して、オーディオコントロールを管理してください！",
+    "Yunaの現在のボイスチャンネルに参加して、音楽コントロールとインタラクトしてください。",
+    "このコマンドを実行するには、ボットと同じボイスチャンネルを共有している必要があります。"
   ],
   "noTrackPlaying": [
-    "No music is currently playing in this server!",
-    "The queue is quiet right now! Use `/play <song>` to start listening.",
-    "There are no active tracks playing at the moment.",
-    "Playback is idle right now! Queue up some music to get started.",
-    "Nothing streaming currently! Pass a song name or link to begin.",
-    "The soundstage is clear! Add a song to start the music player."
+    "このサーバーでは現在音楽が再生されていません！",
+    "キューは今は静かです！`/play <song>` を使用して音楽を聴き始めましょう。",
+    "現在アクティブに再生されているトラックはありません。",
+    "再生は現在アイドル状態です！音楽をキューに追加して開始してください。",
+    "現在ストリーミングされているものは何もありません！曲名またはリンクを渡して開始してください。",
+    "サウンドステージはクリアです！音楽プレーヤーを開始するために曲を追加してください。"
   ],
   "trackQueued": [
-    "Track added to your queue successfully!",
-    "Queued up! Added your song to the queue.",
-    "Added to queue! Your song is lined up to play next.",
-    "Successfully queued your requested track!",
-    "Got it! Track appended to the active music queue.",
-    "Lined up! Your song has been placed into the queue.",
-    "Added to the sound list! Sit back and enjoy the vibe."
+    "トラックがキューに正常に追加されました！",
+    "キューに入れました！あなたの曲をキューに追加しました。",
+    "キューに追加されました！あなたの曲は次の順番で再生されます。",
+    "リクエストされたトラックがキューに正常に追加されました！",
+    "わかりました！アクティブな音楽キューにトラックを追加しました。",
+    "並びました！あなたの曲がキューに配置されました。",
+    "サウンドリストに追加されました！座って雰囲気を楽しんでください。"
   ],
   "nowPlaying": [
-    "Now streaming high-fidelity audio in your voice channel!",
-    "Started playback for your requested track!",
-    "Now playing your music stream!",
-    "Spinning your track live in high audio quality!",
-    "Broadcasting your selection right now!",
-    "Audio stream initialized! Enjoy the high quality tunes."
+    "音声チャンネルで高 fidelity オーディオをストリーミング中です！",
+    "リクエストされたトラックの再生が開始されました！",
+    "あなたのミュージックストリームを今すぐ再生中です！",
+    "高音質オーディオでトラックをライブスピン中です！",
+    "あなたの選曲を今すぐストリーミング中です！",
+    "オーディオストリームが初期化されました！高品質のトラックをお楽しみください。"
   ],
   "playbackPaused": [
-    "Paused music playback! Type `/resume` to continue playing.",
-    "Player paused. Take your time, then type `/resume`!",
-    "Playback has been paused successfully.",
-    "Track paused! Press play or type `/resume` when ready.",
-    "Audio hold enabled! Resume whenever you are ready."
+    "音楽の再生が一時停止されました！続行するには `/resume` と入力してください。",
+    "プレイヤーが一時停止されました。時間を取ってから `/resume` と入力してください！",
+    "再生が正常に一時停止されました。",
+    "トラックが一時停止されました！再生する準備ができたら再生ボタンを押すか `/resume` と入力してください。",
+    "オーディオホールドが有効になりました！準備ができたら再開してください。"
   ],
   "playbackResumed": [
-    "Resumed music playback! Back to the tunes!",
-    "Unpaused! Resuming your music queue now.",
-    "Playback resumed successfully!",
-    "Music is rolling again! Enjoy the stream.",
-    "Unpaused audio stream! Back in action."
+    "音楽の再生が再開されました！メロディーに戻ります！",
+    "中断なし！今すぐあなたのミュージックキューを再開します。",
+    "再生が正常に再開されました！",
+    "音楽が再び流れ始めました！ストリームをお楽しみください。",
+    "中断されていないオーディオストリーム！アクションに戻ります。"
   ],
   "trackSkipped": [
-    "Skipped to the next track in queue!",
-    "Skipping current song! On to the next track.",
-    "Successfully skipped track!",
-    "Next track up! Current song skipped.",
-    "Jumped to the next song in the queue list."
+    "キューの次のトラックにスキップしました！",
+    "現在の曲をスキップして！次のトラックへ。",
+    "トラックが正常にスキップされました！",
+    "次のトラック！現在の曲はスキップされました。",
+    "キューのリストから次の曲にスキップしました。"
   ],
   "queueCleared": [
-    "Cleared all songs from the queue!",
-    "The queue has been emptied successfully!",
-    "All queued tracks have been removed.",
-    "Wiped the entire queue clean!",
-    "Queue reset! Ready for brand new tracks."
+    "キューからすべての曲を削除しました！",
+    "キューは正常に空になりました！",
+    "キュー内のすべてのトラックが削除されました。",
+    "キュー全体をきれいにしました！",
+    "キューがリセットされました！新しいトラックのために準備完了。"
   ],
   "playerRequired": [
-    "No active music player found for this server!",
-    "There is no music player active right now!",
-    "Yuna isn't currently connected or playing audio in this server.",
-    "No active player session exists! Start one with `/play`."
+    "このサーバーでアクティブなミュージックプレイヤーが見つかりません！",
+    "現在アクティブなミュージックプレイヤーはいません！",
+    "Yunaは現在このサーバーに接続されておらず、オーディオを再生していません。",
+    "アクティブなプレイヤーセッションが存在しません！`/play`で開始してください。"
   ],
   "noResults": [
-    "No tracks found matching your query!",
-    "Could not find any songs with that search term.",
-    "No music results found! Please check your search query.",
-    "Search yields zero tracks! Try different keywords or direct links."
+    "あなたのクエリに一致するトラックが見つかりませんでした！",
+    "その検索語に一致する曲を見つけることができませんでした。",
+    "音楽の結果が見つかりませんでした！検索クエリを確認してください。",
+    "検索結果が0件でした！別のキーワードまたは直接リンクを試してください。"
   ],
   "volumeChanged": [
-    "Playback volume has been updated successfully!",
-    "Volume level adjusted!",
-    "Player volume updated to your requested setting.",
-    "Sound level updated for this playback session!"
+    "再生ボリュームが正常に更新されました！",
+    "ボリュームレベルが調整されました！",
+    "プレイヤーボリュームがリクエストされた設定に更新されました。",
+    "この再生セッションのサウンドレベルが更新されました！"
   ],
   "volumeInvalid": [
-    "Volume level must be a number between 0 and 150.",
-    "Invalid volume specified! Please enter a value between 0 and 150.",
-    "Please enter a valid volume percentage (0 to 150)."
+    "ボリュームレベルは0から150の数である必要があります。",
+    "無効なボリュームが指定されました！0から150の値を入力してください。",
+    "0から150の有効なボリュームパーセンテージを入力してください。"
   ],
   "seekSuccess": [
-    "Seeked to the specified timestamp successfully!",
-    "Player playback position updated!",
-    "Jumped to the target audio position!"
+    "指定されたタイムスタンプへのシークに成功しました！",
+    "プレイヤーの再生位置が更新されました！",
+    "ターゲットオーディオポジションにジャンプしました！"
   ],
   "seekInvalid": [
-    "Invalid position or timestamp specified.",
-    "Please provide a valid timestamp or duration in seconds."
+    "指定された位置またはタイムスタンプが無効です。",
+    "秒単位で有効なタイムスタンプまたは期間を提供してください。"
   ],
   "rewindSuccess": [
-    "Rewound the current track!",
-    "Skipped backward in playback!",
-    "Stepped back in time on the current song!"
+    "現在のトラックを巻き戻しました！",
+    "再生中に後ろにジャンプしました！",
+    "現在の曲で時間を巻き戻しました！"
   ],
   "forwardSuccess": [
-    "Skipped forward in the current track!",
-    "Advanced track playback position!",
-    "Stepped forward in playback!"
+    "現在のトラックを早送りしました！",
+    "トラックの再生位置が前進しました！",
+    "再生中に前進しました！"
   ],
   "replaySuccess": [
-    "Replaying the current track from the start!",
-    "Track restarted from the beginning.",
-    "Spinning the current track again from 0:00!"
+    "現在のトラックを最初から再再生しました！",
+    "トラックが最初から再起動されました。",
+    "現在のトラックを0:00からもう一度スピンしました！"
   ],
   "previousSuccess": [
-    "Skipped back to the previous track!",
-    "Playing previous song in history.",
-    "Rewound to the previous song in queue history."
+    "以前のトラックにスキップバックしました！",
+    "履歴の以前の曲を再生中です。",
+    "キュー履歴の以前の曲に巻き戻しました。"
   ],
   "stopSuccess": [
-    "Stopped playback and left the voice channel.",
-    "Music player stopped and disconnected.",
-    "Cleared queue, stopped audio engine, and left the voice channel."
+    "再生を停止し、ボイスチャンネルから退出しました。",
+    "ミュージックプレイヤーが停止し、切断されました。",
+    "キューがクリアされ、オーディオエンジンが停止し、ボイスチャンネルから退出しました。"
   ],
   "loopMode": [
-    "Updated loop settings!",
-    "Queue loop mode has been updated.",
-    "Repeat mode set to your new selection!"
+    "ループ設定が更新されました！",
+    "キューのループモードが更新されました。",
+    "リピートモードがあなたの新しい選択に設定されました！"
   ],
   "shuffleSuccess": [
-    "Shuffled all tracks in the queue!",
-    "Queue order randomized successfully.",
-    "Mixed up the queue sequence!"
+    "キュー内のすべてのトラックがシャッフルされました！",
+    "キューの順序が正常にランダム化されました。",
+    "キューのシーケンスをシャッフルしました！"
   ],
   "trackRemoved": [
-    "Removed the specified track from the queue!",
-    "Track successfully removed from queue.",
-    "Selected track removed from playback queue!"
+    "指定されたトラックがキューから削除されました！",
+    "トラックがキューから正常に削除されました。",
+    "選択されたトラックが再生キューから削除されました！"
   ],
   "trackMoved": [
-    "Moved track to the requested queue position!",
-    "Queue position updated successfully.",
-    "Track position reordered in queue!"
+    "トラックがリクエストされたキュー位置に移動しました！",
+    "キューの位置が正常に更新されました。",
+    "キュー内のトラックの位置が再配置されました！"
   ],
   "bumpSuccess": [
-    "Track bumped to the top of the queue!",
-    "Song moved to play next!",
-    "Prioritized track to position #1 in queue!"
+    "トラックがキューのトップに移動しました！",
+    "曲が次に再生されるように移動しました！",
+    "優先トラックがキューのポジション＃1に配置されました！"
   ],
   "likeAdded": [
-    "Added current track to your favorites list!",
-    "Saved song to your favorites!",
-    "Added to your liked tracks collection!"
+    "現在のトラックがお気に入りリストに追加されました！",
+    "曲がお気に入りに保存されました！",
+    "お気に入りのトラックコレクションに追加されました！"
   ],
   "likeRemoved": [
-    "Removed track from your favorites list!",
-    "Song removed from favorites.",
-    "Deleted track from your liked songs collection."
+    "トラックがお気に入りリストから削除されました！",
+    "曲がお気に入りから削除されました。",
+    "トラックがお気に入りの曲コレクションから削除されました。"
   ],
   "likedAll": [
-    "Added all tracks in queue to your favorites!",
-    "All current queue tracks saved to favorites!",
-    "Entire queue added to your personal liked songs!"
+    "キュー内のすべてのトラックがお気に入りに追加されました！",
+    "キュー内の現在のすべてのトラックがお気に入りに保存されました！",
+    "キュー全体があなたの個人的なお気に入り曲に追加されました！"
   ],
   "noLikedTracks": [
-    "You haven't saved any favorite tracks yet!",
-    "Your favorites list is currently empty.",
-    "No liked songs found in your library."
+    "まだお気に入りのトラックを保存していません！",
+    "お気に入りリストは現在空です。",
+    "あなたのライブラリに気に入った曲は見つかりませんでした。"
   ],
   "playlistCreated": [
-    "Playlist created successfully!",
-    "New custom playlist initialized!",
-    "Your custom playlist is ready to receive tracks."
+    "プレイリストが正常に作成されました！",
+    "新しいカスタムプレイリストが初期化されました！",
+    "あなたのカスタムプレイリストはトラックを受け入れる準備ができています。"
   ],
   "playlistDeleted": [
-    "Playlist deleted successfully!",
-    "Removed custom playlist from your collection.",
-    "Custom playlist deleted."
+    "プレイリストが正常に削除されました！",
+    "カスタムプレイリストがあなたのコレクションから削除されました。",
+    "カスタムプレイリストが削除されました。"
   ],
   "playlistUpdated": [
-    "Playlist updated successfully!",
-    "Saved new tracks into your playlist collection.",
-    "Playlist library updated!"
+    "プレイリストが正常に更新されました！",
+    "新しいトラックがあなたのプレイリストコレクションに保存されました。",
+    "プレイリストライブラリが更新されました！"
   ],
   "playlistLoaded": [
-    "Loaded playlist tracks into the player queue!",
-    "Playlist tracks loaded and queued up!",
-    "Successfully imported playlist songs into queue."
+    "プレイリストのトラックがプレイヤーキューに読み込まれました！",
+    "プレイリストのトラックが読み込まれてキューに追加されました！",
+    "プレイリストの楽曲がキューに正常にインポートされました。"
   ],
   "filterApplied": [
-    "Audio filter applied to playback!",
-    "DJ audio filter activated!",
-    "Audio DSP preset applied successfully!"
+    "オーディオフィルターが再生に適用されました！",
+    "DJオーディオフィルターが有効化されました！",
+    "オーディオDSPプリセットが正常に適用されました！"
   ],
   "filterCleared": [
-    "Cleared all active audio filters!",
-    "Reset audio DSP filters to default state.",
-    "Equalizer and audio filters returned to flat baseline."
+    "すべてのアクティブなオーディオフィルターが削除されました！",
+    "オーディオDSPフィルターがデフォルト状態にリセットされました。",
+    "イコライザーとオーディオフィルターがフラットベースラインに戻りました。"
   ],
   "modeToggled": [
-    "Settings updated successfully!",
-    "Configuration toggled for this server.",
-    "Server setting updated!"
+    "設定が正常に更新されました！",
+    "このサーバーの構成が切り替わりました。",
+    "サーバー設定が更新されました！"
   ],
   "presetUpdated": [
-    "Player UI preset updated successfully!",
-    "Card display preset saved!",
-    "Now Playing presentation style updated!"
+    "プレイヤーUIプリセットが正常に更新されました！",
+    "カード表示プリセットが保存されました！",
+    "Now Playingプレゼンテーションスタイルが更新されました！"
   ],
   "prefixUpdated": [
-    "Prefix settings updated successfully!",
-    "Server custom prefix configured!",
-    "Updated bot trigger prefix!"
+    "プレフィックス設定が正常に更新されました！",
+    "サーバーカスタムプレフィックスが設定されました！",
+    "ボットトリガープレフィックスが更新されました！"
   ],
   "apToggled": [
-    "Autoplay status updated successfully!",
-    "Autoplay setting toggled.",
-    "Dynamic recommendation autoplay updated!"
+    "オートプレイステータスが正常に更新されました！",
+    "オートプレイ設定が切り替わりました。",
+    "ダイナミックレコメンデーションのオートプレイが更新されました！"
   ],
   "radioStarted": [
-    "Radio station playback started!",
-    "Streaming radio station now.",
-    "Live radio stream initialized!"
+    "ラジオ局の再生が開始されました！",
+    "ラジオ局が今ストリーミングされています。",
+    "ライブラジオストリームが初期化されました！"
   ],
   "lyricNotFound": [
-    "No lyrics found for this track.",
-    "Lyrics could not be retrieved for the requested song.",
-    "Synchronized lyrics unavailable for this track."
+    "このトラックの歌詞が見つかりませんでした。",
+    "リクエストされた曲の歌詞を取得できませんでした。",
+    "このトラックには同期された歌詞が利用できません。"
   ],
   "historyEmpty": [
-    "No song history recorded yet.",
-    "Playback history is currently empty.",
-    "No recent tracks recorded in history."
+    "まだ曲の履歴が記録されていません。",
+    "再生履歴は現在空です。",
+    "最近のトラックが履歴に記録されていません。"
   ],
   "pingSuccess": [
-    "Pong! Latency details retrieved.",
-    "Connection stats fetched successfully!",
-    "Ping latency calculated."
+    "ポン！レイテンシーの詳細が取得されました。",
+    "接続統計が正常に取得されました！",
+    "ピングレイテンシーが計算されました。"
   ],
   "premiumSuccess": [
-    "Thanks for supporting Yuna! Your perks are live.",
-    "Premium activated — enjoy the extras!"
+    "Yunaをサポートしてくれてありがとう！あなたの特典が有効になりました。",
+    "プレミアムがアクティベートされました - エクストラをお楽しみください！"
   ],
   "devOnly": [
-    "This command is restricted to bot developers only.",
-    "Access denied. Developer authorization required.",
-    "Developer privileges required to execute this command."
+    "このコマンドはボット開発者のみに制限されています。",
+    "アクセスが拒否されました。開発者の認証が必要です。",
+    "このコマンドを実行するには開発者特権が必要です。"
   ],
   "blacklisted": [
-    "User or guild blacklist updated.",
-    "Blacklist status updated successfully."
+    "ユーザーまたはギルドのブラックリストが更新されました。",
+    "ブラックリストの状態が正常に更新されました。"
   ],
   "reloaded": [
-    "Bot modules reloaded successfully.",
-    "Reload completed!"
+    "ボットモジュールが正常に再読み込みされました。",
+    "再読み込み完了！"
   ],
   "rebooting": [
-    "Restarting Yuna bot processes...",
-    "Reboot sequence initiated."
+    "Yunaボットプロセスの再起動中...",
+    "再起動シーケンスが開始されました。"
   ],
   "slashSynced": [
-    "Slash commands synchronized successfully.",
-    "Application commands updated."
+    "スラッシュコマンドが正常に同期されました。",
+    "アプリケーションコマンドが更新されました。"
   ],
   "serversListed": [
-    "Server overview generated.",
-    "Fetched server stats successfully."
+    "サーバー概要が生成されました。",
+    "サーバー統計が正常に取得されました。"
   ],
   "lavalinkStats": [
-    "Lavalink node status retrieved.",
-    "Node statistics fetched."
+    "Lavalinkノードのステータスが取得されました。",
+    "ノード統計が取得されました。"
   ],
   "errorGeneric": [
-    "Something went wrong while processing your request. Please try again!",
-    "An unexpected error occurred. Feel free to try again in a moment.",
-    "Unable to complete request right now. Please try again later.",
-    "An issue occurred while processing this command.",
-    "Request failed to process cleanly. Please retry shortly."
+    "リクエストの処理中にエラーが発生しました。もう一度お試しください！",
+    "予期しないエラーが発生しました。しばらくしてからもう一度お試しください。",
+    "現在リクエストを完了することはできません。後でもう一度お試しください。",
+    "このコマンドの処理中に問題が発生しました。",
+    "リクエストがきれいに処理されませんでした。しばらくしてからもう一度お試しください。"
   ]
 }
 };

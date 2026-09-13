@@ -1,322 +1,322 @@
 export default {
 	meta: {
-  "name": "Chinese",
-  "nativeName": "中文",
-  "emoji": "🇨🇳"
-},
+   "name": "Chinese",
+   "nativeName": "中文",
+   "emoji": "🇨🇳"
+ },
 	phrases: {
   "languagePreviewTest": [
-    "Current track added to your favorites list!",
-    "Song saved to your favorites!"
+    "当前曲目已添加到您的收藏列表！",
+    "歌曲已保存到您的收藏！"
   ],
   "languageSuccess": [
-    "Your language has been successfully updated!",
-    "I will now speak to you in this language."
+    "您的语言更新成功！",
+    "我现在将用这个语言和您说话。"
   ],
   "cooldown": [
-    "Hold on a moment! Please wait **${time}** more second(s) before using this command again.",
-    "Woah, slow down a bit! You can use this command again in **${time}** second(s).",
-    "Take a breath! This command is on cooldown for another **${time}** second(s).",
-    "Easy there! Please allow **${time}** more second(s) before sending another request.",
-    "Yuna needs a quick moment! Please wait **${time}** second(s) before trying again.",
-    "Command on cooldown! You can run this command again in **${time}** second(s).",
-    "Please give it a pause! Cooldown expires in **${time}** second(s).",
-    "Pacing is key! Re-use available in **${time}** second(s).",
-    "Just a quick breather! Wait **${time}** second(s) before triggering this again.",
-    "Speed demon! Let Yuna catch up for **${time}** second(s)."
+    "稍等一下！请等待 **${time}** 秒后再使用此命令。",
+    "哦，慢下来一点！您可以在 **${time}** 秒后再使用此命令。",
+    "深呼吸！此命令将在 **${time}** 秒后再次可用。",
+    "慢慢来！请再等待 **${time}** 秒后再发送请求。",
+    "Yuna 需要一点时间！请等待 **${time}** 秒后再试。",
+    "命令冷却中！您可以在 **${time}** 秒后再运行此命令。",
+    "请稍等！冷却时间将在 **${time}** 秒后结束。",
+    "节奏是关键！${time} 秒后可重用。",
+    "只是短暂的休息！在此触发之前请等待 **${time}** 秒。",
+    "速度恶魔！让 Yuna 在 **${time}** 秒内追上您。"
   ],
   "voiceRequired": [
-    "You need to join a voice channel first before using music commands!",
-    "Please hop into a voice channel so Yuna knows where to stream!",
-    "Join a voice channel to start listening to your favorite music!",
-    "You must be connected to a voice channel to run this command.",
-    "No voice channel detected! Connect to a voice channel and try again.",
-    "Yuna needs to hear you! Jump into a voice channel first.",
-    "Please step into a voice channel before playing audio streams.",
-    "Connect to a voice channel so Yuna can play your favorite tunes!"
+    "您需要先加入语音频道才能使用音乐命令！",
+    "请加入语音频道，让 Yuna 知道在哪里可以播放！",
+    "加入语音频道，开始聆听您的喜爱音乐！",
+    "您必须连接到语音频道才能运行此命令。",
+    "未检测到语音频道！连接到语音频道并重试。",
+    "Yuna 需要听到您的声音！先加入语音频道。",
+    "请进入语音频道后播放音频流。",
+    "连接到语音频道，让 Yuna 播放您最喜欢的音乐！"
   ],
   "notYourInteraction": [
-    "This menu isn't for you! Please run your own command to use the controls.",
-    "Hey! That button belongs to another user. Run your own command to interact!",
-    "Only the user who ran this command can use these controls!",
-    "Hands off! This interactive menu is reserved for the command requester.",
-    "This interactive control panel belongs to someone else!",
-    "You don't have permission to interact with this menu. Type your own command!",
-    "Control access denied! Run your own command to get an interactive menu.",
-    "Nice try! This component is controlled exclusively by the command requester."
+    "这个菜单不是给您的！请运行自己的命令来使用控件。",
+    "嘿！那按钮属于其他用户。请运行自己的命令来互动！",
+    "只有运行此命令的用户可以使用这些控件！",
+    "把手拿开！这个互动菜单预留给命令请求者。",
+    "这个互动控制面板属于其他人！",
+    "您无权与此菜单互动。请输入自己的命令！",
+    "控制访问被拒绝！运行您自己的命令以获取互动菜单。",
+    "好尝试！这个组件完全由命令请求者控制。"
   ],
   "sameVoiceRequired": [
-    "You must be in the same voice channel as Yuna to control playback!",
-    "Please join Yuna's voice channel to use this command!",
-    "You need to be in the same voice channel as the bot to run this.",
-    "Connect to the same voice channel as Yuna to manage audio controls!",
-    "Join Yuna in her current voice channel to interact with music controls.",
-    "You must share the same voice channel with the bot to execute this command."
+    "您必须处于与 Yuna 相同的语音频道才能控制播放！",
+    "请加入 Yuna 的语音频道来使用此命令！",
+    "您需要与机器人处于同一语音频道才能运行此操作。",
+    "连接到与 Yuna 相同的语音频道来管理音频控制！",
+    "加入 Yuna 当前的语音频道以与音乐控制互动。",
+    "您必须与机器人共享同一语音频道才能执行此命令。"
   ],
   "noTrackPlaying": [
-    "No music is currently playing in this server!",
-    "The queue is quiet right now! Use `/play <song>` to start listening.",
-    "There are no active tracks playing at the moment.",
-    "Playback is idle right now! Queue up some music to get started.",
-    "Nothing streaming currently! Pass a song name or link to begin.",
-    "The soundstage is clear! Add a song to start the music player."
+    "这个服务器目前没有播放音乐！",
+    "队列现在安静！使用 `/play <song>` 开始聆听。",
+    "当前没有活跃的曲目正在播放。",
+    "播放现在空闲！加入一些音乐开始。",
+    "目前没有在直播！传递歌曲名称或链接来开始。",
+    "音景清晰！加入一首歌曲来启动音乐播放器。"
   ],
   "trackQueued": [
-    "Track added to your queue successfully!",
-    "Queued up! Added your song to the queue.",
-    "Added to queue! Your song is lined up to play next.",
-    "Successfully queued your requested track!",
-    "Got it! Track appended to the active music queue.",
-    "Lined up! Your song has been placed into the queue.",
-    "Added to the sound list! Sit back and enjoy the vibe."
+    "轨道已成功添加到您的队列！",
+    "已加入队列！您已将歌曲添加到队列。",
+    "已添加到队列！您的歌曲已经排好准备播放。",
+    "您请求的轨道已成功加入队列！",
+    "知道了！轨道已追加到活跃音乐队列。",
+    "排好了！您的歌曲已被放置到队列中。",
+    "已添加到声音列表！坐下来享受氛围吧。"
   ],
   "nowPlaying": [
-    "Now streaming high-fidelity audio in your voice channel!",
-    "Started playback for your requested track!",
-    "Now playing your music stream!",
-    "Spinning your track live in high audio quality!",
-    "Broadcasting your selection right now!",
-    "Audio stream initialized! Enjoy the high quality tunes."
+    "正在您的语音频道中播放高保真音频！",
+    "已开始播放您请求的轨道！",
+    "正在播放您的音乐流！",
+    "正在以高音频质量现场播放您的轨道！",
+    "现在正在播放您的选择！",
+    "音频流已初始化！享受高品质音乐。"
   ],
   "playbackPaused": [
-    "Paused music playback! Type `/resume` to continue playing.",
-    "Player paused. Take your time, then type `/resume`!",
-    "Playback has been paused successfully.",
-    "Track paused! Press play or type `/resume` when ready.",
-    "Audio hold enabled! Resume whenever you are ready."
+    "音乐播放已暂停！输入 `/resume` 继续播放。",
+    "播放器已暂停。慢慢来，然后输入 `/resume`！",
+    "播放已成功暂停。",
+    "轨道已暂停！按播放键或输入 `/resume` 当准备好时。",
+    "音频保持已启用！准备好时恢复。"
   ],
   "playbackResumed": [
-    "Resumed music playback! Back to the tunes!",
-    "Unpaused! Resuming your music queue now.",
-    "Playback resumed successfully!",
-    "Music is rolling again! Enjoy the stream.",
-    "Unpaused audio stream! Back in action."
+    "音乐播放已恢复！回到音乐中！",
+    "没有暂停！现在恢复您的音乐队列。",
+    "播放已成功恢复！",
+    "音乐又开始播放了！享受流媒体。",
+    "音频流未暂停！再次投入行动。"
   ],
   "trackSkipped": [
-    "Skipped to the next track in queue!",
-    "Skipping current song! On to the next track.",
-    "Successfully skipped track!",
-    "Next track up! Current song skipped.",
-    "Jumped to the next song in the queue list."
+    "已跳至队列中的下一条轨道！",
+    "跳过当前歌曲！进入下一条轨道。",
+    "轨道已成功跳过！",
+    "下一条轨道！当前歌曲已跳过。",
+    "已跳至队列列表中的下一首歌曲。"
   ],
   "queueCleared": [
-    "Cleared all songs from the queue!",
-    "The queue has been emptied successfully!",
-    "All queued tracks have been removed.",
-    "Wiped the entire queue clean!",
-    "Queue reset! Ready for brand new tracks."
+    "已清除队列中所有歌曲！",
+    "队列已成功清空！",
+    "所有已排队的轨道已被移除。",
+    "整个队列已清除！",
+    "队列已重置！准备全新轨道。"
   ],
   "playerRequired": [
-    "No active music player found for this server!",
-    "There is no music player active right now!",
-    "Yuna isn't currently connected or playing audio in this server.",
-    "No active player session exists! Start one with `/play`."
+    "未找到此服务器的活跃音乐播放器！",
+    "目前没有活跃的音乐播放器！",
+    "Yuna 目前未连接于此服务器，也未播放音频。",
+    "不存在活跃的播放器会话！使用 `/play` 启动一个。"
   ],
   "noResults": [
-    "No tracks found matching your query!",
-    "Could not find any songs with that search term.",
-    "No music results found! Please check your search query.",
-    "Search yields zero tracks! Try different keywords or direct links."
+    "未找到符合您查询的轨道！",
+    "无法通过该搜索词找到任何歌曲。",
+    "未找到音乐结果！请检查您的搜索查询。",
+    "搜索结果为零！尝试不同的关键词或直接链接。"
   ],
   "volumeChanged": [
-    "Playback volume has been updated successfully!",
-    "Volume level adjusted!",
-    "Player volume updated to your requested setting.",
-    "Sound level updated for this playback session!"
+    "播放音量已成功更新！",
+    "音量级别已调整！",
+    "播放器音量已更新至您要求的设置。",
+    "本次播放会话的声音级别已更新！"
   ],
   "volumeInvalid": [
-    "Volume level must be a number between 0 and 150.",
-    "Invalid volume specified! Please enter a value between 0 and 150.",
-    "Please enter a valid volume percentage (0 to 150)."
+    "音量级别必须是 0 到 150 之间的数字。",
+    "指定的音量无效！请输入 0 到 150 之间的值。",
+    "请输入有效的音量百分比（0 到 150）。"
   ],
   "seekSuccess": [
-    "Seeked to the specified timestamp successfully!",
-    "Player playback position updated!",
-    "Jumped to the target audio position!"
+    "已成功搜索至指定时间戳！",
+    "播放器播放位置已更新！",
+    "已跳至目标音频位置！"
   ],
   "seekInvalid": [
-    "Invalid position or timestamp specified.",
-    "Please provide a valid timestamp or duration in seconds."
+    "指定的位置或时间戳无效。",
+    "请提供有效的时间戳或以秒为单位的持续时间。"
   ],
   "rewindSuccess": [
-    "Rewound the current track!",
-    "Skipped backward in playback!",
-    "Stepped back in time on the current song!"
+    "已倒回当前轨道！",
+    "播放中向后跳转！",
+    "在当前歌曲上时间倒退了！"
   ],
   "forwardSuccess": [
-    "Skipped forward in the current track!",
-    "Advanced track playback position!",
-    "Stepped forward in playback!"
+    "已在当前轨道中向前跳转！",
+    "轨道播放位置已前进！",
+    "播放中向前迈出一步！"
   ],
   "replaySuccess": [
-    "Replaying the current track from the start!",
-    "Track restarted from the beginning.",
-    "Spinning the current track again from 0:00!"
+    "正在从头重新播放当前轨道！",
+    "轨道已从头重启。",
+    "正从 0:00 再次旋转当前轨道！"
   ],
   "previousSuccess": [
-    "Skipped back to the previous track!",
-    "Playing previous song in history.",
-    "Rewound to the previous song in queue history."
+    "已回退到上一条轨道！",
+    "正在播放历史中的上一首歌曲。",
+    "已在队列历史中倒回上一首歌曲。"
   ],
   "stopSuccess": [
-    "Stopped playback and left the voice channel.",
-    "Music player stopped and disconnected.",
-    "Cleared queue, stopped audio engine, and left the voice channel."
+    "已停止播放并离开语音频道。",
+    "音乐播放器已停止并断开连接。",
+    "队列已清除，音频引擎已停止并离开语音频道。"
   ],
   "loopMode": [
-    "Updated loop settings!",
-    "Queue loop mode has been updated.",
-    "Repeat mode set to your new selection!"
+    "循环设置已更新！",
+    "队列循环模式已更新。",
+    "重复模式已设置为您的新选择！"
   ],
   "shuffleSuccess": [
-    "Shuffled all tracks in the queue!",
-    "Queue order randomized successfully.",
-    "Mixed up the queue sequence!"
+    "队列中的所有轨道已打乱！",
+    "队列顺序已成功随机化。",
+    "已打乱队列序列！"
   ],
   "trackRemoved": [
-    "Removed the specified track from the queue!",
-    "Track successfully removed from queue.",
-    "Selected track removed from playback queue!"
+    "已从队列中移除指定轨道！",
+    "轨道已成功从队列中移除。",
+    "已从播放队列中移除所选轨道！"
   ],
   "trackMoved": [
-    "Moved track to the requested queue position!",
-    "Queue position updated successfully.",
-    "Track position reordered in queue!"
+    "轨道已移至所要求的队列位置！",
+    "队列位置已成功更新。",
+    "轨道位置已在队列中重新排列！"
   ],
   "bumpSuccess": [
-    "Track bumped to the top of the queue!",
-    "Song moved to play next!",
-    "Prioritized track to position #1 in queue!"
+    "轨道已升至队列顶部！",
+    "歌曲已被移至下一首播放！",
+    "轨道已在队列中优先级提升至第 #1 位！"
   ],
   "likeAdded": [
-    "Added current track to your favorites list!",
-    "Saved song to your favorites!",
-    "Added to your liked tracks collection!"
+    "当前轨道已添加到您的收藏列表！",
+    "歌曲已保存到您的收藏！",
+    "已添加到您的喜欢轨道收藏！"
   ],
   "likeRemoved": [
-    "Removed track from your favorites list!",
-    "Song removed from favorites.",
-    "Deleted track from your liked songs collection."
+    "已从您的收藏列表中移除轨道！",
+    "歌曲已从收藏中移除。",
+    "已从您的喜欢歌曲收藏中删除轨道。"
   ],
   "likedAll": [
-    "Added all tracks in queue to your favorites!",
-    "All current queue tracks saved to favorites!",
-    "Entire queue added to your personal liked songs!"
+    "队列中的所有轨道已添加到您的收藏！",
+    "所有当前队列轨道已保存到收藏！",
+    "整个队列已添加到您的个人喜欢歌曲！"
   ],
   "noLikedTracks": [
-    "You haven't saved any favorite tracks yet!",
-    "Your favorites list is currently empty.",
-    "No liked songs found in your library."
+    "您还没有保存任何收藏轨道！",
+    "您的收藏列表当前为空。",
+    "您的库中没有找到喜欢的歌曲。"
   ],
   "playlistCreated": [
-    "Playlist created successfully!",
-    "New custom playlist initialized!",
-    "Your custom playlist is ready to receive tracks."
+    "播放列表创建成功！",
+    "新的自定义播放列表已初始化！",
+    "您的自定义播放列表已准备好接收轨道。"
   ],
   "playlistDeleted": [
-    "Playlist deleted successfully!",
-    "Removed custom playlist from your collection.",
-    "Custom playlist deleted."
+    "播放列表删除成功！",
+    "已从您的收藏中移除自定义播放列表。",
+    "自定义播放列表已删除。"
   ],
   "playlistUpdated": [
-    "Playlist updated successfully!",
-    "Saved new tracks into your playlist collection.",
-    "Playlist library updated!"
+    "播放列表更新成功！",
+    "已将新轨道保存到您的播放列表收藏中。",
+    "播放列表库已更新！"
   ],
   "playlistLoaded": [
-    "Loaded playlist tracks into the player queue!",
-    "Playlist tracks loaded and queued up!",
-    "Successfully imported playlist songs into queue."
+    "播放列表轨道已加载到播放器队列中！",
+    "播放列表轨道已加载并排队！",
+    "播放列表歌曲已成功导入队列。"
   ],
   "filterApplied": [
-    "Audio filter applied to playback!",
-    "DJ audio filter activated!",
-    "Audio DSP preset applied successfully!"
+    "音频滤波器已应用于播放！",
+    "DJ 音频滤波器已激活！",
+    "音频 DSP 预设已成功应用！"
   ],
   "filterCleared": [
-    "Cleared all active audio filters!",
-    "Reset audio DSP filters to default state.",
-    "Equalizer and audio filters returned to flat baseline."
+    "已清除所有活跃的音频滤波器！",
+    "音频 DSP 滤波器已重置为默认状态。",
+    "均衡器和音频滤波器已恢复为平坦基线。"
   ],
   "modeToggled": [
-    "Settings updated successfully!",
-    "Configuration toggled for this server.",
-    "Server setting updated!"
+    "设置已更新成功！",
+    "已为此服务器切换配置。",
+    "服务器设置已更新！"
   ],
   "presetUpdated": [
-    "Player UI preset updated successfully!",
-    "Card display preset saved!",
-    "Now Playing presentation style updated!"
+    "播放器 UI 预设已成功更新！",
+    "卡片显示预设已保存！",
+    "Now Playing 呈现风格已更新！"
   ],
   "prefixUpdated": [
-    "Prefix settings updated successfully!",
-    "Server custom prefix configured!",
-    "Updated bot trigger prefix!"
+    "前缀设置已成功更新！",
+    "服务器自定义前缀已配置！",
+    "机器人触发前缀已更新！"
   ],
   "apToggled": [
-    "Autoplay status updated successfully!",
-    "Autoplay setting toggled.",
-    "Dynamic recommendation autoplay updated!"
+    "自动播放状态已成功更新！",
+    "自动播放设置已切换。",
+    "动态推荐自动播放已更新！"
   ],
   "radioStarted": [
-    "Radio station playback started!",
-    "Streaming radio station now.",
-    "Live radio stream initialized!"
+    "电台播放已开始！",
+    "正在播放电台。",
+    "直播电台流已初始化！"
   ],
   "lyricNotFound": [
-    "No lyrics found for this track.",
-    "Lyrics could not be retrieved for the requested song.",
-    "Synchronized lyrics unavailable for this track."
+    "未找到此轨道的歌词。",
+    "无法检索所请求歌曲的歌词。",
+    "此轨道的同步歌词不可用。"
   ],
   "historyEmpty": [
-    "No song history recorded yet.",
-    "Playback history is currently empty.",
-    "No recent tracks recorded in history."
+    "尚未记录歌曲历史。",
+    "播放历史当前为空。",
+    "历史中未记录最近的轨道。"
   ],
   "pingSuccess": [
-    "Pong! Latency details retrieved.",
-    "Connection stats fetched successfully!",
-    "Ping latency calculated."
+    "Ping！延迟详情已获取。",
+    "连接统计信息成功获取！",
+    "Ping 延迟已计算。"
   ],
   "premiumSuccess": [
-    "Thanks for supporting Yuna! Your perks are live.",
-    "Premium activated — enjoy the extras!"
+    "感谢支持 Yuna！您的福利已上线。",
+    "已激活高级版 — 享受额外功能！"
   ],
   "devOnly": [
-    "This command is restricted to bot developers only.",
-    "Access denied. Developer authorization required.",
-    "Developer privileges required to execute this command."
+    "此命令仅限机器人开发者使用。",
+    "访问被拒绝。需要开发者授权。",
+    "执行此命令需要开发者权限。"
   ],
   "blacklisted": [
-    "User or guild blacklist updated.",
-    "Blacklist status updated successfully."
+    "用户或公会黑名单已更新。",
+    "黑名单状态已成功更新。"
   ],
   "reloaded": [
-    "Bot modules reloaded successfully.",
-    "Reload completed!"
+    "机器人模块已成功重新加载。",
+    "重新加载完成！"
   ],
   "rebooting": [
-    "Restarting Yuna bot processes...",
-    "Reboot sequence initiated."
+    "正在重启 Yuna 机器人进程...",
+    "重启序列已启动。"
   ],
   "slashSynced": [
-    "Slash commands synchronized successfully.",
-    "Application commands updated."
+    "斜杠命令已成功同步。",
+    "应用命令已更新。"
   ],
   "serversListed": [
-    "Server overview generated.",
-    "Fetched server stats successfully."
+    "服务器概览已生成。",
+    "服务器统计信息已成功获取。"
   ],
   "lavalinkStats": [
-    "Lavalink node status retrieved.",
-    "Node statistics fetched."
+    "Lavalink 节点状态已获取。",
+    "节点统计信息已获取。"
   ],
   "errorGeneric": [
-    "Something went wrong while processing your request. Please try again!",
-    "An unexpected error occurred. Feel free to try again in a moment.",
-    "Unable to complete request right now. Please try again later.",
-    "An issue occurred while processing this command.",
-    "Request failed to process cleanly. Please retry shortly."
+    "处理您的请求时出了些问题。请重试！",
+    "发生了意外错误。请稍后再试。",
+    "目前无法完成请求。请稍后再试。",
+    "处理此命令时出现了问题。",
+    "请求未能正确处理。请稍后重试。"
   ]
 }
 };

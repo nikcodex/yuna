@@ -15,6 +15,7 @@ class ErrorHandler {
 
         process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
             logger.error('UnhandledRejection', 'Unhandled promise rejection', reason);
+            this.shutdown('unhandledRejection').catch(() => process.exit(1));
         });
 
         process.on('SIGINT', () => this.shutdown('SIGINT'));

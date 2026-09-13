@@ -1109,7 +1109,7 @@ class PlayCommand extends Command {
       dz: "dzsearch",
       deezer: "dzsearch",
     };
-    return (sourceMap as Record<string, string>)[source?.toLowerCase()] || musicSource.PRIMARY_PREFIX.replace(':', '');
+    return (sourceMap as Record<string, string>)[source?.toLowerCase()] || (musicSource?.PRIMARY_PREFIX || "").replace(":", "");
   }
 
   _isUrl(string: any) {
@@ -1117,9 +1117,9 @@ class PlayCommand extends Command {
       new URL(string);
       return true;
     } catch {
+  }
       return false;
     }
-      }
 
   _formatDuration(ms: number) {
     if (!ms || ms < 0) return "Live";
