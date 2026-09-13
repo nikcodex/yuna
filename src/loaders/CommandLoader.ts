@@ -99,7 +99,7 @@ export class CommandLoader {
   async _loadCommandFile(filePath: any, category: any) {
     const relName = path.relative(process.cwd(), filePath);
     try {
-      const commandModule = await import(`file:
+      const commandModule = await import(`file:${filePath}`);
       if (!commandModule?.default) {
         this.failedCommands.push({ file: relName, error: 'Missing default export' });
         return;

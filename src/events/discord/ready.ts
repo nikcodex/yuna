@@ -194,7 +194,6 @@ async function restoreActiveSession(client: any, session: any) {
     }
   }
 
-  db.guild.deleteActiveSession(guild.id);
   logger.success("SessionRestorer", `Successfully restored active session for guild ${guild.name}`);
 }
 
@@ -218,7 +217,7 @@ async function connect247Guild(client: any, guildData: any) {
         "247Mode",
         `Invalid voice channel for guild ${guild.name}, disabling 24/7 mode`,
       );
-      db.guild.set247Mode(guild.id, false);
+      db.guild.set247Mode(guildData.id, false);
       return;
     }
 
@@ -249,7 +248,8 @@ async function connect247Guild(client: any, guildData: any) {
     }
 
     const botMemberId = client.user.id;
-    if (!voiceChannel.permissionsFor(botMemberId).has(["Connect", "Speak"])) {
+    const perms = voiceChannel.permissionsFor(botMemberId);
+    if (!perms || !perms.has("Connect") || !perms.has("Speak")) {
       logger.warn(
         "247Mode",
         `Missing permissions for voice channel ${voiceChannel.name} in guild ${guild.name}`,
@@ -324,7 +324,7 @@ async function checkSingle247Connection(client: any, guildData: any) {
       "247Mode",
       `Voice channel ${guildData.stay_247_voice_channel} no longer exists in guild ${guild.name}`,
     );
-    db.guild.set247Mode(guild.id, false);
+    db.guild.set247Mode(guildData.id, false);
     return;
   }
 

@@ -115,7 +115,7 @@ export class EventLoader {
   async loadEventFile(filePath: string, emitter: any, rootType: string) {
     const relName = path.relative(process.cwd(), filePath);
     try {
-      const module = await import(`file:
+      const module = await import(`file:${filePath}`);
       if (!module?.default) {
         this.failedEvents.push({ file: relName, error: 'Missing default export' });
         return;
@@ -129,9 +129,9 @@ export class EventLoader {
         try {
 
           if (rootType === 'player' || rootType === 'node') {
-            await event.execute(this.client, ...args, this.client.lavalink);
+            await event.execute(...args, this.client.lavalink, this.client);
           } else {
-            await event.execute(this.client, ...args);
+            await event.execute(...args, this.client);
           }
         } catch (error) {
           logger.error('EventLoader', `Error executing event ${eventName}:`, error);
