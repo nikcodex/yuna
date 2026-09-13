@@ -297,7 +297,7 @@ export const phrases = {
     "Ping latency calculated."
   ],
 
-    premiumSuccess: [
+  premiumSuccess: [
   "Thanks for supporting Yuna! Your perks are live.",
   "Premium activated — enjoy the extras!"
 ],
