@@ -167,7 +167,9 @@ export class YunaClient extends Client {
 								pos
 							);
 							this.logger.info('YunaClient', `Saved active session state for guild ${guildId}`);
-						} catch (e) {}
+						} catch (e: any) {
+							this.logger.warn('YunaClient', `Could not save session state for guild ${guildId}: ${e?.message || e}`);
+						}
 					}
 					if (typeof player.destroy === 'function') {
 						await player.destroy();

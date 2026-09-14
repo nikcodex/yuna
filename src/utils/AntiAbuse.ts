@@ -4,6 +4,8 @@ import type { CooldownRepo } from '#database/repositories/CooldownRepo';
 
 const VIOLATION_WINDOW_MS = 60_000;
 const MAX_VIOLATIONS = 5;
+/** How long an auto-blacklist entry stays active before expiring. */
+const BLACKLIST_TTL_MS = 5 * 60 * 1000;
 
 /**
  * Centralized anti-abuse gating for Yuna.
@@ -16,7 +18,8 @@ const MAX_VIOLATIONS = 5;
 export class AntiAbuse {
   public cooldowns = new Map<string, number>();
   public violations = new Map<string, number[]>();
-  public blacklist = new Set<string>();
+  /** key → blacklist expiry timestamp (auto-expires so abuse-gating is never permanent). */
+  public blacklist = new Map<string, number>();
   public dupFilter: BloomFilter;
 
   constructor(private cooldownRepo?: CooldownRepo) {
@@ -74,10 +77,10 @@ export class AntiAbuse {
     }
 
     if (prior.length >= MAX_VIOLATIONS) {
-      this.blacklist.add(key);
+      this.blacklist.set(key, Date.now() + BLACKLIST_TTL_MS);
       logger.warn(
         'AntiAbuse',
-        `Auto-blacklisted ${key} after ${prior.length} violations in ${VIOLATION_WINDOW_MS}ms`,
+        `Auto-blacklisted ${key} for ${BLACKLIST_TTL_MS / 1000}s after ${prior.length} violations in ${VIOLATION_WINDOW_MS}ms`,
       );
     }
     return prior.length;
@@ -85,10 +88,17 @@ export class AntiAbuse {
 
   /**
    * Returns true if the (user, command, guild) is blacklisted for repeat
-   * cooldown violations.
+   * cooldown violations. Entries expire automatically after BLACKLIST_TTL_MS.
    */
   isBlacklisted(userId: string, commandName: string, guildId: string): boolean {
-    return this.blacklist.has(`${userId}:${commandName}:${guildId}`);
+    const key = `${userId}:${commandName}:${guildId}`;
+    const expiresAt = this.blacklist.get(key);
+    if (!expiresAt) return false;
+    if (Date.now() > expiresAt) {
+      this.blacklist.delete(key);
+      return false;
+    }
+    return true;
   }
 
   clearBlacklist(userId: string, commandName: string, guildId: string) {

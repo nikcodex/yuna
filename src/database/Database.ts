@@ -84,8 +84,11 @@ export class Database {
     }
   }
 
+  private _closed = false;
+
   checkpoint() {
     try {
+      if (this._closed) return;
       this.db.pragma('wal_checkpoint(TRUNCATE)');
       logger.debug('Database', 'WAL checkpoint (TRUNCATE) completed');
     } catch (error) {
@@ -94,9 +97,14 @@ export class Database {
   }
 
   close() {
+    if (this._closed) {
+      logger.debug('Database', 'close() called on an already-closed database — ignoring');
+      return;
+    }
     try {
       this.checkpoint();
       this.db.close();
+      this._closed = true;
       logger.info('Database', 'Database connection closed');
     } catch (error) {
       logger.error('Database', 'Failed to close database connection', error);

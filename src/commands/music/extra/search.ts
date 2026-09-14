@@ -21,7 +21,7 @@ class SearchCommand extends Command {
       name: "search",
       description: "Search for music across multiple platforms",
       usage: "search <query> [--src yt/sp/am/sc]",
-      aliases: ["find", "lookup", "s"],
+      aliases: ["find", "lookup"],
       category: "music",
       examples: [
         "search never gonna give you up",

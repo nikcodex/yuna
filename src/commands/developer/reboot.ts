@@ -25,7 +25,7 @@ class RebootCommand extends Command {
 			name: "reboot",
 			description: "Reboots the bot process or restarts clusters gracefully with session saving (Developer Only)",
 			usage: "reboot",
-			aliases: ["restart", "botrestart"],
+			aliases: ["botrestart"],
 			category: "developer",
 			access: { ownerOnly: true },
 		});

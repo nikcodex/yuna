@@ -342,6 +342,8 @@ export const phrases = {
 
   /**
    * Returns a random phrase from the specified pool category.
+   * Resolution order: locale-defined phrases (via i18n) → embedded pools in
+   * this module → i18n's generic error fallback.
    * @param {string} category
    * @param {Object} [replacements]
    * @returns {string}
@@ -349,9 +351,42 @@ export const phrases = {
   get(category: string, replacements: Record<string, any> = {}): string {
     const store = localeStore.getStore();
     const locale = store?.locale || "en-US";
-    return i18n.t(locale, category, replacements);
+
+    if (i18n.getLocales().size === 0) {
+      ensure_i18n_init();
+    }
+
+    // Locale file defines this category? Use it.
+    const localized = i18n.getPhraseList(locale, category);
+    if (localized) {
+      return i18n.t(locale, category, replacements);
+    }
+
+    // Fall back to the embedded pool for this category.
+    const embedded = (this as unknown as Record<string, string[]>)[category];
+    if (Array.isArray(embedded) && embedded.length > 0) {
+      let template = embedded[Math.floor(Math.random() * embedded.length)];
+      for (const [key, value] of Object.entries(replacements)) {
+        const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        template = template.replace(new RegExp(`\\$\\{${escapedKey}\\}`, "g"), String(value));
+      }
+      return template;
+    }
+
+    // Category missing everywhere — generic localized error.
+    return i18n.t(locale, "errorGeneric", replacements);
   }
 };
+
+// Locale files only cover a few categories, and i18n.init() is asynchronous —
+// kick it off lazily on first use (fire-and-forget) so the embedded pools above
+// serve as an immediate fallback until locale data is available.
+let _i18nInitPromise: Promise<void> | null = null;
+function ensure_i18n_init(): void {
+  if (!_i18nInitPromise) {
+    _i18nInitPromise = i18n.init().catch(() => {});
+  }
+}
 
 export default phrases;
 

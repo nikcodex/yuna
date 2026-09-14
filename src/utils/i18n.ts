@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "node:url";
 import { logger } from "#utils/logger";
 
 export interface LocaleMeta {
@@ -21,7 +22,9 @@ class I18nManager {
 
 	public async init() {
 		try {
-			const localesPath = path.join(__dirname, "..", "locales");
+			// ESM-safe equivalent of __dirname (this project is "type": "module").
+			const currentDir = path.dirname(fileURLToPath(import.meta.url));
+			const localesPath = path.join(currentDir, "..", "locales");
 			const files = fs.readdirSync(localesPath).filter(f => f.endsWith(".ts") || f.endsWith(".js"));
 
 			for (const file of files) {
@@ -40,6 +43,18 @@ class I18nManager {
 
 	public getLocales(): Map<string, LocaleData> {
 		return this.locales;
+	}
+
+	/**
+	 * Returns the phrase list for a category if the locale (or the default)
+	 * actually defines one — null when the category is missing so callers can
+	 * fall back to their own embedded phrase pools.
+	 */
+	public getPhraseList(locale: string | null | undefined, category: string): string[] | null {
+		const target = locale || this.defaultLocale;
+		const data = this.locales.get(target) || this.locales.get(this.defaultLocale);
+		const list = data?.phrases?.[category];
+		return list && list.length > 0 ? list : null;
 	}
 
 	public getLocaleMeta(locale: string): LocaleMeta | null {

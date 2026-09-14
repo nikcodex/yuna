@@ -108,15 +108,50 @@ export class CommandLoader {
       const command = commandModule.default;
       command.category = category;
 
+      // ---- Contract validation: fail loudly at boot, not at runtime. ----
+      if (!command || typeof command !== 'object' || typeof command.name !== 'string' || !command.name.trim()) {
+        this.failedCommands.push({ file: relName, error: 'Invalid command: missing or empty "name"' });
+        return;
+      }
+      if (typeof command.execute !== 'function') {
+        this.failedCommands.push({ file: relName, error: `Command "${command.name}" does not implement execute()` });
+        return;
+      }
+      if (this.client.commands.has(command.name)) {
+        const originalPath = this.commandPaths.get(command.name);
+        this.failedCommands.push({
+          file: relName,
+          error: `Duplicate command name "${command.name}" (already registered from ${originalPath ? path.relative(process.cwd(), originalPath) : 'unknown file'})`,
+        });
+        return;
+      }
+      const slashEnabled = command.slash?.enabled ?? command.enabledSlash;
+      if (slashEnabled) {
+        const data = command.slash?.data || command.slashData;
+        if (!data || !data.name) {
+          this.failedCommands.push({ file: relName, error: `Command "${command.name}" enables slash but defines no slash data name` });
+          return;
+        }
+      }
+
       this.commandPaths.set(command.name, filePath);
       this.client.commands.set(command.name, command);
 
       if (command.aliases?.length > 0) {
-        command.aliases.forEach((alias: any) => this.client.aliases.set(alias, command.name));
+        command.aliases.forEach((alias: any) => {
+          if (typeof alias !== 'string' || !alias.trim()) {
+            this.failedCommands.push({ file: relName, error: `Command "${command.name}" has an invalid alias: ${JSON.stringify(alias)}` });
+            return;
+          }
+          if (this.client.aliases.has(alias)) {
+            this.failedCommands.push({ file: relName, error: `Duplicate alias "${alias}" (command "${command.name}")` });
+            return;
+          }
+          this.client.aliases.set(alias, command.name);
+        });
       }
 
       const slashData = command.slash?.data || command.slashData;
-      const slashEnabled = command.slash?.enabled ?? command.enabledSlash;
       if (slashEnabled && slashData) {
         const rawName = slashData.name;
         const slashName = Array.isArray(rawName) ? rawName[1] : (rawName || command.name);

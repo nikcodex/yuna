@@ -99,7 +99,12 @@ export default {
       }
 
       await localeStore.run({ locale: ctx.locale || db?.guild?.getLocale(ctx.guild?.id) || 'en-US' }, async () => {
-        await command.execute(ctx);
+        // Prefer the dedicated slash handler; fall back to the shared execute().
+        if (typeof command.slashExecute === 'function') {
+          await command.slashExecute(ctx);
+        } else {
+          await command.execute(ctx);
+        }
       });
       await command.afterExecute(ctx);
       DiscordLogger.logCmdRun(client, { user: interaction.user, commandName: command.name, guild: interaction.guild, type: 'Slash' });

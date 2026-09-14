@@ -178,7 +178,10 @@ export class Scheduler {
   loadState() {
     try {
       if (fs.existsSync(this.persistencePath)) {
-        const data = JSON.parse(fs.readFileSync(this.persistencePath, 'utf8'));
+        const raw = fs.readFileSync(this.persistencePath, 'utf8').trim();
+        // Tolerate empty/corrupt files (e.g. a save that was interrupted by a crash)
+        // instead of throwing — fall back to default state and overwrite on next save.
+        const data = raw ? JSON.parse(raw) : [];
         if (Array.isArray(data)) {
           for (const item of data) {
             if (item.name) {
@@ -208,8 +211,10 @@ export class Scheduler {
       }));
 
       await fs.promises.writeFile(this.persistencePath, JSON.stringify(stateArray, null, 2), 'utf8');
-    } catch (_) {
-
+    } catch (err: any) {
+      // Persistence failures must be visible: silent loss of scheduler state
+      // is how bugs hide for months.
+      logger.warn('Scheduler', `Failed to save scheduler state: ${err?.message || err}`);
     }
   }
 
